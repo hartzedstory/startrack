@@ -1,29 +1,29 @@
 //
-//  FusionTaskViewController.swift
+//  FusionProjectViewController.swift
 //  StartTrack
 //
-//  Created by HartzedStory on 3/12/25.
+//  Created by Hartzed Story on 13/3/25.
 //
 
 import UIKit
 
-class FusionTaskViewController: UIViewController {
+class FusionProjectViewController: UIViewController {
 
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     var indexPathRowExpanded: Set<IndexPath> = []
     var mockNumber = [1,2,3,4,5]
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
-    
+
     private func setupUI() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "FusionTaskTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "cell")
     }
 }
-extension FusionTaskViewController: UITableViewDelegate, UITableViewDataSource {
+extension FusionProjectViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mockNumber.count
     }

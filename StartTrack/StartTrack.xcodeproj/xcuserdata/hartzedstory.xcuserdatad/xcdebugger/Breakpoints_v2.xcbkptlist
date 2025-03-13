@@ -7,16 +7,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A0721F0B-6E0B-4131-AFDA-2A12F9ACC848"
+            uuid = "502601FE-8025-4FC0-9821-ACB5B334E617"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "StartTrack/ViewController.swift"
+            filePath = "StartTrack/Screen/Task/Cell/FusionTaskTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "loginOnTap(_:)"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "actionOnTap(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E9162008-22CA-4A78-9873-F8A48D95276B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StartTrack/Screen/Task/Cell/FusionTaskTableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "actionOnTap(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

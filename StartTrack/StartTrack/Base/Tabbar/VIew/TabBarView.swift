@@ -119,7 +119,7 @@ extension TabBarView {
         config.imagePlacement = .leading
         config.imagePadding = CSp.min
         var attributeContainer = AttributeContainer()
-        attributeContainer.font = .systemFont(ofSize: 13, weight: .bold)
+        attributeContainer.font = .systemFont(ofSize: 12, weight: .bold)
         let attributedTitle = AttributedString(model.title, attributes: attributeContainer)
         config.attributedTitle = attributedTitle
         

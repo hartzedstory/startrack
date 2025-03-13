@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FusionTaskViewController" customModule="StartTrack" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="KIf-at-4yW" id="UCX-Vv-Y8h"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,9 +17,66 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yd1-4S-hVu">
+                    <rect key="frame" x="21" y="72" width="79" height="34"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGC-cY-Xsn">
+                    <rect key="frame" x="127" y="68" width="42" height="42"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="42" id="BMe-tv-cXa"/>
+                        <constraint firstAttribute="height" constant="42" id="wOd-1R-sCi"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="ic_calendar"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WxA-rs-TeC">
+                    <rect key="frame" x="280" y="69" width="42" height="42"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="42" id="cdI-ED-xQ8"/>
+                        <constraint firstAttribute="width" constant="42" id="ztY-YW-bua"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="ic_notification"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GoF-Ih-I9s">
+                    <rect key="frame" x="330" y="69" width="42" height="42"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="42" id="6mU-IU-0H0"/>
+                        <constraint firstAttribute="width" constant="42" id="Hos-lI-KFR"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="ic_profile"/>
+                </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="KIf-at-4yW">
+                    <rect key="frame" x="0.0" y="144" width="393" height="708"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+            </subviews>
             <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstItem="dGC-cY-Xsn" firstAttribute="leading" secondItem="Yd1-4S-hVu" secondAttribute="trailing" constant="27" id="4mA-4B-Afb"/>
+                <constraint firstItem="KIf-at-4yW" firstAttribute="top" secondItem="WxA-rs-TeC" secondAttribute="bottom" constant="33" id="9FB-Fj-oKd"/>
+                <constraint firstItem="Yd1-4S-hVu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="21" id="BGI-yL-VK9"/>
+                <constraint firstItem="GoF-Ih-I9s" firstAttribute="leading" secondItem="WxA-rs-TeC" secondAttribute="trailing" constant="8" id="BiQ-f8-zUf"/>
+                <constraint firstAttribute="bottom" secondItem="KIf-at-4yW" secondAttribute="bottom" id="BpM-jl-M4w"/>
+                <constraint firstItem="Yd1-4S-hVu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="72" id="I4F-j6-ol0"/>
+                <constraint firstAttribute="trailing" secondItem="KIf-at-4yW" secondAttribute="trailing" id="Qv7-lQ-B4h"/>
+                <constraint firstItem="GoF-Ih-I9s" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="69" id="TbW-9p-ow3"/>
+                <constraint firstItem="dGC-cY-Xsn" firstAttribute="centerY" secondItem="Yd1-4S-hVu" secondAttribute="centerY" id="aAT-kJ-6pL"/>
+                <constraint firstItem="WxA-rs-TeC" firstAttribute="centerY" secondItem="GoF-Ih-I9s" secondAttribute="centerY" id="fOS-Nd-hYi"/>
+                <constraint firstItem="KIf-at-4yW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="nhP-mZ-mEq"/>
+                <constraint firstAttribute="trailing" secondItem="GoF-Ih-I9s" secondAttribute="trailing" constant="21" id="ya6-iL-3p6"/>
+            </constraints>
             <point key="canvasLocation" x="-18" y="-12"/>
         </view>
     </objects>
+    <resources>
+        <image name="ic_calendar" width="42" height="42"/>
+        <image name="ic_notification" width="42" height="42"/>
+        <image name="ic_profile" width="42" height="42"/>
+    </resources>
 </document>

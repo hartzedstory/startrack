@@ -28,17 +28,17 @@ enum TabBarButton: Int, CaseIterable {
     
     var normalImage: UIImage? {
         switch self {
-        case .task: return UIImage(systemName: "")
-        case .project: return UIImage(systemName: "")
-        case .organization: return UIImage(systemName: "")
+        case .task: return UIImage(named: "ic_tabbar_task")
+        case .project: return UIImage(named: "ic_tabbar_project")
+        case .organization: return UIImage(named: "ic_tabbar_org")
         }
     }
     
     var highlightImage: UIImage? {
         switch self {
-        case .task: return UIImage(systemName: "")
-        case .project: return UIImage(systemName: "")
-        case .organization: return UIImage(systemName: "")
+        case .task: return UIImage(named: "ic_tabbar_task_highlighted")
+        case .project: return UIImage(named: "ic_tabbar_project_highlighted")
+        case .organization: return UIImage(named: "ic_tabbar_org_highlighted")
         }
     }
     

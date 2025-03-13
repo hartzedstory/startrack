@@ -61,8 +61,7 @@ private extension MainTabBarController {
         case .task:
             vc = FusionTaskViewController()
         case .project:
-            vc = UIViewController()
-            vc.view.backgroundColor = .red
+            vc = FusionProjectViewController()
         case .organization:
             vc = UIViewController()
             vc.view.backgroundColor = .green
