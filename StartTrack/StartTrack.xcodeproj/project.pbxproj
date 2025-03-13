@@ -6,6 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		99B095FD2D81C5C70003123A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 99B095FC2D81C5C70003123A /* Alamofire */; };
+		99B096002D81C6E50003123A /* AppAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 99B095FF2D81C6E50003123A /* AppAuth */; };
+		99B096022D81C6E50003123A /* AppAuthCore in Frameworks */ = {isa = PBXBuildFile; productRef = 99B096012D81C6E50003123A /* AppAuthCore */; };
+		99B096052D81C6F30003123A /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 99B096042D81C6F30003123A /* SwiftyJSON */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		990863172D8154030041A724 /* StartTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StartTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +43,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99B096002D81C6E50003123A /* AppAuth in Frameworks */,
+				99B095FD2D81C5C70003123A /* Alamofire in Frameworks */,
+				99B096052D81C6F30003123A /* SwiftyJSON in Frameworks */,
+				99B096022D81C6E50003123A /* AppAuthCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +89,10 @@
 			);
 			name = StartTrack;
 			packageProductDependencies = (
+				99B095FC2D81C5C70003123A /* Alamofire */,
+				99B095FF2D81C6E50003123A /* AppAuth */,
+				99B096012D81C6E50003123A /* AppAuthCore */,
+				99B096042D81C6F30003123A /* SwiftyJSON */,
 			);
 			productName = StartTrack;
 			productReference = 990863172D8154030041A724 /* StartTrack.app */;
@@ -108,6 +123,11 @@
 			);
 			mainGroup = 9908630E2D8154030041A724;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				99B095FB2D81C5C70003123A /* XCRemoteSwiftPackageReference "Alamofire" */,
+				99B095FE2D81C6E50003123A /* XCRemoteSwiftPackageReference "AppAuth-iOS" */,
+				99B096032D81C6F30003123A /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 990863182D8154030041A724 /* Products */;
 			projectDirPath = "";
@@ -344,6 +364,56 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		99B095FB2D81C5C70003123A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.2;
+			};
+		};
+		99B095FE2D81C6E50003123A /* XCRemoteSwiftPackageReference "AppAuth-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/openid/AppAuth-iOS.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.7.6;
+			};
+		};
+		99B096032D81C6F30003123A /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		99B095FC2D81C5C70003123A /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 99B095FB2D81C5C70003123A /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		99B095FF2D81C6E50003123A /* AppAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 99B095FE2D81C6E50003123A /* XCRemoteSwiftPackageReference "AppAuth-iOS" */;
+			productName = AppAuth;
+		};
+		99B096012D81C6E50003123A /* AppAuthCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 99B095FE2D81C6E50003123A /* XCRemoteSwiftPackageReference "AppAuth-iOS" */;
+			productName = AppAuthCore;
+		};
+		99B096042D81C6F30003123A /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 99B096032D81C6F30003123A /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9908630F2D8154030041A724 /* Project object */;
 }

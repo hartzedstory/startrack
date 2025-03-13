@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zfB-uz-FrJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -19,16 +19,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QMJ-sL-KDc">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_splash_background" translatesAutoresizingMaskIntoConstraints="NO" id="SXO-xD-UAg">
+                                <rect key="frame" x="-154" y="309" width="701" height="543"/>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_splash" translatesAutoresizingMaskIntoConstraints="NO" id="qK2-5c-XLF">
+                                <rect key="frame" x="48" y="284" width="297" height="284"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="297" id="7nH-D5-tyq"/>
+                                    <constraint firstAttribute="height" constant="284" id="zyv-Yu-5aq"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVu-cu-sUJ">
+                                <rect key="frame" x="66" y="608" width="261" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="nSJ-1W-yUu"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Đăng nhập" cornerStyle="large">
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="25"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="loginOnTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6mH-Ha-o1w"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="QMJ-sL-KDc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="9bz-wV-t3s"/>
-                            <constraint firstItem="QMJ-sL-KDc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="JjD-qa-ZSK"/>
-                            <constraint firstAttribute="trailing" secondItem="QMJ-sL-KDc" secondAttribute="trailing" id="p4e-GN-HVX"/>
-                            <constraint firstAttribute="bottom" secondItem="QMJ-sL-KDc" secondAttribute="bottom" id="zgA-aH-7th"/>
+                            <constraint firstItem="SXO-xD-UAg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-170" id="8Fi-ZG-mDk"/>
+                            <constraint firstItem="SXO-xD-UAg" firstAttribute="top" secondItem="b0h-NM-drA" secondAttribute="bottom" constant="250" id="Cgr-8p-Cdd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NVu-cu-sUJ" secondAttribute="trailing" constant="50" id="FMt-wi-ZqH"/>
+                            <constraint firstItem="NVu-cu-sUJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="50" id="OF1-LC-YsR"/>
+                            <constraint firstAttribute="bottom" secondItem="SXO-xD-UAg" secondAttribute="bottom" id="cJr-Qs-6rY"/>
+                            <constraint firstItem="qK2-5c-XLF" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="dh5-GL-OCS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SXO-xD-UAg" secondAttribute="trailing" constant="-170" id="ltm-Ux-fpG"/>
+                            <constraint firstItem="aFs-a3-7yq" firstAttribute="top" secondItem="NVu-cu-sUJ" secondAttribute="bottom" constant="150" id="ugT-Tr-anO"/>
+                            <constraint firstItem="qK2-5c-XLF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zde-Kb-rCf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yi1-gx-01D"/>
@@ -47,13 +72,14 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="mr1-wm-307"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eGj-KH-w5k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="84.732824427480907" y="3.5211267605633805"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_splash" width="393" height="384"/>
+        <image name="ic_splash_background" width="393" height="603"/>
+    </resources>
 </document>
