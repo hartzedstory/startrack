@@ -8,10 +8,13 @@
 import UIKit
 
 class FusionProjectViewController: UIViewController {
+    @IBOutlet weak var lblOrgName: UILabel!
     @IBOutlet weak var btnAdd: UIButton!
+    @IBOutlet weak var btnSelectOrg: UIButton!
     @IBOutlet weak var tableView: UITableView!
     var indexPathRowExpanded: Set<IndexPath> = []
     var mockNumber = [1,2,3,4,5]
+    var mockOrg = ["IMM JSC", "VNPAY JSC"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +25,12 @@ class FusionProjectViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "FusionTaskTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "cell")
+        self.configAddDropDown()
+        self.configSelectOrgDropDown()
+
+    }
+    
+    private func configAddDropDown() {
         let firstAction = UIAction(title: "New project", image: UIImage(systemName: "plus.circle.dashed")) { action in
             self.addNew(kind: .project)
         }
@@ -35,23 +44,26 @@ class FusionProjectViewController: UIViewController {
         let menu = UIMenu(title: "", children: elements)
         btnAdd.showsMenuAsPrimaryAction = true
         btnAdd.menu = menu
-        
-
+    }
+    
+    private func configSelectOrgDropDown() {
+        var elements: [UIAction] = []
+        mockOrg.forEach { name in
+            let option = UIAction(title: name, image: nil) { [weak self] action in
+                guard let self = self else { return }
+                self.lblOrgName.text = name
+            }
+            elements.append(option)
+        }
+        let menu = UIMenu(title: "", children: elements)
+        btnSelectOrg.showsMenuAsPrimaryAction = true
+        btnSelectOrg.menu = menu
     }
     
     private func addNew(kind: AddNewType) {
         let vc = FusionAddNewViewController(kind)
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true)
-    }
-    @IBAction func addOnTab(_ sender: Any) {
-
-    }
-    
-    @IBOutlet weak var a: UICommand!
-    
-    @IBAction func optionSelection(_ sender: UIAction) {
-        print(sender.title)
     }
 }
 extension FusionProjectViewController: UITableViewDelegate, UITableViewDataSource {

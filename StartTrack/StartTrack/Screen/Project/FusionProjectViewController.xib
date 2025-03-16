@@ -11,6 +11,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FusionProjectViewController" customModule="StartTrack" customModuleProvider="target">
             <connections>
                 <outlet property="btnAdd" destination="L9o-QJ-rLn" id="tJy-Ed-J7s"/>
+                <outlet property="btnSelectOrg" destination="8NO-gN-YYg" id="eix-1B-Aym"/>
+                <outlet property="lblOrgName" destination="4Pl-JW-Bte" id="FEH-TU-9qF"/>
                 <outlet property="tableView" destination="xSL-a6-Boe" id="6HX-DC-nsc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
