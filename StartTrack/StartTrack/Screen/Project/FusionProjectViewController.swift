@@ -8,10 +8,11 @@
 import UIKit
 
 class FusionProjectViewController: UIViewController {
-
+    @IBOutlet weak var btnAdd: UIButton!
     @IBOutlet weak var tableView: UITableView!
     var indexPathRowExpanded: Set<IndexPath> = []
     var mockNumber = [1,2,3,4,5]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -21,6 +22,36 @@ class FusionProjectViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "FusionTaskTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "cell")
+        let firstAction = UIAction(title: "New project", image: UIImage(systemName: "plus.circle.dashed")) { action in
+            self.addNew(kind: .project)
+        }
+        let secondAction = UIAction(title: "New task", image: UIImage(systemName: "plus.circle.dashed")) { action in
+            self.addNew(kind: .task)
+        }
+        let thirdAction = UIAction(title: "New Sub-task", image: UIImage(systemName: "plus.circle.dashed")) { action in
+            self.addNew(kind: .subtask)
+        }
+        let elements: [UIAction] = [firstAction, secondAction, thirdAction]
+        let menu = UIMenu(title: "", children: elements)
+        btnAdd.showsMenuAsPrimaryAction = true
+        btnAdd.menu = menu
+        
+
+    }
+    
+    private func addNew(kind: AddNewType) {
+        let vc = FusionAddNewViewController(kind)
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true)
+    }
+    @IBAction func addOnTab(_ sender: Any) {
+
+    }
+    
+    @IBOutlet weak var a: UICommand!
+    
+    @IBAction func optionSelection(_ sender: UIAction) {
+        print(sender.title)
     }
 }
 extension FusionProjectViewController: UITableViewDelegate, UITableViewDataSource {

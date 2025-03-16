@@ -4,11 +4,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FusionProjectViewController" customModule="StartTrack" customModuleProvider="target">
             <connections>
+                <outlet property="btnAdd" destination="L9o-QJ-rLn" id="tJy-Ed-J7s"/>
                 <outlet property="tableView" destination="xSL-a6-Boe" id="6HX-DC-nsc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -42,14 +44,23 @@
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" image="ic_lookup"/>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="99W-W9-AWK">
+                <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L9o-QJ-rLn">
                     <rect key="frame" x="280" y="69" width="42" height="42"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="42" id="3lF-KN-8M0"/>
-                        <constraint firstAttribute="width" constant="42" id="X33-Gp-smk"/>
+                        <constraint firstAttribute="width" constant="42" id="5dF-1w-0hs"/>
+                        <constraint firstAttribute="height" constant="42" id="EpU-KH-fd5"/>
                     </constraints>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" image="ic_notification"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <menu key="menu" id="22A-TK-o0t">
+                        <children>
+                            <command title="Project" id="DYe-s3-xnQ"/>
+                            <command title="Task" id="C8e-r0-OJ5"/>
+                            <command title="Subtask" id="XJa-MQ-eV8"/>
+                        </children>
+                    </menu>
+                    <state key="normal" image="ic_add">
+                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="xSL-a6-Boe">
                     <rect key="frame" x="0.0" y="144" width="393" height="708"/>
@@ -59,24 +70,24 @@
             <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="xSL-a6-Boe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3IN-wX-bBF"/>
-                <constraint firstItem="99W-W9-AWK" firstAttribute="centerY" secondItem="A5n-dm-cS8" secondAttribute="centerY" id="8VS-GU-rtc"/>
                 <constraint firstItem="4Pl-JW-Bte" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="72" id="Bhs-rT-5tD"/>
-                <constraint firstItem="xSL-a6-Boe" firstAttribute="top" secondItem="99W-W9-AWK" secondAttribute="bottom" constant="33" id="H3B-W9-abZ"/>
                 <constraint firstItem="4Pl-JW-Bte" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="21" id="IoV-Aj-1Mb"/>
+                <constraint firstItem="A5n-dm-cS8" firstAttribute="leading" secondItem="L9o-QJ-rLn" secondAttribute="trailing" constant="8" id="LHz-Jc-yuv"/>
                 <constraint firstAttribute="bottom" secondItem="xSL-a6-Boe" secondAttribute="bottom" id="Q8I-TV-Rim"/>
-                <constraint firstItem="A5n-dm-cS8" firstAttribute="leading" secondItem="99W-W9-AWK" secondAttribute="trailing" constant="8" id="QT3-1p-g1a"/>
                 <constraint firstAttribute="trailing" secondItem="xSL-a6-Boe" secondAttribute="trailing" id="Vfv-bn-cZF"/>
                 <constraint firstAttribute="trailing" secondItem="A5n-dm-cS8" secondAttribute="trailing" constant="21" id="Ymc-TI-feP"/>
                 <constraint firstItem="A5n-dm-cS8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="69" id="Yri-hP-165"/>
+                <constraint firstItem="xSL-a6-Boe" firstAttribute="top" secondItem="A5n-dm-cS8" secondAttribute="bottom" constant="33" id="e1l-nn-otu"/>
                 <constraint firstItem="8NO-gN-YYg" firstAttribute="leading" secondItem="4Pl-JW-Bte" secondAttribute="trailing" constant="13" id="lAZ-E5-gck"/>
+                <constraint firstItem="L9o-QJ-rLn" firstAttribute="centerY" secondItem="A5n-dm-cS8" secondAttribute="centerY" id="oC5-Vw-p0t"/>
                 <constraint firstItem="8NO-gN-YYg" firstAttribute="centerY" secondItem="4Pl-JW-Bte" secondAttribute="centerY" id="uHA-RK-jqP"/>
             </constraints>
-            <point key="canvasLocation" x="140" y="20"/>
+            <point key="canvasLocation" x="139.69465648854961" y="19.718309859154932"/>
         </view>
     </objects>
     <resources>
+        <image name="ic_add" width="42" height="42"/>
         <image name="ic_dropdown" width="24" height="24"/>
         <image name="ic_lookup" width="42" height="42"/>
-        <image name="ic_notification" width="42" height="42"/>
     </resources>
 </document>
