@@ -38,6 +38,7 @@ class FusionAddNewViewController: UIViewController {
         super.viewDidLoad()
         self.configUI(forKind: addNewType)
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        FusionNetwork.login()
     }
     
     private func configUI(forKind: AddNewType) {
@@ -48,23 +49,16 @@ class FusionAddNewViewController: UIViewController {
             self.layoutStackView(arrView: arrAtomicView)
         case .task:
             self.arrAtomicView = [
-                FusionInputView("Title1", UIImage(named: "")),
+                FusionInputView("Tên dự án", UIImage(named: "")),
                 Spacer(height: 21),
-                FusionInputView("Title2", UIImage(named: "")),
+                FusionInputView("Tiêu đề", UIImage(named: "")),
                 Spacer(height: 21),
-                FusionInputView("Title3", UIImage(named: "")),
+                FusionInputView("Từ ngày", UIImage(named: "ic_calendar_small")),
                 Spacer(height: 21),
-                FusionInputView("Title4", UIImage(named: "")),
+                FusionInputView("Tới ngày", UIImage(named: "ic_calendar_small")),
                 Spacer(height: 21),
-                FusionInputView("Title4", UIImage(named: "")),
+                AddMemberView("Thành viên"),
                 Spacer(height: 21),
-                FusionInputView("Title4", UIImage(named: "")),
-                Spacer(height: 21),
-                FusionInputView("Title4", UIImage(named: "")),
-                Spacer(height: 21),
-                FusionInputView("Title4", UIImage(named: "")),
-                Spacer(height: 21),
-                FusionInputView("Title4", UIImage(named: "")),
             ]
             self.layoutStackView(arrView: arrAtomicView)
         case .subtask:

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Member" customModule="StartTrack" customModuleProvider="target">
+            <connections>
+                <outlet property="lblName" destination="CIr-CF-lvk" id="1xL-jV-RvF"/>
+                <outlet property="vContainer" destination="riz-Bb-fMU" id="cOv-wR-2jH"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="138" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="riz-Bb-fMU">
+                    <rect key="frame" x="0.0" y="0.0" width="138" height="44"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="___" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CIr-CF-lvk">
+                            <rect key="frame" x="7" y="0.0" width="101" height="44"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_remove" translatesAutoresizingMaskIntoConstraints="NO" id="rJX-0P-8e8">
+                            <rect key="frame" x="120" y="16" width="12" height="12"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="12" id="9bM-ir-R0y"/>
+                                <constraint firstAttribute="width" constant="12" id="gcA-3l-ro0"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJa-zS-XTO">
+                            <rect key="frame" x="108" y="0.0" width="30" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="wxA-oo-kCA"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="CIr-CF-lvk" secondAttribute="bottom" id="4ar-l7-YRD"/>
+                        <constraint firstAttribute="bottom" secondItem="CJa-zS-XTO" secondAttribute="bottom" id="6zt-FC-YzY"/>
+                        <constraint firstAttribute="trailing" secondItem="rJX-0P-8e8" secondAttribute="trailing" constant="6" id="JlP-yg-NuU"/>
+                        <constraint firstItem="rJX-0P-8e8" firstAttribute="centerY" secondItem="riz-Bb-fMU" secondAttribute="centerY" id="Rso-6Z-IqR"/>
+                        <constraint firstItem="CJa-zS-XTO" firstAttribute="leading" secondItem="CIr-CF-lvk" secondAttribute="trailing" id="SnF-WX-uno"/>
+                        <constraint firstItem="CIr-CF-lvk" firstAttribute="top" secondItem="riz-Bb-fMU" secondAttribute="top" id="avI-DV-l27"/>
+                        <constraint firstItem="CIr-CF-lvk" firstAttribute="centerY" secondItem="riz-Bb-fMU" secondAttribute="centerY" id="cy2-fK-Yqt"/>
+                        <constraint firstAttribute="trailing" secondItem="CJa-zS-XTO" secondAttribute="trailing" id="ef6-UC-lCa"/>
+                        <constraint firstItem="CIr-CF-lvk" firstAttribute="leading" secondItem="riz-Bb-fMU" secondAttribute="leading" constant="7" id="eyd-9e-Rhn"/>
+                        <constraint firstItem="CJa-zS-XTO" firstAttribute="top" secondItem="riz-Bb-fMU" secondAttribute="top" id="tfJ-Po-LRx"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="riz-Bb-fMU" secondAttribute="bottom" id="Opj-BS-1XL"/>
+                <constraint firstItem="riz-Bb-fMU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="QcX-Qm-GjC"/>
+                <constraint firstItem="riz-Bb-fMU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="hHY-0o-d0R"/>
+                <constraint firstAttribute="trailing" secondItem="riz-Bb-fMU" secondAttribute="trailing" id="jIt-bn-FlW"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-152.67175572519082" y="-297.18309859154931"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_remove" width="12" height="12"/>
+    </resources>
+</document>

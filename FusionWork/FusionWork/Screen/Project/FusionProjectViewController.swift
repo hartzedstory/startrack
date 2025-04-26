@@ -14,7 +14,7 @@ class FusionProjectViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var indexPathRowExpanded: Set<IndexPath> = []
     var mockNumber = [1,2,3,4,5]
-    var mockOrg = ["IMM JSC", "VNPAY JSC"]
+    var mockOrg = ["FusionTech JSC", "VNPAY JSC"]
 
     override func viewDidLoad() {
         super.viewDidLoad()

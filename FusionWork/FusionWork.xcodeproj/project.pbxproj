@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9905BE7C2DBBC41C00466C40 /* AlamofireNetworkActivityLogger in Frameworks */ = {isa = PBXBuildFile; productRef = 9905BE7B2DBBC41C00466C40 /* AlamofireNetworkActivityLogger */; };
 		99B095FD2D81C5C70003123A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 99B095FC2D81C5C70003123A /* Alamofire */; };
 		99B096002D81C6E50003123A /* AppAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 99B095FF2D81C6E50003123A /* AppAuth */; };
 		99B096022D81C6E50003123A /* AppAuthCore in Frameworks */ = {isa = PBXBuildFile; productRef = 99B096012D81C6E50003123A /* AppAuthCore */; };
@@ -14,26 +15,26 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		990863172D8154030041A724 /* StartTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StartTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		990863172D8154030041A724 /* FusionWork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FusionWork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		990863292D8154040041A724 /* Exceptions for "StartTrack" folder in "StartTrack" target */ = {
+		990863292D8154040041A724 /* Exceptions for "FusionWork" folder in "FusionWork" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = 990863162D8154030041A724 /* StartTrack */;
+			target = 990863162D8154030041A724 /* FusionWork */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		990863192D8154030041A724 /* StartTrack */ = {
+		990863192D8154030041A724 /* FusionWork */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				990863292D8154040041A724 /* Exceptions for "StartTrack" folder in "StartTrack" target */,
+				990863292D8154040041A724 /* Exceptions for "FusionWork" folder in "FusionWork" target */,
 			);
-			path = StartTrack;
+			path = FusionWork;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -45,6 +46,7 @@
 			files = (
 				99B096002D81C6E50003123A /* AppAuth in Frameworks */,
 				99B095FD2D81C5C70003123A /* Alamofire in Frameworks */,
+				9905BE7C2DBBC41C00466C40 /* AlamofireNetworkActivityLogger in Frameworks */,
 				99B096052D81C6F30003123A /* SwiftyJSON in Frameworks */,
 				99B096022D81C6E50003123A /* AppAuthCore in Frameworks */,
 			);
@@ -56,7 +58,7 @@
 		9908630E2D8154030041A724 = {
 			isa = PBXGroup;
 			children = (
-				990863192D8154030041A724 /* StartTrack */,
+				990863192D8154030041A724 /* FusionWork */,
 				990863182D8154030041A724 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -64,7 +66,7 @@
 		990863182D8154030041A724 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				990863172D8154030041A724 /* StartTrack.app */,
+				990863172D8154030041A724 /* FusionWork.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -72,9 +74,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		990863162D8154030041A724 /* StartTrack */ = {
+		990863162D8154030041A724 /* FusionWork */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9908632A2D8154040041A724 /* Build configuration list for PBXNativeTarget "StartTrack" */;
+			buildConfigurationList = 9908632A2D8154040041A724 /* Build configuration list for PBXNativeTarget "FusionWork" */;
 			buildPhases = (
 				990863132D8154030041A724 /* Sources */,
 				990863142D8154030041A724 /* Frameworks */,
@@ -85,17 +87,18 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				990863192D8154030041A724 /* StartTrack */,
+				990863192D8154030041A724 /* FusionWork */,
 			);
-			name = StartTrack;
+			name = FusionWork;
 			packageProductDependencies = (
 				99B095FC2D81C5C70003123A /* Alamofire */,
 				99B095FF2D81C6E50003123A /* AppAuth */,
 				99B096012D81C6E50003123A /* AppAuthCore */,
 				99B096042D81C6F30003123A /* SwiftyJSON */,
+				9905BE7B2DBBC41C00466C40 /* AlamofireNetworkActivityLogger */,
 			);
 			productName = StartTrack;
-			productReference = 990863172D8154030041A724 /* StartTrack.app */;
+			productReference = 990863172D8154030041A724 /* FusionWork.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -114,7 +117,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 990863122D8154030041A724 /* Build configuration list for PBXProject "StartTrack" */;
+			buildConfigurationList = 990863122D8154030041A724 /* Build configuration list for PBXProject "FusionWork" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -127,13 +130,14 @@
 				99B095FB2D81C5C70003123A /* XCRemoteSwiftPackageReference "Alamofire" */,
 				99B095FE2D81C6E50003123A /* XCRemoteSwiftPackageReference "AppAuth-iOS" */,
 				99B096032D81C6F30003123A /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				9905BE7A2DBBC41C00466C40 /* XCRemoteSwiftPackageReference "AlamofireNetworkActivityLogger" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 990863182D8154030041A724 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				990863162D8154030041A724 /* StartTrack */,
+				990863162D8154030041A724 /* FusionWork */,
 			);
 		};
 /* End PBXProject section */
@@ -345,7 +349,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		990863122D8154030041A724 /* Build configuration list for PBXProject "StartTrack" */ = {
+		990863122D8154030041A724 /* Build configuration list for PBXProject "FusionWork" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9908632D2D8154040041A724 /* Debug */,
@@ -354,7 +358,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9908632A2D8154040041A724 /* Build configuration list for PBXNativeTarget "StartTrack" */ = {
+		9908632A2D8154040041A724 /* Build configuration list for PBXNativeTarget "FusionWork" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9908632B2D8154040041A724 /* Debug */,
@@ -366,6 +370,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		9905BE7A2DBBC41C00466C40 /* XCRemoteSwiftPackageReference "AlamofireNetworkActivityLogger" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/konkab/AlamofireNetworkActivityLogger.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.4.0;
+			};
+		};
 		99B095FB2D81C5C70003123A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -393,6 +405,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9905BE7B2DBBC41C00466C40 /* AlamofireNetworkActivityLogger */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9905BE7A2DBBC41C00466C40 /* XCRemoteSwiftPackageReference "AlamofireNetworkActivityLogger" */;
+			productName = AlamofireNetworkActivityLogger;
+		};
 		99B095FC2D81C5C70003123A /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 99B095FB2D81C5C70003123A /* XCRemoteSwiftPackageReference "Alamofire" */;
