@@ -10,7 +10,7 @@ import Alamofire
 
 class FusionNetwork {
     static var shareInstance = FusionNetwork()
-    var rootURL = "https://f002-1-52-109-127.ngrok-free.app"
+    var rootURL = "https://api.imagination.vn"
     public static func getTask() {
         
 
