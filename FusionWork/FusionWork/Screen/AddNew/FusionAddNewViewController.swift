@@ -6,10 +6,12 @@
 //
 
 import UIKit
+
 enum AddNewType: String {
     case project = "New Project"
     case task = "New Task"
     case subtask = "New sub-task"
+    case organization = "New Organization"
 }
 
 class FusionAddNewViewController: UIViewController {
@@ -38,7 +40,6 @@ class FusionAddNewViewController: UIViewController {
         super.viewDidLoad()
         self.configUI(forKind: addNewType)
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        FusionNetwork.login()
     }
     
     private func configUI(forKind: AddNewType) {
@@ -62,6 +63,16 @@ class FusionAddNewViewController: UIViewController {
             ]
             self.layoutStackView(arrView: arrAtomicView)
         case .subtask:
+            self.layoutStackView(arrView: arrAtomicView)
+        case .organization:
+            self.arrAtomicView = [
+                FusionInputView("Tên Công ty", UIImage(named: "")),
+                Spacer(height: 21),
+                FusionInputView("Chủ doanh nghiệp", UIImage(named: "")),
+                Spacer(height: 21),
+                AddMemberView("Thành viên"),
+                Spacer(height: 21),
+            ]
             self.layoutStackView(arrView: arrAtomicView)
         }
     }

@@ -63,8 +63,7 @@ private extension MainTabBarController {
         case .project:
             vc = FusionProjectViewController()
         case .organization:
-            vc = UIViewController()
-            vc.view.backgroundColor = .green
+            vc = FusionOrganizationViewController()
         }
         return vc
     }

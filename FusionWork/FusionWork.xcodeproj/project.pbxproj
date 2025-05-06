@@ -8,9 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9905BE7C2DBBC41C00466C40 /* AlamofireNetworkActivityLogger in Frameworks */ = {isa = PBXBuildFile; productRef = 9905BE7B2DBBC41C00466C40 /* AlamofireNetworkActivityLogger */; };
+		990F09CC2DBE4BAB003051E6 /* SwiftJWT in Frameworks */ = {isa = PBXBuildFile; productRef = 990F09CB2DBE4BAB003051E6 /* SwiftJWT */; };
 		99B095FD2D81C5C70003123A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 99B095FC2D81C5C70003123A /* Alamofire */; };
-		99B096002D81C6E50003123A /* AppAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 99B095FF2D81C6E50003123A /* AppAuth */; };
-		99B096022D81C6E50003123A /* AppAuthCore in Frameworks */ = {isa = PBXBuildFile; productRef = 99B096012D81C6E50003123A /* AppAuthCore */; };
 		99B096052D81C6F30003123A /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 99B096042D81C6F30003123A /* SwiftyJSON */; };
 /* End PBXBuildFile section */
 
@@ -44,11 +43,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99B096002D81C6E50003123A /* AppAuth in Frameworks */,
 				99B095FD2D81C5C70003123A /* Alamofire in Frameworks */,
 				9905BE7C2DBBC41C00466C40 /* AlamofireNetworkActivityLogger in Frameworks */,
+				990F09CC2DBE4BAB003051E6 /* SwiftJWT in Frameworks */,
 				99B096052D81C6F30003123A /* SwiftyJSON in Frameworks */,
-				99B096022D81C6E50003123A /* AppAuthCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,10 +90,9 @@
 			name = FusionWork;
 			packageProductDependencies = (
 				99B095FC2D81C5C70003123A /* Alamofire */,
-				99B095FF2D81C6E50003123A /* AppAuth */,
-				99B096012D81C6E50003123A /* AppAuthCore */,
 				99B096042D81C6F30003123A /* SwiftyJSON */,
 				9905BE7B2DBBC41C00466C40 /* AlamofireNetworkActivityLogger */,
+				990F09CB2DBE4BAB003051E6 /* SwiftJWT */,
 			);
 			productName = StartTrack;
 			productReference = 990863172D8154030041A724 /* FusionWork.app */;
@@ -128,9 +125,9 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				99B095FB2D81C5C70003123A /* XCRemoteSwiftPackageReference "Alamofire" */,
-				99B095FE2D81C6E50003123A /* XCRemoteSwiftPackageReference "AppAuth-iOS" */,
 				99B096032D81C6F30003123A /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				9905BE7A2DBBC41C00466C40 /* XCRemoteSwiftPackageReference "AlamofireNetworkActivityLogger" */,
+				990F09CA2DBE4BAB003051E6 /* XCRemoteSwiftPackageReference "Swift-JWT" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 990863182D8154030041A724 /* Products */;
@@ -171,8 +168,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V7CA33Z44U;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FusionWork/Framework",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = StartTrack/Info.plist;
+				INFOPLIST_FILE = FusionWork/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Fusion Work";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -184,7 +186,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = vn.imagination.StartTrack;
+				PRODUCT_BUNDLE_IDENTIFIER = vn.imagination.FusionWork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -203,8 +205,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V7CA33Z44U;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FusionWork/Framework",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = StartTrack/Info.plist;
+				INFOPLIST_FILE = FusionWork/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Fusion Work";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -216,7 +223,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = vn.imagination.StartTrack;
+				PRODUCT_BUNDLE_IDENTIFIER = vn.imagination.FusionWork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -265,6 +272,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/FusionWork/Framework\"";
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -328,6 +336,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/FusionWork/Framework\"";
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -378,20 +387,20 @@
 				minimumVersion = 3.4.0;
 			};
 		};
+		990F09CA2DBE4BAB003051E6 /* XCRemoteSwiftPackageReference "Swift-JWT" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Kitura/Swift-JWT.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.2;
+			};
+		};
 		99B095FB2D81C5C70003123A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.10.2;
-			};
-		};
-		99B095FE2D81C6E50003123A /* XCRemoteSwiftPackageReference "AppAuth-iOS" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/openid/AppAuth-iOS.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.7.6;
 			};
 		};
 		99B096032D81C6F30003123A /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
@@ -410,20 +419,15 @@
 			package = 9905BE7A2DBBC41C00466C40 /* XCRemoteSwiftPackageReference "AlamofireNetworkActivityLogger" */;
 			productName = AlamofireNetworkActivityLogger;
 		};
+		990F09CB2DBE4BAB003051E6 /* SwiftJWT */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 990F09CA2DBE4BAB003051E6 /* XCRemoteSwiftPackageReference "Swift-JWT" */;
+			productName = SwiftJWT;
+		};
 		99B095FC2D81C5C70003123A /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 99B095FB2D81C5C70003123A /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		99B095FF2D81C6E50003123A /* AppAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 99B095FE2D81C6E50003123A /* XCRemoteSwiftPackageReference "AppAuth-iOS" */;
-			productName = AppAuth;
-		};
-		99B096012D81C6E50003123A /* AppAuthCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 99B095FE2D81C6E50003123A /* XCRemoteSwiftPackageReference "AppAuth-iOS" */;
-			productName = AppAuthCore;
 		};
 		99B096042D81C6F30003123A /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
