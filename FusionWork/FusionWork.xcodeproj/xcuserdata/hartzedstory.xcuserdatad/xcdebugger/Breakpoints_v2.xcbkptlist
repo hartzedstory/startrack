@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "737A5F1B-8809-4567-8C9C-08002F765093"
+            uuid = "B8D941D2-E889-4673-94D1-0004350ACB2B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FusionWork/ViewController.swift"
+            filePath = "FusionWork/Screen/Organization/FusionOrganizationViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "loginOnTap(_:)"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "getOrganization(completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

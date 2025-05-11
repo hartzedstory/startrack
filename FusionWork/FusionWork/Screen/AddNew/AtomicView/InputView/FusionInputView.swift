@@ -6,20 +6,24 @@
 //
 
 import UIKit
-
+protocol FusionInputTextDelegate: AnyObject {
+    func inputValue(type: AddInputFieldType, value: String)
+}
 class FusionInputView: UIView {
     
     @IBOutlet var lblTitle: UILabel!
     @IBOutlet var vTextField: UIView!
     @IBOutlet var ivRightImage: UIImageView!
     @IBOutlet var textField: UITextField!
-    var onRightTap: (() -> Void)?
     
+    var inputType: AddInputFieldType?
+    var onRightTap: (() -> Void)?
+    var delegate: FusionInputTextDelegate?
 
-    init(_ title: String, _ image: UIImage?) {
+    init(_ title: AddInputFieldType, _ image: UIImage?, delegate: UIViewController) {
         super.init(frame: .zero)
         commonInit()
-        configure(title: title, image: image)
+        configure(title: title.rawValue, image: image, delegate: delegate)
     }
     
     required init?(coder: NSCoder) {
@@ -27,10 +31,12 @@ class FusionInputView: UIView {
         commonInit()
     }
     
-    private func configure(title: String, image: UIImage?) {
+    private func configure(title: String, image: UIImage?, delegate: UIViewController) {
         lblTitle.text = title
         ivRightImage.image = image
         vTextField.layer.cornerRadius = 18
+        self.delegate = delegate as? any FusionInputTextDelegate
+        self.inputType = AddInputFieldType(rawValue: title)
     }
     
     func commonInit() {
@@ -49,5 +55,8 @@ class FusionInputView: UIView {
         if let action = onRightTap {
             action()
         }
+    }
+    @IBAction func onChangeValue(_ sender: Any) {
+        self.delegate?.inputValue(type: self.inputType ?? .none, value: self.textField.text ?? "")
     }
 }

@@ -25,6 +25,7 @@ class FusionAddNewViewController: UIViewController {
     
     
     var arrAtomicView: [UIView] = []
+    var addCompletion: (() -> Void)?
     internal var addNewType: AddNewType = .task
     var viewModel = FusionAddNewViewModel()
     
@@ -50,13 +51,13 @@ class FusionAddNewViewController: UIViewController {
             self.layoutStackView(arrView: arrAtomicView)
         case .task:
             self.arrAtomicView = [
-                FusionInputView("Tên dự án", UIImage(named: "")),
+                FusionInputView(.projectName, UIImage(named: ""), delegate: self),
                 Spacer(height: 21),
-                FusionInputView("Tiêu đề", UIImage(named: "")),
+                FusionInputView(.title, UIImage(named: ""), delegate: self),
                 Spacer(height: 21),
-                FusionInputView("Từ ngày", UIImage(named: "ic_calendar_small")),
+                FusionInputView(.dateStart, UIImage(named: "ic_calendar_small"), delegate: self),
                 Spacer(height: 21),
-                FusionInputView("Tới ngày", UIImage(named: "ic_calendar_small")),
+                FusionInputView(.dateEnd, UIImage(named: "ic_calendar_small"), delegate: self),
                 Spacer(height: 21),
                 AddMemberView("Thành viên"),
                 Spacer(height: 21),
@@ -66,9 +67,9 @@ class FusionAddNewViewController: UIViewController {
             self.layoutStackView(arrView: arrAtomicView)
         case .organization:
             self.arrAtomicView = [
-                FusionInputView("Tên Công ty", UIImage(named: "")),
+                FusionInputView(.orgName, UIImage(named: ""), delegate: self),
                 Spacer(height: 21),
-                FusionInputView("Chủ doanh nghiệp", UIImage(named: "")),
+                FusionInputView(.orgOwner, UIImage(named: ""), delegate: self),
                 Spacer(height: 21),
                 AddMemberView("Thành viên"),
                 Spacer(height: 21),
@@ -77,7 +78,37 @@ class FusionAddNewViewController: UIViewController {
         }
     }
     
+    @IBAction func createOnTap(_ sender: Any) {
+        switch self.addNewType {
+        case .project:
+            break
+        case .task:
+            break
+        case .subtask:
+            break
+        case .organization:
+            let model = OrganizationInitializeModel()
+            model.name = viewModel.orgName
+            model.owner = viewModel.orgOwner
+            model.userId = [GlobalData.sharedInstance.user.userId ?? 0]
+            model.tasks = []
+            self.viewModel.createOrganization(model: model) { [weak self] in
+                guard let self = self else { return }
+                if let action = self.addCompletion {
+                    action()
+                    self.dismiss(animated: true)
+                }
+            }
+        }
+    }
+    
     @IBAction func dismissOnTap(_ sender: Any) {
         self.dismiss(animated: true)
+    }
+}
+
+extension FusionAddNewViewController: FusionInputTextDelegate {
+    func inputValue(type: AddInputFieldType, value: String) {
+        self.viewModel.handleInputData(type: type, value: value)
     }
 }

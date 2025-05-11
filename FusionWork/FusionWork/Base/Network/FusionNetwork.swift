@@ -7,17 +7,86 @@
 
 import Foundation
 import Alamofire
-
+class ResponseModel<T: Decodable>: Decodable {
+    let message: String
+    let data: T
+    let code: String
+}
 class FusionNetwork {
     static var shareInstance = FusionNetwork()
-    var rootURL = "https://api.imagination.vn"
-    public static func getTask() {
-        
+    static var rootURL = "https://api.imagination.vn"
+    
+    
+    ///1: Create organization
+    public static func createOrganization(orgModel: OrganizationInitializeModel,onSucces: @escaping((String) -> Void), onError: @escaping((String) -> Void)) {
+        let path = "/v1/organization"
+        let header: HTTPHeaders = ["Authorization":"Bearer \(GlobalData.sharedInstance.access_token)"]
+        let method: HTTPMethod = .post
 
+        FusionLoading.show()
+        
+        AF.request("\(self.rootURL)\(path)", method: method, parameters: orgModel, encoder: JSONParameterEncoder.default, headers: header)
+            .validate()
+            .responseString { response in
+                FusionLoading.hide()
+                switch response.result {
+                case .success(let res):
+                    onSucces(res)
+                case .failure(let e):
+                    onError(e.localizedDescription)
+                }
+            }
     }
     
-    private func request(path: String, header: HTTPHeaders, parameter: Parameters, method: HTTPMethod, onSucces: @escaping((String) -> Void), onError: @escaping((String) -> Void)) {
+    ///2: Get organization
+    public static func getOrganization(onSucces: @escaping(([OrganizationModel]) -> Void), onError: @escaping((String) -> Void)) {
+        let path = "/v1/organization"
+        let header: HTTPHeaders = ["Authorization":"Bearer \(GlobalData.sharedInstance.access_token)"]
+        let method: HTTPMethod = .get
         FusionLoading.show()
+
+        AF.request(
+            "\(self.rootURL)\(path)",
+            method: method,
+            headers: header
+        )
+        .validate()
+        .responseDecodable(of: ResponseModel<[OrganizationModel]>.self) { response in
+            FusionLoading.hide()
+            switch response.result {
+            case .success(let result):
+                onSucces(result.data)
+            case .failure(let error):
+                onError(error.localizedDescription)
+            }
+        }
+    }
+    
+    ///3: Get organization detail
+    public static func getOrganizationDetail(id:Int, onSucces: @escaping((OrganizationDetailModelInfo) -> Void), onError: @escaping((String) -> Void)) {
+        let path = "/v1/organization/\(id)"
+        let header: HTTPHeaders = ["Authorization":"Bearer \(GlobalData.sharedInstance.access_token)"]
+        let method: HTTPMethod = .get
+        FusionLoading.show()
+
+        AF.request(
+            "\(self.rootURL)\(path)",
+            method: method,
+            headers: header
+        )
+        .validate()
+        .responseDecodable(of: ResponseModel<OrganizationDetailModelInfo>.self) { response in
+            FusionLoading.hide()
+            switch response.result {
+            case .success(let result):
+                onSucces(result.data)
+            case .failure(let error):
+                onError(error.localizedDescription)
+            }
+        }
+    }
+    
+    private static func request(path: String, header: HTTPHeaders, parameter: Parameters, method: HTTPMethod, onSucces: @escaping((String) -> Void), onError: @escaping((String) -> Void)) {
         AF.request("\(self.rootURL)\(path)", method: method, parameters: parameter, headers: header)
             .validate()
             .responseString { response in
@@ -29,5 +98,20 @@ class FusionNetwork {
                     onError(e.localizedDescription)
                 }
             }
+    }
+}
+
+extension FusionNetwork {
+    public static func parse<T: Codable>(_ type: T.Type, from stringData: String) -> T? {
+        let decoder = JSONDecoder()
+        let jsonData = Data(stringData.utf8)
+        var model: T? = nil
+        
+        do {
+            model = try decoder.decode(T.self, from: jsonData)
+        } catch {
+            print("Parsing error")
+        }
+        return model
     }
 }

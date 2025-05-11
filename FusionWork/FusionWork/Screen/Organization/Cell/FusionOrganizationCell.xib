@@ -89,6 +89,8 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="lblCreator" destination="oX1-n1-gjE" id="3pX-4w-bQt"/>
+                <outlet property="lblName" destination="R5d-4j-7te" id="czE-44-z8q"/>
                 <outlet property="vMain" destination="p3p-oS-cdl" id="lde-nD-clL"/>
             </connections>
             <point key="canvasLocation" x="95" y="87"/>

@@ -9,6 +9,8 @@ import UIKit
 
 class FusionOrganizationCell: UITableViewCell {
 
+    @IBOutlet weak var lblName: UILabel!
+    @IBOutlet weak var lblCreator: UILabel!
     @IBOutlet weak var vMain: UIView!
     var closure: (()->Void)?
     override func awakeFromNib() {

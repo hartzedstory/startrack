@@ -12,7 +12,7 @@ class AuthManager: NSObject {
     private var session: ASWebAuthenticationSession?
     
     func startLogin(onSuccess: @escaping((_ access_token: String) -> Void), onError: @escaping((_ error: Error) -> Void)) {
-        let authURL = URL(string: "\(FusionNetwork.shareInstance.rootURL)/oauth2/authorization/google")!
+        let authURL = URL(string: "\(FusionNetwork.rootURL)/oauth2/authorization/google")!
         let callbackURLScheme = "fusionwork"
         
         session = ASWebAuthenticationSession(url: authURL, callbackURLScheme: callbackURLScheme) { callbackURL, error in
