@@ -7,12 +7,14 @@
 
 import Foundation
 enum AddInputFieldType: String {
-    case projectName = "Tên dự án"
-    case title = "Tiêu đề"
-    case dateStart = "Từ ngày"
-    case dateEnd = "Tới ngày"
-    case orgName = "Tên doanh nghiệp"
-    case orgOwner = "Chủ doanh nghiệp"
+    case projectName = "Project"
+    case taskName = "Task"
+    case title = "Title"
+    case dateStart = "Start date"
+    case dateEnd = "End date"
+    case orgName = "Organization"
+    case orgOwner = "Owner"
+    case inProject = "In project"
     case none = ""
 }
 class FusionAddNewViewModel: NSObject {
@@ -22,8 +24,17 @@ class FusionAddNewViewModel: NSObject {
     var dateEnd = ""
     var orgName = ""
     var orgOwner = ""
+    var taskName = ""
     var none = ""
     
+    
+    internal var descriptionText = ""
+    internal var priority: State = .none
+    internal var memberList: [MemberModel] = []
+    internal var organizationID: Int?
+    var selectedOrganization: OrganizationModel = OrganizationModel()
+    var projects: [ProjectModel] = []
+    var tempSelectProject: ProjectModel = ProjectModel()
     internal func handleInputData(type: AddInputFieldType, value: String) {
         switch type {
         case .projectName:
@@ -40,8 +51,13 @@ class FusionAddNewViewModel: NSObject {
             self.orgOwner = value
         case .none:
             self.none = value
+        case .taskName:
+            self.taskName = value
+        case .inProject:
+            self.projectName = value
         }
     }
+    
     internal func createOrganization(model:OrganizationInitializeModel, completion: @escaping(() -> Void)) {
         FusionNetwork.createOrganization(orgModel: model) { response in
             print("-----------DATA---------")
@@ -50,6 +66,10 @@ class FusionAddNewViewModel: NSObject {
         } onError: { error in
             print(error)
         }
+    }
+    
+    internal func createProject(model: ProjectInitializeModel,onSucces: @escaping((String) -> Void), onError: @escaping((String) -> Void)) {
+        FusionNetwork.createProject(projModel: model, onSucces: onSucces, onError: onError)
     }
     
     

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -75,7 +76,7 @@
                     </constraints>
                 </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MXz-A6-ydx">
-                    <rect key="frame" x="0.0" y="114" width="393" height="738"/>
+                    <rect key="frame" x="0.0" y="114" width="393" height="670"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zf4-0o-7jU">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="0.0"/>
@@ -104,6 +105,7 @@
                     </constraints>
                 </scrollView>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="yqZ-oX-ZlW"/>
             <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="vOe-BW-2c5" firstAttribute="leading" secondItem="hVl-fU-vhU" secondAttribute="trailing" id="0qg-Do-Xnx"/>
@@ -118,7 +120,7 @@
                 <constraint firstItem="MXz-A6-ydx" firstAttribute="top" secondItem="81b-VW-cdL" secondAttribute="bottom" constant="4" id="gx3-MR-jFB"/>
                 <constraint firstItem="hVl-fU-vhU" firstAttribute="top" secondItem="TYK-xK-uap" secondAttribute="top" constant="-12" id="hn3-KH-mlh"/>
                 <constraint firstItem="hVl-fU-vhU" firstAttribute="bottom" secondItem="TYK-xK-uap" secondAttribute="bottom" constant="12" id="rMY-K4-wg4"/>
-                <constraint firstAttribute="bottom" secondItem="MXz-A6-ydx" secondAttribute="bottom" id="tWS-pv-e62"/>
+                <constraint firstItem="yqZ-oX-ZlW" firstAttribute="bottom" secondItem="MXz-A6-ydx" secondAttribute="bottom" id="tWS-pv-e62"/>
                 <constraint firstAttribute="trailing" secondItem="81b-VW-cdL" secondAttribute="trailing" constant="21" id="xdM-uF-wwH"/>
             </constraints>
             <point key="canvasLocation" x="-167.17557251908397" y="-37.323943661971832"/>

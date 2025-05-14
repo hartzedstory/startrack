@@ -18,7 +18,7 @@ class OrganizationInitializeModel: NSObject, Codable {
     var tasks: [String]?
 }
 
-class OrganizationDetailModelInfo: NSObject, Codable {
+class OrganizationDetailModel: NSObject, Codable {
     var id: Int?
     var owner: String?
     var members: [MemberModel]?
@@ -28,4 +28,15 @@ class MemberModel: NSObject, Codable {
     var id: Int?
     var name: String?
     var email: String?
+}
+
+class OrganizationReportModel: NSObject, Codable {
+    var monitor: OrganizationReportMonitorModel?
+    var tasks: [Int]?
+}
+
+class OrganizationReportMonitorModel: NSObject, Codable {
+    var total: Int?
+    var done: Int?
+    var notDone: Int?
 }

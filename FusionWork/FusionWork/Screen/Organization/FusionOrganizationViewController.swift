@@ -61,6 +61,20 @@ extension FusionOrganizationViewController: UITableViewDelegate, UITableViewData
         cell.closure = { [weak self] in
             guard let self = self else { return }
             self.viewModel.getOrganizationDetail(id: self.viewModel.organizations[indexPath.row].id ?? 0)
+            FusionNetwork.getOrganizationReport(id: self.viewModel.organizations[indexPath.row].id ?? 0) { response in
+                var donePercentage = 0
+                if let total = response.monitor?.total {
+                    if total == 0 {
+                        
+                    } else {
+                        donePercentage = (response.monitor?.done ?? 0) / (response.monitor?.total ?? 0)
+                    }
+                }
+                let vc = FusionOrganizationDetailViewController(donePercentage: donePercentage, done: response.monitor?.done ?? 0, notDone: response.monitor?.notDone ?? 0, total: response.monitor?.total ?? 0)
+                self.pushMeTo(vc, animated: true)
+            } onError: { error in
+                
+            }
         }
         return cell
     }

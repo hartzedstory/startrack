@@ -10,9 +10,16 @@ import SwiftJWT
 
 class ViewController: UIViewController {
     let authManager = AuthManager()
+    @IBOutlet weak var btnLoginWithMicrosoft: UIButton!
+    @IBOutlet weak var btnLoginWithGoogle: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        btnLoginWithMicrosoft.layer.borderWidth = 1
+        btnLoginWithMicrosoft.layer.borderColor = UIColor(hex: "#007AFF", alpha: 1).cgColor
+        btnLoginWithMicrosoft.layer.cornerRadius = 30
+        
+        btnLoginWithMicrosoft.isHidden = true
     }
     
     

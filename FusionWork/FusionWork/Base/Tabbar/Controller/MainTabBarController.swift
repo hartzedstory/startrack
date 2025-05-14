@@ -60,13 +60,18 @@ private extension MainTabBarController {
         switch type {
         case .task:
             vc = FusionTaskViewController()
+            
         case .project:
             vc = FusionProjectViewController()
         case .organization:
             vc = FusionOrganizationViewController()
         }
-        return vc
+        let navBar = UINavigationController(rootViewController: vc)
+        AppRouter.navigationController = navBar
+        navBar.setNavigationBarHidden(true, animated: true)
+        return navBar
     }
+
 }
 
 extension MainTabBarController: TabBarControllerProtocol {}

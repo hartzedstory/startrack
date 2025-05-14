@@ -13,9 +13,7 @@ class FusionProjectViewController: UIViewController {
     @IBOutlet weak var btnSelectOrg: UIButton!
     @IBOutlet weak var tableView: UITableView!
     var indexPathRowExpanded: Set<IndexPath> = []
-    var mockNumber = [1,2,3,4,5]
-    var mockOrg = ["FusionTech JSC", "VNPAY JSC"]
-
+    var viewModel = FusionProjectViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -24,9 +22,20 @@ class FusionProjectViewController: UIViewController {
     private func setupUI() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.isHidden = true
         tableView.register(UINib(nibName: "FusionTaskTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "cell")
         self.configAddDropDown()
-        self.configSelectOrgDropDown()
+        self.viewModel.getOrganization { [weak self] in
+            guard let self = self else { return }
+            self.lblOrgName.text = self.viewModel.organizations.first?.name ?? ""
+            self.viewModel.selectedOrganization = self.viewModel.organizations.first
+            self.configSelectOrgDropDown()
+            self.viewModel.getListProject {
+                self.tableView.reloadData()
+                self.tableView.isHidden = false
+            }
+        }
+        
 
     }
     
@@ -48,10 +57,15 @@ class FusionProjectViewController: UIViewController {
     
     private func configSelectOrgDropDown() {
         var elements: [UIAction] = []
-        mockOrg.forEach { name in
-            let option = UIAction(title: name, image: nil) { [weak self] action in
+        self.viewModel.organizations.forEach { item in
+            let option = UIAction(title: item.name ?? "", image: nil) { [weak self] action in
                 guard let self = self else { return }
-                self.lblOrgName.text = name
+                self.lblOrgName.text = item.name ?? ""
+                self.viewModel.selectedOrganization = item
+                //TODO: Call API get list task here
+                self.viewModel.getListProject {
+                    self.tableView.reloadData()
+                }
             }
             elements.append(option)
         }
@@ -61,14 +75,22 @@ class FusionProjectViewController: UIViewController {
     }
     
     private func addNew(kind: AddNewType) {
-        let vc = FusionAddNewViewController(kind)
+        let vc = FusionAddNewViewController(kind, organizationID: self.viewModel.selectedOrganization?.id)
+        vc.viewModel.selectedOrganization = self.viewModel.selectedOrganization ?? OrganizationModel()
+        vc.viewModel.projects = self.viewModel.projects
         vc.modalPresentationStyle = .fullScreen
+        vc.addCompletion = { [weak self] in
+            guard let self = self else { return }
+            self.viewModel.getListProject {
+                self.tableView.reloadData()
+            }
+        }
         self.present(vc, animated: true)
     }
 }
 extension FusionProjectViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mockNumber.count
+        return viewModel.projects.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -77,7 +99,12 @@ extension FusionProjectViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! FusionTaskTableViewCell
-        cell.isHasSubTask = true
+        if self.viewModel.projects[indexPath.row].taskInfos?.count ?? 0 > 0 {
+            cell.isHasSubTask = true
+        } else {
+            cell.isHasSubTask = false
+        }
+        
         cell.selectionStyle = .none
         cell.closure = { [weak self] in
             guard let self = self else { return }
@@ -93,6 +120,17 @@ extension FusionProjectViewController: UITableViewDelegate, UITableViewDataSourc
                 self.tableView.endUpdates()
             }
         }
+        
+        cell.tapDone = { [weak self] in
+            guard let self = self else { return }
+            self.viewModel.deleteProject(id: self.viewModel.projects[indexPath.row].id ?? 0) {
+                
+            }
+            self.viewModel.projects.remove(at: indexPath.row)
+            //Delete row at tableview
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+        cell.bindingData(model: self.viewModel.projects[indexPath.row])
         return cell
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -104,7 +142,10 @@ extension FusionProjectViewController: UITableViewDelegate, UITableViewDataSourc
         let deleteAction = UIContextualAction(style: .destructive, title: nil) { _, _, completion in
             //Remove data array
             //TODO:
-            self.mockNumber.remove(at: indexPath.row)
+            self.viewModel.deleteProject(id: self.viewModel.projects[indexPath.row].id ?? 0) {
+                
+            }
+            self.viewModel.projects.remove(at: indexPath.row)
             //Delete row at tableview
             tableView.deleteRows(at: [indexPath], with: .automatic)
 
