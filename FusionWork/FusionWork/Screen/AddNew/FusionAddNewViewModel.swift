@@ -72,5 +72,7 @@ class FusionAddNewViewModel: NSObject {
         FusionNetwork.createProject(projModel: model, onSucces: onSucces, onError: onError)
     }
     
-    
+    internal func createTask(model: TaskInitializeModel,onSucces: @escaping((String) -> Void), onError: @escaping((String) -> Void)) {
+        FusionNetwork.createTask(model: model, onSucces: onSucces, onError: onError)
+    }
 }

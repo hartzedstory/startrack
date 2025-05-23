@@ -99,12 +99,7 @@ extension FusionProjectViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! FusionTaskTableViewCell
-        if self.viewModel.projects[indexPath.row].taskInfos?.count ?? 0 > 0 {
-            cell.isHasSubTask = true
-        } else {
-            cell.isHasSubTask = false
-        }
-        
+        cell.bindingData(model: self.viewModel.projects[indexPath.row])        
         cell.selectionStyle = .none
         cell.closure = { [weak self] in
             guard let self = self else { return }
@@ -130,7 +125,7 @@ extension FusionProjectViewController: UITableViewDelegate, UITableViewDataSourc
             //Delete row at tableview
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
-        cell.bindingData(model: self.viewModel.projects[indexPath.row])
+        
         return cell
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

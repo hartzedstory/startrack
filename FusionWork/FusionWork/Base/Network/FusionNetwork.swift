@@ -211,6 +211,57 @@ class FusionNetwork {
         }
     }
     
+    ///9: Delete project
+    public static func updateProject(id: Int, onSucces: @escaping(([ProjectModel]) -> Void), onError: @escaping((String) -> Void)) {
+        let path = "/v1/project/\(id)"
+        let header: HTTPHeaders = ["Authorization":"Bearer \(GlobalData.sharedInstance.access_token)"]
+        let method: HTTPMethod = .put
+        FusionLoading.show()
+
+        AF.request(
+            "\(self.rootURL)\(path)",
+            method: method,
+            headers: header
+        )
+        .validate()
+        .responseDecodable(of: ResponseModel<[ProjectModel]>.self) { response in
+            FusionLoading.hide()
+            switch response.result {
+            case .success(let result):
+                onSucces(result.data)
+            case .failure(let error):
+                onError(error.localizedDescription)
+            }
+        }
+    }
+    
+    ///10: Create task
+    public static func createTask(model: TaskInitializeModel, onSucces: @escaping((String) -> Void), onError: @escaping((String) -> Void)) {
+        let path = "/v1/task"
+        let header: HTTPHeaders = ["Authorization":"Bearer \(GlobalData.sharedInstance.access_token)"]
+        let method: HTTPMethod = .post
+        FusionLoading.show()
+
+        AF.request(
+            "\(self.rootURL)\(path)",
+            method: method,
+            parameters: model,
+            encoder: JSONParameterEncoder.default,
+            headers: header
+        )
+        .validate()
+        .responseString { response in
+            FusionLoading.hide()
+            switch response.result {
+            case .success(let res):
+                onSucces(res)
+            case .failure(let e):
+                onError(e.localizedDescription)
+            }
+        }
+    }
+    
+    
     private static func request(path: String, header: HTTPHeaders, parameter: Parameters, method: HTTPMethod, onSucces: @escaping((String) -> Void), onError: @escaping((String) -> Void)) {
         AF.request("\(self.rootURL)\(path)", method: method, parameters: parameter, headers: header)
             .validate()

@@ -34,9 +34,10 @@ class FusionProjectViewModel: NSObject {
         }
     }
     
+    
+    
     internal func deleteProject(id:Int, completion: @escaping(() -> Void)) {
         FusionNetwork.deleteProject(id: id) { model in
-            
             completion()
         } onError: { error in
     
@@ -44,5 +45,13 @@ class FusionProjectViewModel: NSObject {
 
     }
     
+    internal func updateProject(id:Int, completion: @escaping(() -> Void)) {
+        FusionNetwork.updateProject(id: id) { model in
+            completion()
+        } onError: { error in
+    
+        }
+
+    }
     
 }

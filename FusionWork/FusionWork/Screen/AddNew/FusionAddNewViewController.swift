@@ -99,11 +99,9 @@ class FusionAddNewViewController: UIViewController {
                     self.openDatePickerView()
                 }, delegate: self),
                 Spacer(height: 21),
-                AddMemberView("Member(s)", self.viewModel.organizationID ?? 0, delegate: self),
-                Spacer(height: 21),
                 StateView("Status", delegate: self),
                 Spacer(height: 21),
-                DescriptionView("Description", delegate: self),
+                AddSubTaskView("Sub-Task", delegate: self),
                 Spacer(height: 21)
             ]
             self.layoutStackView(arrView: arrAtomicView)
@@ -153,6 +151,22 @@ class FusionAddNewViewController: UIViewController {
 
             break
         case .task:
+            let model = TaskInitializeModel()
+            model.name = viewModel.taskName
+            model.projectId = viewModel.tempSelectProject.id
+            model.startDate = viewModel.dateStart
+            model.endDate = viewModel.dateEnd
+            model.priority = viewModel.priority.rawValue
+            model.subTasks = []
+            self.viewModel.createTask(model: model) { response in
+                if let action = self.addCompletion {
+                    action()
+                    self.dismiss(animated: true)
+                }
+            } onError: { error in
+                self.showAlert(message: error)
+            }
+
             break
         case .subtask:
             break
@@ -209,5 +223,11 @@ extension FusionAddNewViewController: FusionSelectPopupDelete {
     func selectedAtIndex(index: Int) {
         self.viewModel.tempSelectProject = self.viewModel.projects[index]
         (self.stackView.arrangedSubviews[2] as? FusionInputView)?.textField.text = self.viewModel.projects[index].name
+    }
+}
+
+extension FusionAddNewViewController: AddSubTaskViewDelegate {
+    func onShowDetailSubtask() {
+        
     }
 }

@@ -45,13 +45,6 @@ class FusionTaskTableViewCell: UITableViewCell {
             layout.itemSize = UICollectionViewFlowLayout.automaticSize
         }
         
-        if self.isHasSubTask {
-            
-        } else {
-            self.vSubTask.isHidden = true
-            self.vFirstLayer.isHidden = true
-            self.vSecondLayer.isHidden = true
-        }
         vFirstLayer.layer.cornerRadius = 20
         vSecondLayer.layer.cornerRadius = 20
         vMain.layer.cornerRadius = 20
@@ -62,7 +55,17 @@ class FusionTaskTableViewCell: UITableViewCell {
     func bindingData(model: ProjectModel) {
         self.lblTitle.text = model.name
         self.model = model
-        
+        if model.taskInfos?.count ?? 0 > 0 {
+            self.vSubTask.isHidden = false
+            self.vFirstLayer.isHidden = false
+            self.vSecondLayer.isHidden = false
+            self.isHasSubTask = true
+        } else {
+            self.vSubTask.isHidden = true
+            self.vFirstLayer.isHidden = true
+            self.vSecondLayer.isHidden = true
+            self.isHasSubTask = false
+        }
         let isoFormatter = DateFormatter()
         isoFormatter.locale = Locale(identifier: "en_US_POSIX")
         isoFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
@@ -111,15 +114,13 @@ class FusionTaskTableViewCell: UITableViewCell {
                 }
             } else {
                 self.vSubTask.isHidden = false
-                if let subtask = Bundle.main.loadNibNamed("SubtaskView", owner: self)?.first as? SubtaskView {
-                    let widthConstraint = subtask.heightAnchor.constraint(equalToConstant: 56)
-                    widthConstraint.isActive = true  // Activate the constraint
-                    subTaskStackView.addArrangedSubview(subtask)
-                }
-                if let subtask = Bundle.main.loadNibNamed("SubtaskView", owner: self)?.first as? SubtaskView {
-                    let widthConstraint = subtask.heightAnchor.constraint(equalToConstant: 56)
-                    widthConstraint.isActive = true  // Activate the constraint
-                    subTaskStackView.addArrangedSubview(subtask)
+                self.model?.taskInfos?.forEach { item in
+                    if let subtask = Bundle.main.loadNibNamed("SubtaskView", owner: self)?.first as? SubtaskView {
+                        let widthConstraint = subtask.heightAnchor.constraint(equalToConstant: 56)
+                        widthConstraint.isActive = true  // Activate the constraint
+                        subtask.setTitle(value: item.taskName ?? "")
+                        subTaskStackView.addArrangedSubview(subtask)
+                    }
                 }
                 self.vFirstLayer.backgroundColor = .white
                 self.vSecondLayer.backgroundColor = .white
