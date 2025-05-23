@@ -33,6 +33,12 @@ class ViewController: UIViewController {
             GlobalData.sharedInstance.access_token = access_token
             if let userClaim = JWTWorker.pareAccessTokene(access_token, toModel: UserClaimModel.self) {
                 GlobalData.sharedInstance.user = userClaim.accessUser ?? UserModel()
+                FusionNetwork.setDeviceID(userID: GlobalData.sharedInstance.user.userId ?? 0, deviceID: FCMTokenManager.getToken() ?? "") { response in
+                    print(response)
+                } onError: { error in
+                    print(error)
+                }
+
                 self.setupTabbar()
             }
         } onError: { error in
