@@ -12,6 +12,7 @@ import Firebase
 import FirebaseCore
 import FirebaseMessaging
 import FirebaseAppCheck
+import BackgroundTasks
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -54,6 +55,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         } else {
             print("Token đã tồn tại: \(FCMTokenManager.savedToken!)")
+        }
+        
+        BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.vn.imagination.fusionwork.refresh", using: nil) { task in
+            // Xử lý background task ở đây
+            task.setTaskCompleted(success: true)
         }
         
         return true
