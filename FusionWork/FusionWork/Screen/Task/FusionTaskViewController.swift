@@ -9,23 +9,119 @@ import UIKit
 
 class FusionTaskViewController: UIViewController {
 
+    @IBOutlet private weak var textField: UITextField!
     @IBOutlet private weak var tableView: UITableView!
     var indexPathRowExpanded: Set<IndexPath> = []
-    var mockNumber = [1,2,3,4,5]
+    var viewModel = FusionTaskViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        let queryModel = SortingModel()
+        queryModel.page = 0
+        queryModel.size = 50
+        viewModel.getTask(sorting: queryModel, start: getCurrentUTCDateString(), end: getCurrentUTCDateString()) {
+            self.tableView.reloadData()
+            self.tableView.isHidden = false
+        }
+    }
+    
+    func getCurrentUTCDateString() -> String {
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
+        formatter.timeZone = TimeZone(abbreviation: "UTC")
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        return formatter.string(from: date)
     }
     
     private func setupUI() {
+        hideKeyboardWhenTappedAround()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "FusionTaskTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "cell")
+        tableView.isHidden = true
+        configUIDatePicker()
+    }
+    
+    private func configUIDatePicker() {
+        let datePicker = UIDatePicker()
+        if #available(iOS 13.4, *) {
+            datePicker.preferredDatePickerStyle = .inline
+        }
+        datePicker.datePickerMode = .date
+        datePicker.addTarget(self, action: #selector(dateChanged), for: .valueChanged)
+        
+        let container = UIView(frame: .init(x: 0, y: 0, width: 0, height: 0))
+        container.addSubview(datePicker)
+        datePicker.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            datePicker.bottomAnchor.constraint(equalTo: container.safeAreaLayoutGuide.bottomAnchor),
+            datePicker.topAnchor.constraint(equalTo: container.safeAreaLayoutGuide.topAnchor),
+            datePicker.leadingAnchor.constraint(equalTo: container.safeAreaLayoutGuide.leadingAnchor),
+            datePicker.trailingAnchor.constraint(equalTo: container.safeAreaLayoutGuide.trailingAnchor),
+        ])
+        textField.inputView = datePicker
+    }
+    
+    @objc private func dateChanged(_ sender: UIDatePicker) {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.dateFormat = "dd/MM/yyyy HH:mm"
+        textField.text = formatter.string(from: sender.date)
+        
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "dd/MM/yyyy HH:mm" // format bạn đã dùng để hiển thị
+        inputFormatter.timeZone = TimeZone.current
+        
+        let outputFormatter = DateFormatter()
+        outputFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
+        outputFormatter.timeZone = TimeZone(secondsFromGMT: 0) // quan trọng để ra "Z" (UTC)
+
+        if let date = inputFormatter.date(from: textField.text ?? "") {
+
+            let result = outputFormatter.string(from: date) ///--> Dùng để request
+            let queryModel = SortingModel(page: 0, size: 50)
+            viewModel.getTask(sorting: queryModel, start: getCurrentUTCDateString(), end: result) {
+                self.tableView.reloadData()
+            }
+            print(result)
+        } else {
+            print("⛔️ Không thể chuyển text sang ngày")
+        }
+        
+        if let displayDate = inputFormatter.date(from: textField.text ?? "") {
+            let outputFormatter = DateFormatter()
+            outputFormatter.dateFormat = "dd/MM/yyyy"
+            outputFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+
+            let result = outputFormatter.string(from: displayDate)
+            print(result)
+            self.textField.text = compareToToday(date: displayDate)
+        } else {
+            print("⛔️ Không thể chuyển text sang ngày")
+        }
+    }
+    
+    
+    func compareToToday(date: Date) -> String {
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: Date())
+        let inputDate = calendar.startOfDay(for: date)
+        if inputDate == today {
+            return "Today"
+        } else if let tomorrow = calendar.date(byAdding: .day, value: 1, to: today),
+                  inputDate == tomorrow {
+            return "Tomorrow"
+        } else {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd/MM/yyyy"
+            return formatter.string(from: date)
+        }
     }
 }
 extension FusionTaskViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mockNumber.count
+        return viewModel.listTask.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -60,8 +156,8 @@ extension FusionTaskViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: nil) { _, _, completion in
             //Remove data array
-            //TODO:
-            self.mockNumber.remove(at: indexPath.row)
+            //TODO: CallAPI to remove
+            self.viewModel.listTask.remove(at: indexPath.row)
             //Delete row at tableview
             tableView.deleteRows(at: [indexPath], with: .automatic)
 

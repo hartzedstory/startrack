@@ -50,7 +50,13 @@ class ProjectInitializeModel: Codable {
     var organizationId: Int?
 }
 
-class ProjectSortingModel: Codable{
+class SortingModel: Codable{
+    init(page: Int? = nil, size: Int? = nil, sort: [String]? = nil) {
+        self.page = page
+        self.size = size
+        self.sort = sort
+    }
+    
     var page: Int?
     var size: Int?
     var sort: [String]?

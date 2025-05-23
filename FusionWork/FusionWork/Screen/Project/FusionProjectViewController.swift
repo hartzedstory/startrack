@@ -118,7 +118,21 @@ extension FusionProjectViewController: UITableViewDelegate, UITableViewDataSourc
         
         cell.tapDone = { [weak self] in
             guard let self = self else { return }
-            self.viewModel.deleteProject(id: self.viewModel.projects[indexPath.row].id ?? 0) {
+            
+            let projectUpdateModel = ProjectInitializeModel()
+            projectUpdateModel.name = self.viewModel.projects[indexPath.row].name
+            projectUpdateModel.title = self.viewModel.projects[indexPath.row].name
+            projectUpdateModel.startDate = self.viewModel.projects[indexPath.row].startDate
+            projectUpdateModel.endDate = self.viewModel.projects[indexPath.row].endDate
+            projectUpdateModel.members = []
+            projectUpdateModel.status = "NEW"
+            projectUpdateModel.priority = self.viewModel.projects[indexPath.row].priority
+            projectUpdateModel.description = ""
+            projectUpdateModel.organizationId = self.viewModel.selectedOrganization?.id ?? 0
+            
+            
+            self.viewModel.updateProject(id: self.viewModel.projects[indexPath.row].id ?? 0, project: projectUpdateModel) {
+                
                 
             }
             self.viewModel.projects.remove(at: indexPath.row)

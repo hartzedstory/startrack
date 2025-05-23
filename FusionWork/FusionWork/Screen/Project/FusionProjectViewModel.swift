@@ -23,7 +23,7 @@ class FusionProjectViewModel: NSObject {
     }
     
     internal func getListProject(completion: @escaping(() -> Void)) {
-        let queryModel = ProjectSortingModel()
+        let queryModel = SortingModel()
         queryModel.page = 0
         queryModel.size = 50
         FusionNetwork.getListProject(pageable: queryModel, organizationId: self.selectedOrganization?.id ?? 0) { list in
@@ -45,13 +45,12 @@ class FusionProjectViewModel: NSObject {
 
     }
     
-    internal func updateProject(id:Int, completion: @escaping(() -> Void)) {
-        FusionNetwork.updateProject(id: id) { model in
+    internal func updateProject(id: Int, project: ProjectInitializeModel, completion: @escaping(() -> Void)) {
+        FusionNetwork.updateProject(id: id, project: project) { model in
             completion()
         } onError: { error in
     
         }
-
     }
-    
+
 }

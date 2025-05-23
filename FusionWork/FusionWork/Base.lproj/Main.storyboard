@@ -90,7 +90,7 @@
                                 </buttonConfiguration>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMa-lt-xVl">
-                                <rect key="frame" x="16" y="756" width="361" height="28"/>
+                                <rect key="frame" x="16" y="750" width="361" height="34"/>
                                 <attributedString key="attributedText">
                                     <fragment content="By">
                                         <attributes>
@@ -466,6 +466,13 @@ IAo
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SwI-Wv-Ouc">
+                                <rect key="frame" x="16" y="750" width="361" height="34"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="openTermAndCondition:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dy5-Xh-tUQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -481,21 +488,26 @@ IAo
                             <constraint firstItem="mA4-Wf-Fof" firstAttribute="top" secondItem="NVu-cu-sUJ" secondAttribute="bottom" constant="30" id="JE5-zh-2LD"/>
                             <constraint firstItem="dlx-wC-Gxw" firstAttribute="top" secondItem="b0h-NM-drA" secondAttribute="bottom" constant="30" id="OCS-zE-A1r"/>
                             <constraint firstItem="aFs-a3-7yq" firstAttribute="top" secondItem="ZMa-lt-xVl" secondAttribute="bottom" id="Odg-fS-cl1"/>
+                            <constraint firstItem="SwI-Wv-Ouc" firstAttribute="bottom" secondItem="ZMa-lt-xVl" secondAttribute="bottom" id="VI7-DJ-Dvz"/>
                             <constraint firstItem="NVu-cu-sUJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="VNm-Xf-JE2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ZMa-lt-xVl" secondAttribute="trailing" id="Z3O-pZ-cUu"/>
+                            <constraint firstItem="SwI-Wv-Ouc" firstAttribute="trailing" secondItem="ZMa-lt-xVl" secondAttribute="trailing" id="bu6-w3-BYy"/>
                             <constraint firstItem="Rvg-JE-Ja5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="40" id="eLA-dj-e5X"/>
+                            <constraint firstItem="SwI-Wv-Ouc" firstAttribute="top" secondItem="ZMa-lt-xVl" secondAttribute="top" id="fBt-Y4-ZRY"/>
                             <constraint firstItem="8O3-f9-cx9" firstAttribute="top" secondItem="Rvg-JE-Ja5" secondAttribute="bottom" id="ikR-mP-nD4"/>
                             <constraint firstItem="ZMa-lt-xVl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="mqm-1B-9Zh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NVu-cu-sUJ" secondAttribute="trailing" id="nhY-vt-5I2"/>
                             <constraint firstItem="dlx-wC-Gxw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="40" id="nqa-qd-QFv"/>
                             <constraint firstItem="Rvg-JE-Ja5" firstAttribute="top" secondItem="Ckm-Na-aoJ" secondAttribute="bottom" constant="26" id="xh7-VC-pcd"/>
                             <constraint firstItem="VOk-NK-R5k" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="40" id="yyq-Fr-wbZ"/>
+                            <constraint firstItem="SwI-Wv-Ouc" firstAttribute="leading" secondItem="ZMa-lt-xVl" secondAttribute="leading" id="z6N-z2-K9K"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yi1-gx-01D"/>
                     <connections>
                         <outlet property="btnLoginWithGoogle" destination="NVu-cu-sUJ" id="vHu-c7-gkw"/>
                         <outlet property="btnLoginWithMicrosoft" destination="mA4-Wf-Fof" id="eJj-zP-fhZ"/>
+                        <outlet property="lblTermAndCondition" destination="ZMa-lt-xVl" id="vNp-Xw-GL6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

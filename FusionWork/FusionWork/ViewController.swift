@@ -10,6 +10,8 @@ import SwiftJWT
 
 class ViewController: UIViewController {
     let authManager = AuthManager()
+    
+    @IBOutlet weak var lblTermAndCondition: UILabel!
     @IBOutlet weak var btnLoginWithMicrosoft: UIButton!
     @IBOutlet weak var btnLoginWithGoogle: UIButton!
     override func viewDidLoad() {
@@ -18,10 +20,8 @@ class ViewController: UIViewController {
         btnLoginWithMicrosoft.layer.borderWidth = 1
         btnLoginWithMicrosoft.layer.borderColor = UIColor(hex: "#007AFF", alpha: 1).cgColor
         btnLoginWithMicrosoft.layer.cornerRadius = 30
-        
         btnLoginWithMicrosoft.isHidden = true
     }
-    
     
     @IBAction func loginOnTap(_ sender: Any) {
         ///OAuth2 login
@@ -44,5 +44,10 @@ class ViewController: UIViewController {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             appDelegate.window?.rootViewController = MainTabBarController()
         }
+    }
+    @IBAction func openTermAndCondition(_ sender: Any) {
+        let webview = FusionWebView(inputURL: "https://imagination.vn/en/legalInformation")
+        webview.modalPresentationStyle = .formSheet
+        self.present(webview, animated: true)
     }
 }
