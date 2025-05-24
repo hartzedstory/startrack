@@ -60,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Xử lý background task ở đây
             task.setTaskCompleted(success: true)
         }
-        
+        UIApplication.shared.applicationIconBadgeNumber = 0
         return true
     }
     
@@ -69,6 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didReceiveRemoteNotification userInfo: [AnyHashable : Any],
                      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         Messaging.messaging().appDidReceiveMessage(userInfo)
+        print(userInfo)
         completionHandler(.newData)
     }
     
@@ -87,18 +88,45 @@ extension AppDelegate: MessagingDelegate, UNUserNotificationCenterDelegate {
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        let current = UIApplication.shared.applicationIconBadgeNumber
+        UIApplication.shared.applicationIconBadgeNumber = current + 1
         completionHandler([.banner, .list, .badge, .sound])
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
         NotificationCenter.default.post(name: Notification.Name("didReceiveRemoteNotification"), object: nil)
+        
+        let current = UIApplication.shared.applicationIconBadgeNumber
+        if current > 0 {
+            UIApplication.shared.applicationIconBadgeNumber = current - 1
+        } else {
+            UIApplication.shared.applicationIconBadgeNumber = 0
+        }
+        
         completionHandler()
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         Messaging.messaging().apnsToken = deviceToken
-        print("📱 APNs Token: \(deviceToken.map { String(format: "%02.2hhx", $0) }.joined())")
+    }
+}
 
+extension AppDelegate {
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        print("applicationDidBecomeActive")
+        UIApplication.shared.applicationIconBadgeNumber = 0
+    }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        print("applicationDidEnterBackground")
+    }
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        print("applicationWillEnterForeground")
+    }
+    
+    func applicationWillResignActive(_ application: UIApplication) {
+        print("applicationWillResignActive")
     }
 }
