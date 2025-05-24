@@ -12,6 +12,7 @@ import Firebase
 import FirebaseCore
 import FirebaseMessaging
 import FirebaseAppCheck
+import FirebaseAnalytics
 import BackgroundTasks
 
 @main
@@ -38,10 +39,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UNUserNotificationCenter.current().requestAuthorization(options: authOptions) {
             (granted, error) in
             guard granted else { return }
-            DispatchQueue.main.async {
-                application.registerForRemoteNotifications()
-            }
         }
+        application.registerForRemoteNotifications()
         
         if FCMTokenManager.savedToken == nil {
             Messaging.messaging().token { token, error in
@@ -65,28 +64,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        Messaging.messaging().apnsToken = deviceToken
-        print("📱 APNs Token: \(deviceToken.map { String(format: "%02.2hhx", $0) }.joined())")
-
-    }
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.banner, .list, .badge, .sound])
-    }
-    
-    
-    
-//    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
-//        let userInfo = response.notification.request.content.userInfo
-//
-//    }
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        let userInfo = response.notification.request.content.userInfo
-        NotificationCenter.default.post(name: Notification.Name("didReceiveRemoteNotification"), object: nil)
-        completionHandler()
-    }
     
     func application(_ application: UIApplication,
                      didReceiveRemoteNotification userInfo: [AnyHashable : Any],
@@ -107,5 +84,21 @@ extension AppDelegate: MessagingDelegate, UNUserNotificationCenterDelegate {
         if token != FCMTokenManager.savedToken {
             FCMTokenManager.save(token: token)
         }
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.banner, .list, .badge, .sound])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        let userInfo = response.notification.request.content.userInfo
+        NotificationCenter.default.post(name: Notification.Name("didReceiveRemoteNotification"), object: nil)
+        completionHandler()
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        Messaging.messaging().apnsToken = deviceToken
+        print("📱 APNs Token: \(deviceToken.map { String(format: "%02.2hhx", $0) }.joined())")
+
     }
 }
