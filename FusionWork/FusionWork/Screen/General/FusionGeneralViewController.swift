@@ -37,7 +37,7 @@ class FusionGeneralViewController: UIViewController {
     }
 
     @IBAction func logout(_ sender: Any) {
-        self.showAlert(title: "Logout", message: "Do you want to logout from your account?") {
+        self.showAlert(title: "Logout", message: "Do you want to logout from your account?. You have to open Fusion Work again due to privacy reason") {
             FusionNetwork.logout()
             exit(0)
         } onCancel: {
