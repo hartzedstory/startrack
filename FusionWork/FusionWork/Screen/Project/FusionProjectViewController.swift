@@ -125,7 +125,7 @@ extension FusionProjectViewController: UITableViewDelegate, UITableViewDataSourc
             projectUpdateModel.startDate = self.viewModel.projects[indexPath.row].startDate
             projectUpdateModel.endDate = self.viewModel.projects[indexPath.row].endDate
             projectUpdateModel.members = []
-            projectUpdateModel.status = "NEW"
+            projectUpdateModel.status = "DONE"
             projectUpdateModel.priority = self.viewModel.projects[indexPath.row].priority
             projectUpdateModel.description = ""
             projectUpdateModel.organizationId = self.viewModel.selectedOrganization?.id ?? 0

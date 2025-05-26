@@ -215,7 +215,7 @@ class FusionNetwork {
         }
     }
     
-    ///9: Delete project
+    ///9: Update project
     public static func updateProject(id: Int, project: ProjectInitializeModel, onSucces: @escaping(([ProjectModel]) -> Void), onError: @escaping((String) -> Void)) {
         let path = "/v1/project/\(id)"
         let header: HTTPHeaders = ["Authorization":"Bearer \(GlobalData.sharedInstance.access_token)"]
@@ -328,7 +328,7 @@ class FusionNetwork {
     }
     
     ///13: Post Logout
-    public static func logout() {
+    public static func logout(onSucess: @escaping(() -> Void), onError: @escaping(() -> Void)) {
         let path = "/v1/auth/logout"
         let header: HTTPHeaders = ["Authorization":"Bearer \(GlobalData.sharedInstance.access_token)" ]
         let method: HTTPMethod = .post
@@ -344,9 +344,9 @@ class FusionNetwork {
                 FusionLoading.hide()
                 switch response.result {
                 case .success(let res):
-                    print(res)
+                    onSucess()
                 case .failure(let e):
-                    print(e)
+                    onError()
                 }
             }
     }
