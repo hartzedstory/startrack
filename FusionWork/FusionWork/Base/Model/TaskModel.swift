@@ -8,7 +8,13 @@
 import Foundation
 
 class TaskModel: Codable {
-    
+    var status: String?
+    var endDate: String?
+    var startDate: String?
+    var organization: String?
+    var taskName: String?
+    var parentTag: String?
+    var subtaskList: [TaskModel]?
 }
 
 class TaskInitializeModel: Codable {

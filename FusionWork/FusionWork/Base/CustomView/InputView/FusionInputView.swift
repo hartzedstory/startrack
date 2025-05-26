@@ -16,6 +16,7 @@ class FusionInputView: UIView {
     @IBOutlet var vTextField: UIView!
     @IBOutlet var ivRightImage: UIImageView!
     @IBOutlet var textField: UITextField!
+    @IBOutlet weak var widthConstraintImage: NSLayoutConstraint!
     
     var inputType: AddInputFieldType?
     var onRightTap: (() -> Void)?
@@ -23,7 +24,7 @@ class FusionInputView: UIView {
 
     private let datePicker = UIDatePicker()
     
-    init(_ title: AddInputFieldType, _ image: UIImage?, onRightTap: (() -> Void)? = nil, delegate: UIViewController) {
+    init(_ title: AddInputFieldType, _ image: UIImage? = nil, onRightTap: (() -> Void)? = nil, delegate: UIViewController) {
         super.init(frame: .zero)
         commonInit()
         configure(title: title.rawValue, image: image, onRightTap: onRightTap, delegate: delegate)
@@ -36,7 +37,12 @@ class FusionInputView: UIView {
     
     private func configure(title: String, image: UIImage?, onRightTap: (() -> Void)?, delegate: UIViewController) {
         lblTitle.text = title
-        ivRightImage.image = image
+        if let _image = image {
+            ivRightImage.image = image
+        } else {
+            widthConstraintImage.constant = 0
+        }
+        
         self.onRightTap = onRightTap
         vTextField.layer.cornerRadius = 18
         self.delegate = delegate as? any FusionInputTextDelegate

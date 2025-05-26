@@ -12,6 +12,7 @@ class FusionProjectViewModel: NSObject {
     var organizations: [OrganizationModel] = []
     var selectedOrganization: OrganizationModel?
     var projects: [ProjectModel] = []
+    var filteredProject: [ProjectModel] = []
     internal func getOrganization(completion: @escaping(() -> Void)) {
         FusionNetwork.getOrganization { response in
             print("-----------DATA---------")
@@ -27,7 +28,12 @@ class FusionProjectViewModel: NSObject {
         queryModel.page = 0
         queryModel.size = 50
         FusionNetwork.getListProject(pageable: queryModel, organizationId: self.selectedOrganization?.id ?? 0) { list in
-            self.projects = list
+            self.projects = list.filter({ item in
+                item.status == "NEW" || item.status == "IN_PROGRESS"
+            })
+            self.filteredProject = list.filter({ item in
+                item.status == "NEW" || item.status == "IN_PROGRESS"
+            })
             completion()
         } onError: { error in
             
@@ -45,8 +51,8 @@ class FusionProjectViewModel: NSObject {
 
     }
     
-    internal func updateProject(id: Int, project: ProjectInitializeModel, completion: @escaping(() -> Void)) {
-        FusionNetwork.updateProject(id: id, project: project) { model in
+    internal func updateProject(id: Int, status: GlobalStatus, completion: @escaping(() -> Void)) {
+        FusionNetwork.updateProjectStatus(id: id, status: status) { model in
             completion()
         } onError: { error in
     

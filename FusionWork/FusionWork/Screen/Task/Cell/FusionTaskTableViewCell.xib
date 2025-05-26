@@ -26,18 +26,19 @@
                                     <constraint firstAttribute="width" constant="24" id="ibE-5Y-9Bi"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="yeL-ZT-drd">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jPd-ZV-9GB">
                                 <rect key="frame" x="0.0" y="62" width="288" height="354"/>
-                            </stackView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="yeL-ZT-drd" secondAttribute="bottom" id="2rr-Hm-K11"/>
-                            <constraint firstItem="yeL-ZT-drd" firstAttribute="top" secondItem="pie-Uj-4Rc" secondAttribute="bottom" id="Atl-gs-6Hg"/>
+                            <constraint firstItem="jPd-ZV-9GB" firstAttribute="leading" secondItem="SBP-ZE-llh" secondAttribute="leading" id="5dA-Jn-Wdr"/>
                             <constraint firstItem="pie-Uj-4Rc" firstAttribute="centerX" secondItem="SBP-ZE-llh" secondAttribute="centerX" id="LOi-41-gGB"/>
                             <constraint firstItem="pie-Uj-4Rc" firstAttribute="top" secondItem="SBP-ZE-llh" secondAttribute="top" constant="38" id="YMH-mN-jaa"/>
-                            <constraint firstItem="yeL-ZT-drd" firstAttribute="leading" secondItem="SBP-ZE-llh" secondAttribute="leading" id="hZr-lY-Bcc"/>
-                            <constraint firstAttribute="trailing" secondItem="yeL-ZT-drd" secondAttribute="trailing" id="xlN-ar-TrP"/>
+                            <constraint firstAttribute="bottom" secondItem="jPd-ZV-9GB" secondAttribute="bottom" id="aId-MW-8cf"/>
+                            <constraint firstItem="jPd-ZV-9GB" firstAttribute="top" secondItem="pie-Uj-4Rc" secondAttribute="bottom" id="fSb-dn-G7Y"/>
+                            <constraint firstAttribute="trailing" secondItem="jPd-ZV-9GB" secondAttribute="trailing" id="jPm-Zm-3uB"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EMb-FI-suO">
@@ -65,7 +66,7 @@
                                         <rect key="frame" x="41" y="12" width="227" height="66"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thiết kế giao diện" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mVq-wF-FBf">
-                                                <rect key="frame" x="0.0" y="0.0" width="134" height="16"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="134" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -78,10 +79,10 @@
                                                 </constraints>
                                             </imageView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ic3-vS-qpr">
-                                                <rect key="frame" x="0.0" y="24" width="227" height="20"/>
+                                                <rect key="frame" x="0.0" y="44" width="227" height="0.0"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="20" id="Hq2-aL-50Y"/>
+                                                    <constraint firstAttribute="height" id="Hq2-aL-50Y"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="6" id="Em8-Gn-azE">
                                                     <size key="itemSize" width="20" height="20"/>
@@ -169,7 +170,10 @@
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jgf-dP-McY">
-                        <rect key="frame" x="21" y="0.0" width="288" height="486"/>
+                        <rect key="frame" x="21" y="0.0" width="288" height="90"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="90" id="M59-TV-0vt"/>
+                        </constraints>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <connections>
                             <action selector="actionOnTap:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="eZC-af-vcw"/>
@@ -190,7 +194,6 @@
                     <constraint firstItem="SBP-ZE-llh" firstAttribute="top" secondItem="EMb-FI-suO" secondAttribute="bottom" constant="-40" id="6le-O5-dWE"/>
                     <constraint firstItem="ix1-9E-NmT" firstAttribute="top" secondItem="ije-GD-htM" secondAttribute="top" id="Cey-QC-em4"/>
                     <constraint firstItem="ix1-9E-NmT" firstAttribute="centerY" secondItem="ije-GD-htM" secondAttribute="centerY" id="DEZ-I0-ozj"/>
-                    <constraint firstAttribute="bottom" secondItem="jgf-dP-McY" secondAttribute="bottom" constant="10" id="DwR-TY-EcQ"/>
                     <constraint firstItem="EMb-FI-suO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="21" id="Gf8-3q-xyD"/>
                     <constraint firstItem="SBP-ZE-llh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="21" id="J1z-Z4-wJ7"/>
                     <constraint firstItem="jgf-dP-McY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="21" id="JT9-Jq-XYH"/>
@@ -212,7 +215,7 @@
                 <outlet property="lblPeriod" destination="fFx-7i-JXr" id="8rI-PX-jcr"/>
                 <outlet property="lblTimeline" destination="P88-Xa-SY3" id="dJv-7Z-JbK"/>
                 <outlet property="lblTitle" destination="mVq-wF-FBf" id="pay-Tv-HhA"/>
-                <outlet property="subTaskStackView" destination="yeL-ZT-drd" id="7hL-N9-3pd"/>
+                <outlet property="subtaskTableView" destination="jPd-ZV-9GB" id="K8B-t2-7RV"/>
                 <outlet property="vFirstLayer" destination="X1J-SL-O4A" id="aIW-qN-HMJ"/>
                 <outlet property="vMain" destination="64P-Mj-b9X" id="Nh2-H1-1CN"/>
                 <outlet property="vPriority" destination="mfd-7H-DTt" id="SRa-qW-xss"/>

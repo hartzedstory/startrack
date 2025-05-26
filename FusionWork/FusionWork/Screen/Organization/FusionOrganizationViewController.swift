@@ -70,7 +70,7 @@ extension FusionOrganizationViewController: UITableViewDelegate, UITableViewData
                         donePercentage = (response.monitor?.done ?? 0) / (response.monitor?.total ?? 0)
                     }
                 }
-                let vc = FusionOrganizationDetailViewController(donePercentage: donePercentage, done: response.monitor?.done ?? 0, notDone: response.monitor?.notDone ?? 0, total: response.monitor?.total ?? 0)
+                let vc = FusionOrganizationDetailViewController(donePercentage: donePercentage, done: response.monitor?.done ?? 0, notDone: response.monitor?.notDone ?? 0, total: response.monitor?.total ?? 0, orgName: self.viewModel.organizations[indexPath.row].name ?? "")
                 self.pushMeTo(vc, animated: true)
             } onError: { error in
                 
@@ -79,5 +79,24 @@ extension FusionOrganizationViewController: UITableViewDelegate, UITableViewData
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: nil) { _, _, completion in
+            
+            //Delete row at tableview
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+
+            completion(true)
+        }
+        deleteAction.image = UIImage(named: "ic_delete")
+        deleteAction.backgroundColor = UIColor(hexString: "#F6F6F6")
+        
+        let config = UISwipeActionsConfiguration(actions: [deleteAction])
+        return config
+    }
     
 }

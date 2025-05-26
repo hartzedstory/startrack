@@ -12,6 +12,8 @@ class FusionProjectViewController: UIViewController {
     @IBOutlet weak var btnAdd: UIButton!
     @IBOutlet weak var btnSelectOrg: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var vSearchBox: SearchBox!
+    @IBOutlet var widthConstraintSearchBox: NSLayoutConstraint!
     var indexPathRowExpanded: Set<IndexPath> = []
     var viewModel = FusionProjectViewModel()
     override func viewDidLoad() {
@@ -35,7 +37,8 @@ class FusionProjectViewController: UIViewController {
                 self.tableView.isHidden = false
             }
         }
-        
+        hideKeyboardWhenTappedAround()
+        self.vSearchBox.delegate = self
 
     }
     
@@ -87,10 +90,17 @@ class FusionProjectViewController: UIViewController {
         }
         self.present(vc, animated: true)
     }
+    
+    @IBAction func openSearchOnTap(_ sender: Any) {
+        UIView.animate(withDuration: 0.25) {
+            self.widthConstraintSearchBox.constant = UIScreen.main.bounds.width - 20
+            self.view.layoutIfNeeded()
+        }
+    }
 }
 extension FusionProjectViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.projects.count
+        return viewModel.filteredProject.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -99,7 +109,7 @@ extension FusionProjectViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! FusionTaskTableViewCell
-        cell.bindingData(model: self.viewModel.projects[indexPath.row])        
+        cell.bindingData(model: self.viewModel.filteredProject[indexPath.row])
         cell.selectionStyle = .none
         cell.closure = { [weak self] in
             guard let self = self else { return }
@@ -118,24 +128,11 @@ extension FusionProjectViewController: UITableViewDelegate, UITableViewDataSourc
         
         cell.tapDone = { [weak self] in
             guard let self = self else { return }
-            
-            let projectUpdateModel = ProjectInitializeModel()
-            projectUpdateModel.name = self.viewModel.projects[indexPath.row].name
-            projectUpdateModel.title = self.viewModel.projects[indexPath.row].name
-            projectUpdateModel.startDate = self.viewModel.projects[indexPath.row].startDate
-            projectUpdateModel.endDate = self.viewModel.projects[indexPath.row].endDate
-            projectUpdateModel.members = []
-            projectUpdateModel.status = "DONE"
-            projectUpdateModel.priority = self.viewModel.projects[indexPath.row].priority
-            projectUpdateModel.description = ""
-            projectUpdateModel.organizationId = self.viewModel.selectedOrganization?.id ?? 0
-            
-            
-            self.viewModel.updateProject(id: self.viewModel.projects[indexPath.row].id ?? 0, project: projectUpdateModel) {
+            self.viewModel.updateProject(id: self.viewModel.filteredProject[indexPath.row].id ?? 0, status: .done) {
                 
                 
             }
-            self.viewModel.projects.remove(at: indexPath.row)
+            self.viewModel.filteredProject.remove(at: indexPath.row)
             //Delete row at tableview
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
@@ -151,10 +148,10 @@ extension FusionProjectViewController: UITableViewDelegate, UITableViewDataSourc
         let deleteAction = UIContextualAction(style: .destructive, title: nil) { _, _, completion in
             //Remove data array
             //TODO:
-            self.viewModel.deleteProject(id: self.viewModel.projects[indexPath.row].id ?? 0) {
+            self.viewModel.deleteProject(id: self.viewModel.filteredProject[indexPath.row].id ?? 0) {
                 
             }
-            self.viewModel.projects.remove(at: indexPath.row)
+            self.viewModel.filteredProject.remove(at: indexPath.row)
             //Delete row at tableview
             tableView.deleteRows(at: [indexPath], with: .automatic)
 
@@ -167,4 +164,23 @@ extension FusionProjectViewController: UITableViewDelegate, UITableViewDataSourc
         return config
     }
     
+}
+extension FusionProjectViewController: SearchBoxDelegate {
+    func onSearch(keyword: String) {
+        if keyword == "" {
+            self.viewModel.filteredProject = self.viewModel.projects
+        } else {
+            self.viewModel.filteredProject = self.viewModel.projects.filter { item in
+                (item.name ?? "").lowercased().contains(keyword.lowercased())
+            }
+        }
+        self.tableView.reloadData()
+    }
+    
+    func onCancel() {
+        UIView.animate(withDuration: 0.25) {
+            self.widthConstraintSearchBox.constant = 0
+            self.view.layoutIfNeeded()
+        }
+    }
 }

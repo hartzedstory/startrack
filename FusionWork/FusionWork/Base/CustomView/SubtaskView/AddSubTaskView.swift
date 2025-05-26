@@ -10,6 +10,7 @@ import UIKit
 
 protocol AddSubTaskViewDelegate: AnyObject {
     func onShowDetailSubtask()
+    func onPresentAddNewSubtask()
 }
 class AddSubTaskView: UIView {
     
@@ -52,7 +53,7 @@ class AddSubTaskView: UIView {
     }
     
     @IBAction func addSubtaskOnTap(_ sender: Any) {
-        
+        self.delegate?.onPresentAddNewSubtask()
     }
 }
 
@@ -67,6 +68,7 @@ extension AddSubTaskView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FusionAddSubtaskCell
+        cell.lblName.text = self.viewModel.subTaskList[indexPath.row].name
         cell.onDetail = { [weak self] in
             guard let self = self else { return }
             self.delegate?.onShowDetailSubtask()

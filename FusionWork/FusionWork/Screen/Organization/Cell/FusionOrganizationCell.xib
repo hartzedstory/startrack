@@ -44,9 +44,14 @@
                                     <constraint firstAttribute="height" constant="18" id="Vc3-Ir-7an"/>
                                     <constraint firstAttribute="width" constant="18" id="ol7-vz-VbE"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="9"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bích Đoàn" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oX1-n1-gjE">
-                                <rect key="frame" x="104.66666666666669" y="53.333333333333336" width="66.333333333333314" height="17.000000000000007"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Me" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oX1-n1-gjE">
+                                <rect key="frame" x="104.66666666666667" y="53.333333333333336" width="20" height="17.000000000000007"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -89,6 +94,7 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="ivCreator" destination="UnD-1P-CKt" id="Qgb-dJ-JiF"/>
                 <outlet property="lblCreator" destination="oX1-n1-gjE" id="3pX-4w-bQt"/>
                 <outlet property="lblName" destination="R5d-4j-7te" id="czE-44-z8q"/>
                 <outlet property="vMain" destination="p3p-oS-cdl" id="lde-nD-clL"/>

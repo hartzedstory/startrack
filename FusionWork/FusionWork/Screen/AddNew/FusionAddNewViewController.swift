@@ -7,6 +7,9 @@
 
 import UIKit
 
+protocol FusionAddNewViewDelegate: AnyObject {
+    func submitSubtask(subtask: SubtaskInitializeModel)
+}
 enum AddNewType: String {
     case project = "New Project"
     case task = "New Task"
@@ -26,6 +29,8 @@ class FusionAddNewViewController: UIViewController {
     
     var arrAtomicView: [UIView] = []
     var addCompletion: (() -> Void)?
+    var isAddSubtaskInside = false
+    var delegate: FusionAddNewViewDelegate?
     internal var addNewType: AddNewType = .task
     var viewModel = FusionAddNewViewModel()
     
@@ -51,9 +56,9 @@ class FusionAddNewViewController: UIViewController {
         switch forKind {
         case .project:
             self.arrAtomicView = [
-                FusionInputView(.projectName, UIImage(named: ""), delegate: self),
+                FusionInputView(.projectName, delegate: self),
                 Spacer(height: 21),
-                FusionInputView(.title, UIImage(named: ""), delegate: self),
+                FusionInputView(.title, delegate: self),
                 Spacer(height: 21),
                 FusionInputView(.dateStart, UIImage(named: "ic_calendar_small"), onRightTap: { [weak self] in
                     guard let self = self else { return }
@@ -69,11 +74,13 @@ class FusionAddNewViewController: UIViewController {
                 Spacer(height: 21),
                 StateView("Status", delegate: self),
                 Spacer(height: 21),
+                DescriptionView("Description", delegate: self),
+                Spacer(height: 21),
             ]
             self.layoutStackView(arrView: arrAtomicView)
         case .task:
             self.arrAtomicView = [
-                FusionInputView(.taskName, UIImage(named: ""), delegate: self),
+                FusionInputView(.taskName, delegate: self),
                 Spacer(height: 21),
                 FusionInputView(.projectName, UIImage(named: "ic_dropdown"), onRightTap: { [weak self] in
                     guard let self = self else { return }
@@ -106,12 +113,61 @@ class FusionAddNewViewController: UIViewController {
             ]
             self.layoutStackView(arrView: arrAtomicView)
         case .subtask:
+            if self.isAddSubtaskInside {
+                self.arrAtomicView = [
+                    FusionInputView(.taskName, delegate: self),
+                    Spacer(height: 21),
+                    FusionInputView(.dateStart, UIImage(named: "ic_calendar_small"), onRightTap: { [weak self] in
+                        guard let self = self else { return }
+                        self.openDatePickerView()
+                    }, delegate: self),
+                    Spacer(height: 21),
+                    FusionInputView(.dateEnd, UIImage(named: "ic_calendar_small"), onRightTap: { [weak self] in
+                        guard let self = self else { return }
+                        self.openDatePickerView()
+                    }, delegate: self),
+                    Spacer(height: 21),
+                    StateView("Status", delegate: self),
+                    Spacer(height: 21),
+                ]
+            } else {
+                self.arrAtomicView = [
+                FusionInputView(.taskName, delegate: self),
+                Spacer(height: 21),
+                FusionInputView(.projectName, UIImage(named: "ic_dropdown"), onRightTap: { [weak self] in
+                    guard let self = self else { return }
+                    let vc = FusionSelectPopupViewController()
+                    vc.modalPresentationStyle = .automatic
+                    
+                    var tempList: [String] = []
+                    self.viewModel.projects.forEach { item in
+                        tempList.append(item.name ?? "")
+                    }
+                    vc.delegate = self
+                    vc.dataSource = tempList
+                    self.present(vc, animated: true)
+                }, delegate: self),
+                Spacer(height: 21),
+                FusionInputView(.dateStart, UIImage(named: "ic_calendar_small"), onRightTap: { [weak self] in
+                    guard let self = self else { return }
+                    self.openDatePickerView()
+                }, delegate: self),
+                Spacer(height: 21),
+                FusionInputView(.dateEnd, UIImage(named: "ic_calendar_small"), onRightTap: { [weak self] in
+                    guard let self = self else { return }
+                    self.openDatePickerView()
+                }, delegate: self),
+                Spacer(height: 21),
+                StateView("Status", delegate: self),
+                Spacer(height: 21),
+                ]
+            }
             self.layoutStackView(arrView: arrAtomicView)
         case .organization:
             self.arrAtomicView = [
-                FusionInputView(.orgName, UIImage(named: ""), delegate: self),
+                FusionInputView(.orgName, delegate: self),
                 Spacer(height: 21),
-                FusionInputView(.orgOwner, UIImage(named: ""), delegate: self),
+                FusionInputView(.orgOwner, delegate: self),
                 Spacer(height: 21),
                 AddMemberView("Member(s)", self.viewModel.organizationID ?? 0, delegate: self),
                 Spacer(height: 21),
@@ -136,19 +192,19 @@ class FusionAddNewViewController: UIViewController {
             self.viewModel.memberList.forEach { member in
                 model.members?.append(member.id ?? 0)
             }
-            model.status = "NEW"
             model.priority = viewModel.priority.rawValue
             model.description = viewModel.descriptionText
             model.organizationId = viewModel.organizationID
-            self.viewModel.createProject(model: model) { response in
-                if let action = self.addCompletion {
-                    action()
-                    self.dismiss(animated: true)
+            if self.validateField(forKind: .project) {
+                self.viewModel.createProject(model: model) { response in
+                    if let action = self.addCompletion {
+                        action()
+                        self.dismiss(animated: true)
+                    }
+                } onError: { error in
+                    self.showAlert(message: error)
                 }
-            } onError: { error in
-                self.showAlert(message: error)
             }
-
             break
         case .task:
             let model = TaskInitializeModel()
@@ -157,18 +213,31 @@ class FusionAddNewViewController: UIViewController {
             model.startDate = viewModel.dateStart
             model.endDate = viewModel.dateEnd
             model.priority = viewModel.priority.rawValue
-            model.subTasks = []
-            self.viewModel.createTask(model: model) { response in
-                if let action = self.addCompletion {
-                    action()
-                    self.dismiss(animated: true)
+            model.subTasks = viewModel.listSubtask
+            if self.validateField(forKind: .task) {
+                self.viewModel.createTask(model: model) { response in
+                    if let action = self.addCompletion {
+                        action()
+                        self.dismiss(animated: true)
+                    }
+                } onError: { error in
+                    self.showAlert(message: error)
                 }
-            } onError: { error in
-                self.showAlert(message: error)
             }
-
             break
         case .subtask:
+            if isAddSubtaskInside {
+                let model = SubtaskInitializeModel()
+                model.name = viewModel.taskName
+                model.startDate = viewModel.dateStart
+                model.endDate = viewModel.dateEnd
+                model.priority = viewModel.priority.rawValue
+                if self.validateField(forKind: .subtask) {
+                    self.dismiss(animated: true) {
+                        self.delegate?.submitSubtask(subtask: model)
+                    }
+                }
+            }
             break
         case .organization:
             let model = OrganizationInitializeModel()
@@ -176,11 +245,13 @@ class FusionAddNewViewController: UIViewController {
             model.owner = viewModel.orgOwner
             model.userId = [GlobalData.sharedInstance.user.userId ?? 0]
             model.tasks = []
-            self.viewModel.createOrganization(model: model) { [weak self] in
-                guard let self = self else { return }
-                if let action = self.addCompletion {
-                    action()
-                    self.dismiss(animated: true)
+            if self.validateField(forKind: .organization) {
+                self.viewModel.createOrganization(model: model) { [weak self] in
+                    guard let self = self else { return }
+                    if let action = self.addCompletion {
+                        action()
+                        self.dismiss(animated: true)
+                    }
                 }
             }
         }
@@ -227,7 +298,24 @@ extension FusionAddNewViewController: FusionSelectPopupDelete {
 }
 
 extension FusionAddNewViewController: AddSubTaskViewDelegate {
+    func onPresentAddNewSubtask() {
+        let vc = FusionAddNewViewController(.subtask)
+        vc.modalPresentationStyle = .fullScreen
+        vc.isAddSubtaskInside = true
+        vc.delegate = self
+        self.present(vc, animated: true)
+    }
+    
     func onShowDetailSubtask() {
         
+    }
+}
+
+//MARK - Case add subtask inside
+extension FusionAddNewViewController: FusionAddNewViewDelegate {
+    func submitSubtask(subtask: SubtaskInitializeModel) {
+        self.viewModel.listSubtask.append(subtask)
+        (self.stackView.arrangedSubviews[10] as! AddSubTaskView).viewModel.subTaskList = self.viewModel.listSubtask
+        (self.stackView.arrangedSubviews[10] as! AddSubTaskView).tableView.reloadData()
     }
 }

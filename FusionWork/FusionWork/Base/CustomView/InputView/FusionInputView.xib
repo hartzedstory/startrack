@@ -13,6 +13,7 @@
                 <outlet property="lblTitle" destination="4MO-OW-jAa" id="Ipw-NH-j2c"/>
                 <outlet property="textField" destination="LWP-xH-QQL" id="Ejq-6v-Crv"/>
                 <outlet property="vTextField" destination="6xk-in-JEb" id="pOP-Bt-JE0"/>
+                <outlet property="widthConstraintImage" destination="A6g-hw-w4Z" id="k1f-WH-NNO"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

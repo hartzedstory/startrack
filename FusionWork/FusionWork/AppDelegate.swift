@@ -9,10 +9,6 @@ import UIKit
 import UserNotifications
 import AlamofireNetworkActivityLogger
 import Firebase
-import FirebaseCore
-import FirebaseMessaging
-import FirebaseAppCheck
-import FirebaseAnalytics
 import BackgroundTasks
 
 @main

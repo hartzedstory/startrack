@@ -34,6 +34,7 @@ class FusionAddNewViewModel: NSObject {
     internal var organizationID: Int?
     var selectedOrganization: OrganizationModel = OrganizationModel()
     var projects: [ProjectModel] = []
+    var listSubtask: [SubtaskInitializeModel] = []
     var tempSelectProject: ProjectModel = ProjectModel()
     internal func handleInputData(type: AddInputFieldType, value: String) {
         switch type {

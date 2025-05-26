@@ -9,6 +9,7 @@ import UIKit
 
 class FusionOrganizationCell: UITableViewCell {
 
+    @IBOutlet weak var ivCreator: UIImageView!
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblCreator: UILabel!
     @IBOutlet weak var vMain: UIView!
@@ -16,6 +17,7 @@ class FusionOrganizationCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         vMain.layer.cornerRadius = 20
+        ivCreator.sd_setImage(with: URL(string: GlobalData.sharedInstance.user.avatarUrl ?? ""))
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

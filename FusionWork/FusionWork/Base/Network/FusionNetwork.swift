@@ -215,18 +215,19 @@ class FusionNetwork {
         }
     }
     
-    ///9: Update project
-    public static func updateProject(id: Int, project: ProjectInitializeModel, onSucces: @escaping(([ProjectModel]) -> Void), onError: @escaping((String) -> Void)) {
+    ///9: Update project status
+    public static func updateProjectStatus(id: Int, status: GlobalStatus, onSucces: @escaping(([ProjectModel]) -> Void), onError: @escaping((String) -> Void)) {
         let path = "/v1/project/\(id)"
         let header: HTTPHeaders = ["Authorization":"Bearer \(GlobalData.sharedInstance.access_token)"]
-        let method: HTTPMethod = .put
+        let params: Parameters = ["status": status.rawValue]
+        let method: HTTPMethod = .patch
         FusionLoading.show()
 
         AF.request(
             "\(self.rootURL)\(path)",
             method: method,
-            parameters: project,
-            encoder: JSONParameterEncoder.default,
+            parameters: params,
+            encoding: JSONEncoding.default,
             headers: header
         )
         .validate()

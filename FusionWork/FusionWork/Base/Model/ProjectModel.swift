@@ -7,6 +7,11 @@
 
 import Foundation
 
+enum GlobalStatus: String {
+    case new = "NEW"
+    case inProgress = "IN_PROGRESS"
+    case done = "DONE"
+}
 class ProjectModel: Codable {
     var id: Int?
     var status: String?
@@ -44,7 +49,6 @@ class ProjectInitializeModel: Codable {
     var startDate: String?
     var endDate: String?
     var members: [Int]?
-    var status: String?
     var priority: String?
     var description: String?
     var organizationId: Int?

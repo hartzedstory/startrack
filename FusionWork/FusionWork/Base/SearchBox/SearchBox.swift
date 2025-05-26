@@ -8,16 +8,21 @@
 import Foundation
 import UIKit
 
+protocol SearchBoxDelegate: AnyObject {
+    func onCancel()
+    func onSearch(keyword: String)
+}
 class SearchBox: UIView {
     
     @IBOutlet weak var vSearchContainer: UIView!
     @IBOutlet weak var vContainer: UIView!
+    @IBOutlet weak var textField: UITextField!
+    var delegate: SearchBoxDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
         self.commonInit()
-        
-        self.vContainer.layer.cornerRadius = self.vContainer.frame.height / 2
-        self.vSearchContainer.layer.cornerRadius = self.vSearchContainer.frame.height / 2
+        self.vContainer.clipsToBounds = true
+        self.vSearchContainer.layer.cornerRadius = 16
         self.vSearchContainer.layer.borderWidth = 1
         self.vSearchContainer.layer.borderColor = UIColor(hex: "#EDEDED").cgColor
     }
@@ -31,8 +36,14 @@ class SearchBox: UIView {
         self.addSubview(view)
     }
     
-    override var intrinsicContentSize: CGSize {
-        return CGSize(width: UIView.noIntrinsicMetric, height: 42
-        )
+    @IBAction func onCancel(_ sender: Any) {
+        self.delegate?.onCancel()
     }
+    
+    @IBAction func onSearching(_ sender: Any) {
+        if let text = textField.text {
+            self.delegate?.onSearch(keyword: text)
+        }
+    }
+    
 }

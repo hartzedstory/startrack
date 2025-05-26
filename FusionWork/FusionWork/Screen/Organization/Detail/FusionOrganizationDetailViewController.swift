@@ -18,12 +18,13 @@ class FusionOrganizationDetailViewController: UIViewController {
     private var done: Int
     private var notDone: Int
     private var total: Int
-    
-    internal init(donePercentage: Int, done: Int, notDone: Int, total: Int) {
+    private var orgName: String
+    internal init(donePercentage: Int, done: Int, notDone: Int, total: Int, orgName: String) {
         self.donePercentage = donePercentage
         self.done = done
         self.notDone = notDone
         self.total = total
+        self.orgName = orgName
         super.init(nibName: "FusionOrganizationDetailViewController", bundle: Bundle.main)
     }
     
@@ -33,7 +34,7 @@ class FusionOrganizationDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.headerView.setTitle(title: "IMM. JSC")
+        self.headerView.setTitle(title: orgName)
         self.doneInTotal.text = String(format: "%d/%d", self.done, self.total)
         self.notDoneInTotal.text = String(format: "%d/%d", self.notDone, self.total)
         vProgress.setProgress(to: CGFloat(self.donePercentage))

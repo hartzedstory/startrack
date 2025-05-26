@@ -39,7 +39,6 @@ class FusionTaskViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "FusionTaskTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "cell")
-        tableView.isHidden = true
         configUIDatePicker()
     }
     
@@ -138,7 +137,7 @@ extension FusionTaskViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! FusionTaskTableViewCell
-        cell.isHasSubTask = true
+        cell.bindingData(model: self.viewModel.listTask[indexPath.row])
         cell.selectionStyle = .none
         cell.closure = { [weak self] in
             guard let self = self else { return }
