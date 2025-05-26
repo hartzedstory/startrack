@@ -327,6 +327,30 @@ class FusionNetwork {
             }
     }
     
+    ///13: Post Logout
+    public static func logout() {
+        let path = "/v1/auth/logout"
+        let header: HTTPHeaders = ["Authorization":"Bearer \(GlobalData.sharedInstance.access_token)" ]
+        let method: HTTPMethod = .post
+
+        FusionLoading.show()
+        
+        AF.request("\(self.rootURL)\(path)",
+                   method: method,
+                   encoding: JSONEncoding.default,
+                   headers: header)
+            .validate()
+            .responseString { response in
+                FusionLoading.hide()
+                switch response.result {
+                case .success(let res):
+                    print(res)
+                case .failure(let e):
+                    print(e)
+                }
+            }
+    }
+    
     private static func request(path: String, header: HTTPHeaders, parameter: Parameters, method: HTTPMethod, onSucces: @escaping((String) -> Void), onError: @escaping((String) -> Void)) {
         AF.request("\(self.rootURL)\(path)", method: method, parameters: parameter, headers: header)
             .validate()

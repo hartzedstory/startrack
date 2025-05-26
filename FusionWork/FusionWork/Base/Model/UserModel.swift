@@ -20,4 +20,5 @@ class UserModel: NSObject, Codable {
     var email: String?
     var name: String?
     var avatarUrl: String?
+    var phone: String?
 }

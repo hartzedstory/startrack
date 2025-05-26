@@ -41,6 +41,30 @@ extension UIViewController {
         }))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    func showAlert(
+        title: String = "Notification",
+        message: String,
+        confirmTitle: String = "Confirm",
+        cancelTitle: String = "Cancel",
+        onConfirm: (() -> Void)? = nil,
+        onCancel: (() -> Void)? = nil
+    ) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+
+        let confirmAction = UIAlertAction(title: confirmTitle, style: .default) { _ in
+            onConfirm?()
+        }
+
+        let cancelAction = UIAlertAction(title: cancelTitle, style: .cancel) { _ in
+            onCancel?()
+        }
+
+        alert.addAction(confirmAction)
+        alert.addAction(cancelAction)
+
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 extension Collection {

@@ -118,6 +118,14 @@ class FusionTaskViewController: UIViewController {
             return formatter.string(from: date)
         }
     }
+    @IBAction func showDatePicker(_ sender: Any) {
+        self.textField.becomeFirstResponder()
+    }
+     
+    @IBAction func openGeneralSetting(_ sender: Any) {
+        let vc = FusionGeneralViewController()
+        pushMeTo(vc, animated: true)
+    }
 }
 extension FusionTaskViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
