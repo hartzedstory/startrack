@@ -115,7 +115,7 @@ class FusionAddNewViewController: UIViewController {
         case .subtask:
             if self.isAddSubtaskInside {
                 self.arrAtomicView = [
-                    FusionInputView(.taskName, delegate: self),
+                    FusionInputView(.subTaskName, delegate: self),
                     Spacer(height: 21),
                     FusionInputView(.dateStart, UIImage(named: "ic_calendar_small"), onRightTap: { [weak self] in
                         guard let self = self else { return }
@@ -132,16 +132,18 @@ class FusionAddNewViewController: UIViewController {
                 ]
             } else {
                 self.arrAtomicView = [
-                FusionInputView(.taskName, delegate: self),
+                FusionInputView(.subTaskName, delegate: self),
                 Spacer(height: 21),
-                FusionInputView(.projectName, UIImage(named: "ic_dropdown"), onRightTap: { [weak self] in
+                FusionInputView(.taskName, UIImage(named: "ic_dropdown"), onRightTap: { [weak self] in
                     guard let self = self else { return }
                     let vc = FusionSelectPopupViewController()
                     vc.modalPresentationStyle = .automatic
                     
                     var tempList: [String] = []
                     self.viewModel.projects.forEach { item in
-                        tempList.append(item.name ?? "")
+                        item.taskInfos?.forEach { atomicItem in
+                            tempList.append(atomicItem.taskName ?? "")
+                        }
                     }
                     vc.delegate = self
                     vc.dataSource = tempList
@@ -228,7 +230,7 @@ class FusionAddNewViewController: UIViewController {
         case .subtask:
             if isAddSubtaskInside {
                 let model = SubtaskInitializeModel()
-                model.name = viewModel.taskName
+                model.name = viewModel.subTaskName
                 model.startDate = viewModel.dateStart
                 model.endDate = viewModel.dateEnd
                 model.priority = viewModel.priority.rawValue

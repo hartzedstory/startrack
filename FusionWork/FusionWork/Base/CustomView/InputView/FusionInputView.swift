@@ -71,7 +71,7 @@ class FusionInputView: UIView {
             let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donePressed))
             toolbar.setItems([doneButton], animated: true)
             textField.inputAccessoryView = toolbar
-        case .projectName, .taskName, .title, .orgName, .orgOwner:
+        case .projectName, .taskName, .subTaskName, .title, .orgName, .orgOwner:
             break
         case .inProject:
             break
@@ -151,7 +151,7 @@ class FusionInputView: UIView {
         switch inputType {
         case .dateStart, .dateEnd:
             break
-        case .projectName, .taskName, .title, .orgName, .orgOwner:
+        case .projectName, .taskName, .subTaskName, .title, .orgName, .orgOwner:
             self.delegate?.inputValue(type: self.inputType ?? .none, value: self.textField.text ?? "")
         case .inProject:
             break

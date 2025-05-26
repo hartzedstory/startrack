@@ -9,6 +9,7 @@ import Foundation
 enum AddInputFieldType: String {
     case projectName = "Project"
     case taskName = "Task"
+    case subTaskName = "Sub-task"
     case title = "Title"
     case dateStart = "Start date"
     case dateEnd = "End date"
@@ -25,6 +26,7 @@ class FusionAddNewViewModel: NSObject {
     var orgName = ""
     var orgOwner = ""
     var taskName = ""
+    var subTaskName = ""
     var none = ""
     
     
@@ -56,6 +58,8 @@ class FusionAddNewViewModel: NSObject {
             self.taskName = value
         case .inProject:
             self.projectName = value
+        case .subTaskName:
+            self.subTaskName = value
         }
     }
     

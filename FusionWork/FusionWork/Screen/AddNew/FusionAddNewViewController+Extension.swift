@@ -83,7 +83,7 @@ extension FusionAddNewViewController {
             
             return true
         case .subtask:
-            if (self.viewModel.taskName == "") {
+            if (self.viewModel.subTaskName == "") {
                 self.showAlert(message: "Sub-task name must not be empty")
                 return false
             }
