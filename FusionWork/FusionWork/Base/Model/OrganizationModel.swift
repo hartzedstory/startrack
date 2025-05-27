@@ -32,11 +32,21 @@ class MemberModel: NSObject, Codable {
 
 class OrganizationReportModel: NSObject, Codable {
     var monitor: OrganizationReportMonitorModel?
-    var tasks: [Int]?
+    var tasks: [OrganizationReportTaskModel]?
 }
 
 class OrganizationReportMonitorModel: NSObject, Codable {
     var total: Int?
     var done: Int?
     var notDone: Int?
+}
+
+class OrganizationReportTaskModel: NSObject, Codable {
+    var id: Int?
+    var name: String?
+    var permission: OrganizationReportPermissionModel?
+}
+
+class OrganizationReportPermissionModel: NSObject, Codable {
+    var views: [Int]?
 }

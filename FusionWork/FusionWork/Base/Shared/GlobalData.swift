@@ -10,4 +10,6 @@ class GlobalData: NSObject {
     static let sharedInstance = GlobalData()
     var user = UserModel()
     var access_token = ""
+    var notificationReadList: [NotificationModel] = []
+    var notificationUnReadList: [NotificationModel] = []
 }

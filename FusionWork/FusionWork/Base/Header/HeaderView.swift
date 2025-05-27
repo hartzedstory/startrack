@@ -13,6 +13,7 @@ class HeaderView: UIView {
     @IBOutlet private var title: UILabel!
     @IBOutlet private var ivRight: UIImageView!
     @IBOutlet private var ivLeft: UIImageView!
+    @IBOutlet private weak var vRight: UIView!
     
     var onHandleLeft: (() -> Void)?
     var onHandleRight: (() -> Void)?
@@ -34,6 +35,11 @@ class HeaderView: UIView {
         view.frame = self.bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.addSubview(view)
+    }
+    
+    func hideRightImage() {
+        self.ivRight.isHidden = true
+        self.vRight.isHidden = true
     }
     
     @IBAction func onPressLeft(_ sender: Any) {

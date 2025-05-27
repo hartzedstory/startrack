@@ -58,5 +58,7 @@ class FusionProjectViewModel: NSObject {
     
         }
     }
-
+    
+    internal func updateTask(id: Int, status: GlobalStatus, completion: @escaping(() -> Void)) {
+    }
 }

@@ -9,6 +9,9 @@ import UIKit
 
 class FusionOrganizationViewController: UIViewController {
 
+    @IBOutlet var widthConstraintSearchBox: NSLayoutConstraint!
+    @IBOutlet weak var vSearchBox: SearchBox!
+    @IBOutlet weak var lblNoti: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     var viewModel = FusionOrganizationViewModel()
@@ -25,8 +28,16 @@ class FusionOrganizationViewController: UIViewController {
         self.tableView.register(UINib(nibName: "FusionOrganizationCell", bundle: Bundle.main), forCellReuseIdentifier: "cell")
         self.viewModel.getOrganization { [weak self] in
             guard let self = self else { return }
-            self.tableView.reloadData()
+            if self.viewModel.organizations.count == 0 {
+                self.lblNoti.isHidden = false
+                self.tableView.isHidden = true
+                self.lblNoti.text = "You have no organization currently. Create one by clicking on the button above."
+            } else {
+                self.lblNoti.isHidden = true
+                self.tableView.reloadData()
+            }
         }
+        self.vSearchBox.delegate = self
     }
 
     @IBAction func addOnTap(_ sender: Any) {
@@ -39,10 +50,23 @@ class FusionOrganizationViewController: UIViewController {
         vc.addCompletion = { [weak self] in
             guard let self = self else { return }
             self.viewModel.getOrganization {
-                self.tableView.reloadData()
+                if self.viewModel.organizations.count == 0 {
+                    self.lblNoti.isHidden = false
+                    self.tableView.isHidden = true
+                    self.lblNoti.text = "You have no organization currently. Create one by clicking on the button above."
+                } else {
+                    self.lblNoti.isHidden = true
+                    self.tableView.reloadData()
+                }
             }
         }
         self.present(vc, animated: true)
+    }
+    @IBAction func openSearchBox(_ sender: Any) {
+        UIView.animate(withDuration: 0.25) {
+            self.widthConstraintSearchBox.constant = UIScreen.main.bounds.width - 18
+            self.view.layoutIfNeeded()
+        }
     }
 }
 
@@ -52,16 +76,16 @@ extension FusionOrganizationViewController: UITableViewDelegate, UITableViewData
         UITableView.automaticDimension
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.viewModel.organizations.count
+        return self.viewModel.filteredOrganizations.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FusionOrganizationCell
-        cell.lblName.text = self.viewModel.organizations[indexPath.row].name
+        cell.lblName.text = self.viewModel.filteredOrganizations[indexPath.row].name
         cell.closure = { [weak self] in
             guard let self = self else { return }
-            self.viewModel.getOrganizationDetail(id: self.viewModel.organizations[indexPath.row].id ?? 0)
-            FusionNetwork.getOrganizationReport(id: self.viewModel.organizations[indexPath.row].id ?? 0) { response in
+            self.viewModel.getOrganizationDetail(id: self.viewModel.filteredOrganizations[indexPath.row].id ?? 0)
+            FusionNetwork.getOrganizationReport(id: self.viewModel.filteredOrganizations[indexPath.row].id ?? 0) { response in
                 var donePercentage = 0
                 if let total = response.monitor?.total {
                     if total == 0 {
@@ -70,7 +94,7 @@ extension FusionOrganizationViewController: UITableViewDelegate, UITableViewData
                         donePercentage = (response.monitor?.done ?? 0) / (response.monitor?.total ?? 0)
                     }
                 }
-                let vc = FusionOrganizationDetailViewController(donePercentage: donePercentage, done: response.monitor?.done ?? 0, notDone: response.monitor?.notDone ?? 0, total: response.monitor?.total ?? 0, orgName: self.viewModel.organizations[indexPath.row].name ?? "")
+                let vc = FusionOrganizationDetailViewController(donePercentage: donePercentage, done: response.monitor?.done ?? 0, notDone: response.monitor?.notDone ?? 0, total: response.monitor?.total ?? 0, orgName: self.viewModel.filteredOrganizations[indexPath.row].name ?? "")
                 self.pushMeTo(vc, animated: true)
             } onError: { error in
                 
@@ -99,4 +123,24 @@ extension FusionOrganizationViewController: UITableViewDelegate, UITableViewData
         return config
     }
     
+}
+
+extension FusionOrganizationViewController: SearchBoxDelegate {
+    func onCancel() {
+        UIView.animate(withDuration: 0.25) {
+            self.widthConstraintSearchBox.constant = 0
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func onSearch(keyword: String) {
+        if keyword == "" {
+            self.viewModel.filteredOrganizations = self.viewModel.organizations
+        } else {
+            self.viewModel.filteredOrganizations = self.viewModel.organizations.filter { item in
+                (item.name ?? "").lowercased().contains(keyword.lowercased())
+            }
+        }
+        self.tableView.reloadData()
+    }
 }

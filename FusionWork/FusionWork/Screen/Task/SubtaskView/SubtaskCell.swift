@@ -14,6 +14,9 @@ class SubtaskCell: UITableViewCell {
     @IBOutlet weak var vMain: UIView!
     @IBOutlet weak var ivCheck: UIImageView!
     var isCheck = false
+    var projectTaskModel: ProjectTaskInfoModel?
+    var taskModel: TaskModel?
+    var status: GlobalStatus = .new
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -27,6 +30,13 @@ class SubtaskCell: UITableViewCell {
     
     func bindingData(task: ProjectTaskInfoModel) {
         let priority = State(rawValue: task.status ?? "")
+        let status = GlobalStatus(rawValue: task.status ?? "")
+        self.projectTaskModel = task
+        if status == .done {
+            self.ivCheck.isHighlighted = true
+        } else {
+            self.ivCheck.isHighlighted = false
+        }
         switch priority {
         case .high:
             self.vPriority.backgroundColor = UIColor(hex: "#DD4A01", alpha: 1)
@@ -42,6 +52,13 @@ class SubtaskCell: UITableViewCell {
     
     func bindingData(task: TaskModel) {
         let priority = State(rawValue: task.status ?? "")
+        let status = GlobalStatus(rawValue: task.status ?? "")
+        self.taskModel = task
+        if status == .done {
+            self.ivCheck.isHighlighted = true
+        } else {
+            self.ivCheck.isHighlighted = false
+        }
         switch priority {
         case .high:
             self.vPriority.backgroundColor = UIColor(hex: "#DD4A01", alpha: 1)
@@ -58,5 +75,21 @@ class SubtaskCell: UITableViewCell {
     @IBAction func changeStatus(_ sender: Any) {
         self.isCheck = !self.isCheck
         self.ivCheck.isHighlighted = isCheck
+        
+        if self.isCheck {
+            self.status = .done
+        } else {
+            self.status = .inProgress
+        }
+        
+        if let _taskModel = projectTaskModel {
+            FusionNetwork.updateTaskStatus(id: _taskModel.taskId ?? 0, status: status) { model in
+            } onError: { error in
+            }
+        }
+        
+        if let _subTaskModel = taskModel {
+
+        }
     }
 }

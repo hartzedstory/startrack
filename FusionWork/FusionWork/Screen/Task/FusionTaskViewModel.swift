@@ -17,6 +17,9 @@ class FusionTaskViewModel: NSObject {
         } onError: { error in
             
         }
+    }
+    
+    func getNotification(isRead: Bool, completion: @escaping(() -> Void)) {
 
     }
 }

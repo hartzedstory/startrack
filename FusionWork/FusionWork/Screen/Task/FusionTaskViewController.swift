@@ -9,6 +9,8 @@ import UIKit
 
 class FusionTaskViewController: UIViewController {
 
+    @IBOutlet weak var vIndicator: UIView!
+    @IBOutlet weak var lblNoti: UILabel!
     @IBOutlet private weak var textField: UITextField!
     @IBOutlet private weak var tableView: UITableView!
     var indexPathRowExpanded: Set<IndexPath> = []
@@ -20,8 +22,25 @@ class FusionTaskViewController: UIViewController {
         queryModel.page = 0
         queryModel.size = 50
         viewModel.getTask(sorting: queryModel, start: getCurrentUTCDateString(), end: getCurrentUTCDateString()) {
-            self.tableView.reloadData()
-            self.tableView.isHidden = false
+            
+            if self.viewModel.listTask.count == 0 {
+                self.lblNoti.isHidden = false
+                self.tableView.isHidden = true
+                self.lblNoti.text = "You are free from work! Why don't you take a break for better health?"
+            } else {
+                self.lblNoti.isHidden = true
+                self.tableView.isHidden = false
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if GlobalData.sharedInstance.notificationUnReadList.count > 0 {
+            self.vIndicator.isHidden = false
+        } else {
+            self.vIndicator.isHidden = true
         }
     }
     
@@ -80,10 +99,18 @@ class FusionTaskViewController: UIViewController {
 
             let result = outputFormatter.string(from: date) ///--> Dùng để request
             let queryModel = SortingModel(page: 0, size: 50)
-            viewModel.getTask(sorting: queryModel, start: getCurrentUTCDateString(), end: result) {
-                self.tableView.reloadData()
+            viewModel.getTask(sorting: queryModel, start: result, end: result) {
+                if self.viewModel.listTask.count == 0 {
+                    self.lblNoti.isHidden = false
+                    self.tableView.isHidden = true
+                    self.lblNoti.text = "You are free from work! Why don't you take a break for better health?"
+                    print("XXXXXXXXXXXX")
+                } else {
+                    self.lblNoti.isHidden = true
+                    self.tableView.isHidden = false
+                    self.tableView.reloadData()
+                }
             }
-            print(result)
         } else {
             print("⛔️ Không thể chuyển text sang ngày")
         }
@@ -124,6 +151,11 @@ class FusionTaskViewController: UIViewController {
     @IBAction func openGeneralSetting(_ sender: Any) {
         let vc = FusionGeneralViewController()
         pushMeTo(vc, animated: true)
+    }
+    
+    @IBAction func openNoti(_ sender: Any) {
+        let vc = FusionNotificationViewController()
+        self.pushMeTo(vc, animated: true)
     }
 }
 extension FusionTaskViewController: UITableViewDelegate, UITableViewDataSource {

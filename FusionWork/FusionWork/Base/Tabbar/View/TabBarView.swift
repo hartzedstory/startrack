@@ -76,11 +76,11 @@ extension TabBarView {
             let currentButton = buttons[index]
             
             if currentButton.isSelected {
-                currentButton.bounds.size = .init(width: maxSelectedButtonWidth, height: selectedButtonSize.height)
+                currentButton.bounds.size = .init(width: maxSelectedButtonWidth, height: selectedButtonSize.height + 6)
             } else {
                 currentButton.bounds.size = CGSize(
                     width: otherButtonsWidth,
-                    height: selectedButtonSize.height
+                    height: selectedButtonSize.height + 6
                 )
             }
             

@@ -22,6 +22,15 @@ class FusionGeneralViewController: UIViewController {
         swipeToBack.addTarget(self, action: #selector(popViewController))
         configUI()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if GlobalData.sharedInstance.notificationUnReadList.count > 0 {
+            self.vIndicator.isHidden = false
+        } else {
+            self.vIndicator.isHidden = true
+        }
+    }
 
     
     func configUI() {
@@ -61,6 +70,7 @@ class FusionGeneralViewController: UIViewController {
     }
     
     @IBAction func openNotification(_ sender: Any) {
-        
+        let vc = FusionNotificationViewController()
+        self.pushMeTo(vc, animated: true)
     }
 }

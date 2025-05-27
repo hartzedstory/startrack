@@ -12,6 +12,7 @@
                 <outlet property="ivLeft" destination="nhd-vS-LsQ" id="HSj-H3-Otg"/>
                 <outlet property="ivRight" destination="BH8-Lf-Ckm" id="QkX-cc-Vzm"/>
                 <outlet property="title" destination="1hr-p9-pSo" id="Vb4-Ed-odv"/>
+                <outlet property="vRight" destination="kJD-HE-Gtt" id="uzQ-tF-pUv"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

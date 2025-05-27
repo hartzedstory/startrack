@@ -352,6 +352,109 @@ class FusionNetwork {
             }
     }
     
+    ///14: Update task project
+    public static func updateTaskStatus(id: Int, status: GlobalStatus, onSucces: @escaping(([ProjectModel]) -> Void), onError: @escaping((String) -> Void)) {
+        let path = "/v1/task/\(id)"
+        let header: HTTPHeaders = ["Authorization":"Bearer \(GlobalData.sharedInstance.access_token)"]
+        let params: Parameters = ["status": status.rawValue]
+        let method: HTTPMethod = .patch
+        FusionLoading.show()
+
+        AF.request(
+            "\(self.rootURL)\(path)",
+            method: method,
+            parameters: params,
+            encoding: JSONEncoding.default,
+            headers: header
+        )
+        .validate()
+        .responseDecodable(of: ResponseModel<[ProjectModel]>.self) { response in
+            FusionLoading.hide()
+            switch response.result {
+            case .success(let result):
+                onSucces(result.data)
+            case .failure(let error):
+                onError(error.localizedDescription)
+            }
+        }
+    }
+    
+    ///15: Update subtask project
+    public static func updateSubTaskStatus(id: Int, status: GlobalStatus, onSucces: @escaping(([ProjectModel]) -> Void), onError: @escaping((String) -> Void)) {
+        let path = "/v1/task/subtask/\(id)"
+        let header: HTTPHeaders = ["Authorization":"Bearer \(GlobalData.sharedInstance.access_token)"]
+        let params: Parameters = ["status": status.rawValue]
+        let method: HTTPMethod = .patch
+        FusionLoading.show()
+
+        AF.request(
+            "\(self.rootURL)\(path)",
+            method: method,
+            parameters: params,
+            encoding: JSONEncoding.default,
+            headers: header
+        )
+        .validate()
+        .responseDecodable(of: ResponseModel<[ProjectModel]>.self) { response in
+            FusionLoading.hide()
+            switch response.result {
+            case .success(let result):
+                onSucces(result.data)
+            case .failure(let error):
+                onError(error.localizedDescription)
+            }
+        }
+    }
+
+    ///16: Get notification
+    public static func getNotification(isRead: Bool, query: String, pageable: SortingModel, onSucces: @escaping(([NotificationModel]) -> Void), onError: @escaping((String) -> Void)) {
+        let path = "/v1/notification"
+        let header: HTTPHeaders = ["Authorization":"Bearer \(GlobalData.sharedInstance.access_token)"]
+        let params: Parameters = ["isRead": isRead, "query": query, "page":pageable.page, "size": pageable.size]
+        let method: HTTPMethod = .get
+        FusionLoading.show()
+
+        AF.request(
+            "\(self.rootURL)\(path)",
+            method: method,
+            parameters: params,
+            headers: header
+        )
+        .validate()
+        .responseDecodable(of: ResponseModel<[NotificationModel]>.self) { response in
+            FusionLoading.hide()
+            switch response.result {
+            case .success(let result):
+                onSucces(result.data)
+            case .failure(let error):
+                onError(error.localizedDescription)
+            }
+        }
+    }
+    
+    ///17: Update notification
+    public static func updateNotification(id: Int,onSucces: @escaping((String) -> Void), onError: @escaping((String) -> Void)) {
+        let path = "/v1/notification/\(id)"
+        let header: HTTPHeaders = ["Authorization":"Bearer \(GlobalData.sharedInstance.access_token)"]
+        let method: HTTPMethod = .put
+        FusionLoading.show()
+        
+        AF.request(
+            "\(self.rootURL)\(path)",
+            method: method,
+            headers: header
+        )
+        .validate()
+        .responseString { response in
+            FusionLoading.hide()
+            switch response.result {
+            case .success(let res):
+                onSucces(res)
+            case .failure(let e):
+                onError(e.localizedDescription)
+            }
+        }
+    }
     private static func request(path: String, header: HTTPHeaders, parameter: Parameters, method: HTTPMethod, onSucces: @escaping((String) -> Void), onError: @escaping((String) -> Void)) {
         AF.request("\(self.rootURL)\(path)", method: method, parameters: parameter, headers: header)
             .validate()

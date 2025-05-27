@@ -8,6 +8,7 @@
 import UIKit
 
 class FusionProjectViewController: UIViewController {
+    @IBOutlet weak var lblNoti: UILabel!
     @IBOutlet weak var lblOrgName: UILabel!
     @IBOutlet weak var btnAdd: UIButton!
     @IBOutlet weak var btnSelectOrg: UIButton!
@@ -33,8 +34,20 @@ class FusionProjectViewController: UIViewController {
             self.viewModel.selectedOrganization = self.viewModel.organizations.first
             self.configSelectOrgDropDown()
             self.viewModel.getListProject {
-                self.tableView.reloadData()
-                self.tableView.isHidden = false
+                if self.viewModel.selectedOrganization == nil {
+                    self.lblNoti.text = "You have no organization currently. Create one by clicking on the button above."
+                    self.tableView.isHidden = true
+                } else {
+                    if self.viewModel.filteredProject.count == 0 {
+                        self.lblNoti.text = "You have no project currently. Create one by clicking on the button above."
+                        self.tableView.isHidden = true
+                    } else {
+                        self.lblNoti.isHidden = true
+                        self.tableView.reloadData()
+                        self.tableView.isHidden = false
+                    }
+                }
+ 
             }
         }
         hideKeyboardWhenTappedAround()
@@ -67,7 +80,14 @@ class FusionProjectViewController: UIViewController {
                 self.viewModel.selectedOrganization = item
                 //TODO: Call API get list task here
                 self.viewModel.getListProject {
-                    self.tableView.reloadData()
+                    if self.viewModel.filteredProject.count == 0 {
+                        self.lblNoti.text = "You have no project currently. Create one by clicking on the button above."
+                        self.tableView.isHidden = true
+                    } else {
+                        self.lblNoti.isHidden = true
+                        self.tableView.reloadData()
+                        self.tableView.isHidden = false
+                    }
                 }
             }
             elements.append(option)
@@ -85,7 +105,14 @@ class FusionProjectViewController: UIViewController {
         vc.addCompletion = { [weak self] in
             guard let self = self else { return }
             self.viewModel.getListProject {
-                self.tableView.reloadData()
+                if self.viewModel.filteredProject.count == 0 {
+                    self.lblNoti.text = "You have no project currently. Create one by clicking on the button above."
+                    self.tableView.isHidden = true
+                } else {
+                    self.lblNoti.isHidden = true
+                    self.tableView.reloadData()
+                    self.tableView.isHidden = false
+                }
             }
         }
         self.present(vc, animated: true)
@@ -93,7 +120,7 @@ class FusionProjectViewController: UIViewController {
     
     @IBAction func openSearchOnTap(_ sender: Any) {
         UIView.animate(withDuration: 0.25) {
-            self.widthConstraintSearchBox.constant = UIScreen.main.bounds.width - 20
+            self.widthConstraintSearchBox.constant = UIScreen.main.bounds.width - 18
             self.view.layoutIfNeeded()
         }
     }

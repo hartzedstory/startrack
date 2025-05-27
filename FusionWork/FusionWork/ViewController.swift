@@ -49,6 +49,22 @@ class ViewController: UIViewController {
     private func setupTabbar() {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             appDelegate.window?.rootViewController = MainTabBarController()
+            
+            let queryModel = SortingModel()
+            queryModel.page = 0
+            queryModel.size = 50
+            FusionNetwork.getNotification(isRead: false, query: "", pageable: queryModel) { list in
+                GlobalData.sharedInstance.notificationUnReadList = list
+            } onError: { error in
+                print("Error")
+            }
+            
+            FusionNetwork.getNotification(isRead: true, query: "", pageable: queryModel) { list in
+                GlobalData.sharedInstance.notificationReadList = list
+            } onError: { error in
+                print("Error")
+            }
+
         }
     }
     @IBAction func openTermAndCondition(_ sender: Any) {

@@ -38,6 +38,7 @@ class FusionOrganizationDetailViewController: UIViewController {
         self.doneInTotal.text = String(format: "%d/%d", self.done, self.total)
         self.notDoneInTotal.text = String(format: "%d/%d", self.notDone, self.total)
         vProgress.setProgress(to: CGFloat(self.donePercentage))
+        headerView.hideRightImage()
     }
     
     deinit {
