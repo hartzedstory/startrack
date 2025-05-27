@@ -12,7 +12,9 @@ class FusionTaskViewModel: NSObject {
     func getTask(sorting: SortingModel, start: String? = nil, end: String? = nil, completion: @escaping(() -> Void)) {
         FusionNetwork.getTask(pageable: sorting, start: start, end: end) { tasks in
             self.listTask.removeAll()
-            self.listTask = tasks
+            self.listTask = tasks.filter({ task in
+                task.status == "NEW" || task.status == "IN_PROGRESS"
+            })
             completion()
         } onError: { error in
             
