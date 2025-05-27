@@ -9,6 +9,7 @@ import UIKit
 
 class FusionTaskViewController: UIViewController {
 
+    @IBOutlet weak var ivEmpty: UIImageView!
     @IBOutlet weak var vIndicator: UIView!
     @IBOutlet weak var lblNoti: UILabel!
     @IBOutlet private weak var textField: UITextField!
@@ -25,10 +26,12 @@ class FusionTaskViewController: UIViewController {
             
             if self.viewModel.listTask.count == 0 {
                 self.lblNoti.isHidden = false
+                self.ivEmpty.isHidden = false
                 self.tableView.isHidden = true
-                self.lblNoti.text = "You are free from work! Why don't you take a break for better health?"
+                self.lblNoti.text = "Good time to take a break~"
             } else {
                 self.lblNoti.isHidden = true
+                self.ivEmpty.isHidden = true
                 self.tableView.isHidden = false
                 self.tableView.reloadData()
             }
@@ -103,7 +106,7 @@ class FusionTaskViewController: UIViewController {
                 if self.viewModel.listTask.count == 0 {
                     self.lblNoti.isHidden = false
                     self.tableView.isHidden = true
-                    self.lblNoti.text = "You are free from work! Why don't you take a break for better health?"
+                    self.lblNoti.text = "Good time to take a break~"
                     print("XXXXXXXXXXXX")
                 } else {
                     self.lblNoti.isHidden = true
@@ -164,7 +167,8 @@ extension FusionTaskViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return indexPathRowExpanded.contains(indexPath) ? 300 : 120
+        let cellHeightExpanded = 120 + 20 + (57 * (self.viewModel.listTask[indexPath.row].subtaskList?.count ?? 0))
+        return CGFloat(indexPathRowExpanded.contains(indexPath) ? cellHeightExpanded : 120)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -195,7 +199,25 @@ extension FusionTaskViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: nil) { _, _, completion in
             //Remove data array
-            //TODO: CallAPI to remove
+            //Nếu task có subtask --> remove subtask trước rồi xóa task
+            if self.viewModel.listTask[indexPath.row].subtaskList?.count ?? 0 > 0 {
+                
+                self.viewModel.listTask[indexPath.row].subtaskList?.forEach { subtask in
+                    FusionNetwork.deleteSubtask(taskID: self.viewModel.listTask[indexPath.row].id ?? 0, subtaskID: subtask.id ?? 0) {
+                        //
+                    }
+                }
+                
+                FusionNetwork.deleteTask(taskID: self.viewModel.listTask[indexPath.row].id ?? 0) {
+                    //
+                }
+                
+            } else {
+                FusionNetwork.deleteTask(taskID: self.viewModel.listTask[indexPath.row].id ?? 0) {
+                    //
+                }
+            }
+            
             self.viewModel.listTask.remove(at: indexPath.row)
             //Delete row at tableview
             tableView.deleteRows(at: [indexPath], with: .automatic)

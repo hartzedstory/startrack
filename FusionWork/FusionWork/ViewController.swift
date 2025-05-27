@@ -54,13 +54,13 @@ class ViewController: UIViewController {
             queryModel.page = 0
             queryModel.size = 50
             FusionNetwork.getNotification(isRead: false, query: "", pageable: queryModel) { list in
-                GlobalData.sharedInstance.notificationUnReadList = list
+                GlobalData.sharedInstance.notificationUnReadList = list.reversed()
             } onError: { error in
                 print("Error")
             }
             
             FusionNetwork.getNotification(isRead: true, query: "", pageable: queryModel) { list in
-                GlobalData.sharedInstance.notificationReadList = list
+                GlobalData.sharedInstance.notificationReadList = list.reversed()
             } onError: { error in
                 print("Error")
             }

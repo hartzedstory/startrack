@@ -239,6 +239,18 @@ class FusionAddNewViewController: UIViewController {
                         self.delegate?.submitSubtask(subtask: model)
                     }
                 }
+            } else {
+                let model = SubtaskInitializeModel()
+                model.name = viewModel.subTaskName
+                
+                model.startDate = viewModel.dateStart
+                model.endDate = viewModel.dateEnd
+                model.priority = viewModel.priority.rawValue
+                if self.validateField(forKind: .subtask) {
+                    self.dismiss(animated: true) {
+                        self.delegate?.submitSubtask(subtask: model)
+                    }
+                }
             }
             break
         case .organization:

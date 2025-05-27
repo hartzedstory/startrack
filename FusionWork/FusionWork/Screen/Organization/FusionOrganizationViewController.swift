@@ -9,6 +9,7 @@ import UIKit
 
 class FusionOrganizationViewController: UIViewController {
 
+    @IBOutlet weak var ivEmpty: UIImageView!
     @IBOutlet var widthConstraintSearchBox: NSLayoutConstraint!
     @IBOutlet weak var vSearchBox: SearchBox!
     @IBOutlet weak var lblNoti: UILabel!
@@ -25,15 +26,18 @@ class FusionOrganizationViewController: UIViewController {
     private func configUI() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        hideKeyboardWhenTappedAround()
         self.tableView.register(UINib(nibName: "FusionOrganizationCell", bundle: Bundle.main), forCellReuseIdentifier: "cell")
         self.viewModel.getOrganization { [weak self] in
             guard let self = self else { return }
             if self.viewModel.organizations.count == 0 {
                 self.lblNoti.isHidden = false
+                self.ivEmpty.isHidden = false
                 self.tableView.isHidden = true
-                self.lblNoti.text = "You have no organization currently. Create one by clicking on the button above."
+                self.lblNoti.text = "It's time to work with\nyour enthusiastic teammates"
             } else {
                 self.lblNoti.isHidden = true
+                self.ivEmpty.isHidden = true
                 self.tableView.reloadData()
             }
         }
@@ -53,7 +57,7 @@ class FusionOrganizationViewController: UIViewController {
                 if self.viewModel.organizations.count == 0 {
                     self.lblNoti.isHidden = false
                     self.tableView.isHidden = true
-                    self.lblNoti.text = "You have no organization currently. Create one by clicking on the button above."
+                    self.lblNoti.text = "Let's team-up!!!"
                 } else {
                     self.lblNoti.isHidden = true
                     self.tableView.reloadData()

@@ -9,7 +9,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FusionOrganizationViewController" customModule="FusionWork" customModuleProvider="target">
             <connections>
-                <outlet property="lblNoti" destination="vTi-wW-pC1" id="MCd-jc-VSi"/>
+                <outlet property="ivEmpty" destination="ygc-jL-FBK" id="Ge0-Bj-qiz"/>
+                <outlet property="lblNoti" destination="LDX-EE-9RW" id="hpL-i4-8wq"/>
                 <outlet property="tableView" destination="38K-od-sTy" id="9PQ-Z5-eFf"/>
                 <outlet property="vSearchBox" destination="i6r-Sp-DUK" id="94L-7w-w5Y"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -57,12 +58,6 @@
                     <rect key="frame" x="0.0" y="144" width="393" height="708"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTi-wW-pC1">
-                    <rect key="frame" x="50" y="200" width="293" height="0.0"/>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i6r-Sp-DUK" customClass="SearchBox" customModule="FusionWork" customModuleProvider="target">
                     <rect key="frame" x="372" y="69" width="0.0" height="42"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -71,21 +66,37 @@
                         <constraint firstAttribute="height" constant="42" id="Ocn-hw-oGX"/>
                     </constraints>
                 </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_folder_empty" translatesAutoresizingMaskIntoConstraints="NO" id="ygc-jL-FBK">
+                    <rect key="frame" x="166.66666666666666" y="336" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="eAU-Tg-qic"/>
+                        <constraint firstAttribute="width" constant="60" id="nts-v6-JCr"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDX-EE-9RW">
+                    <rect key="frame" x="107.00000000000001" y="399" width="179.33333333333337" height="54"/>
+                    <string key="text">No organization 
+Create new organization
+to start using Fusion Work</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.56470590829849243" green="0.56470590829849243" blue="0.56470590829849243" alpha="0.84705883260000003" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="vTi-wW-pC1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="0dS-tt-hWe"/>
                 <constraint firstAttribute="bottom" secondItem="38K-od-sTy" secondAttribute="bottom" id="7Mm-5k-WvV"/>
-                <constraint firstItem="vTi-wW-pC1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="200" id="892-LW-Usx"/>
                 <constraint firstItem="We8-nB-Srn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="72" id="BNT-Xc-AeN"/>
+                <constraint firstItem="LDX-EE-9RW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="DZa-NQ-ATU"/>
                 <constraint firstAttribute="trailing" secondItem="38K-od-sTy" secondAttribute="trailing" id="GJ8-jb-0cb"/>
                 <constraint firstItem="We8-nB-Srn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="21" id="GrG-Zp-YpE"/>
                 <constraint firstItem="38K-od-sTy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Hzg-nE-SQa"/>
+                <constraint firstItem="LDX-EE-9RW" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="KsR-Zf-BCh"/>
                 <constraint firstAttribute="trailing" secondItem="W1k-pq-fCx" secondAttribute="trailing" constant="21" id="Vy6-0b-KNy"/>
+                <constraint firstItem="ygc-jL-FBK" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="a0v-S3-ldq"/>
                 <constraint firstItem="W1k-pq-fCx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="69" id="eNO-xX-Wll"/>
                 <constraint firstItem="W1k-pq-fCx" firstAttribute="leading" secondItem="lA5-uN-k16" secondAttribute="trailing" constant="8" id="gss-uB-eUd"/>
-                <constraint firstItem="vTi-wW-pC1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="prf-rn-xT3"/>
-                <constraint firstAttribute="trailing" secondItem="vTi-wW-pC1" secondAttribute="trailing" constant="50" id="qsM-OW-pQm"/>
+                <constraint firstItem="LDX-EE-9RW" firstAttribute="top" secondItem="ygc-jL-FBK" secondAttribute="bottom" constant="3" id="kLP-wX-o9B"/>
                 <constraint firstAttribute="trailing" secondItem="i6r-Sp-DUK" secondAttribute="trailing" constant="21" id="rAo-nl-bUd"/>
                 <constraint firstItem="i6r-Sp-DUK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="69" id="u8P-We-OK0"/>
                 <constraint firstItem="lA5-uN-k16" firstAttribute="centerY" secondItem="W1k-pq-fCx" secondAttribute="centerY" id="wNM-4W-LNO"/>
@@ -96,6 +107,7 @@
     </objects>
     <resources>
         <image name="ic_add" width="42" height="42"/>
+        <image name="ic_folder_empty" width="60" height="60"/>
         <image name="ic_lookup" width="42" height="42"/>
     </resources>
 </document>

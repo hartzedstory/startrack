@@ -55,7 +55,8 @@ class FusionNotificationViewController: UIViewController {
             self.filteredDataSource = self.dataSource
             self.tableView.reloadData()
         case .read:
-            UIView.animate(withDuration: 0.3) {            self.constraintRead.isActive = true
+            UIView.animate(withDuration: 0.3) {
+                self.constraintRead.isActive = true
                 self.constraintUnread.isActive = false
                 self.lblRead.textColor = UIColor(hexString: "#007AFF")
                 self.lblUnread.textColor = UIColor(hexString: "#909090")
@@ -109,18 +110,19 @@ extension FusionNotificationViewController: UITableViewDelegate, UITableViewData
                 queryModel.size = 50
                 
                 FusionNetwork.getNotification(isRead: false, query: "", pageable: queryModel) { list in
-                    GlobalData.sharedInstance.notificationUnReadList = list
-                    self.tableView.reloadData()
+                    GlobalData.sharedInstance.notificationUnReadList = list.reversed()
+                    self.decideView(type: .unread)
                 } onError: { error in
                     print("Error")
                 }
                 
                 FusionNetwork.getNotification(isRead: true, query: "", pageable: queryModel) { list in
-                    GlobalData.sharedInstance.notificationReadList = list
-                    self.tableView.reloadData()
+                    GlobalData.sharedInstance.notificationReadList = list.reversed()
                 } onError: { error in
                     print("Error")
                 }
+                
+                
             } onError: { error in
                 print("Error")
             }

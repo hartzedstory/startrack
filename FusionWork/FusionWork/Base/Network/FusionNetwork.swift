@@ -455,6 +455,55 @@ class FusionNetwork {
             }
         }
     }
+    
+    ///18: Delete subtask
+    public static func deleteSubtask(taskID: Int,subtaskID: Int, onSucces: @escaping(() -> Void), onError: ((String) -> Void)? = nil) {
+        let path = "/v1/task/\(taskID)/subtask/\(subtaskID)"
+        let header: HTTPHeaders = ["Authorization":"Bearer \(GlobalData.sharedInstance.access_token)"]
+        let method: HTTPMethod = .delete
+        FusionLoading.show()
+
+        AF.request(
+            "\(self.rootURL)\(path)",
+            method: method,
+            headers: header
+        )
+        .validate()
+        .responseString { response in
+            FusionLoading.hide()
+            switch response.result {
+            case .success(let res):
+                onSucces()
+            case .failure(let e):
+                onError?(e.localizedDescription)
+            }
+        }
+    }
+    
+    ///189: Delete tasks
+    public static func deleteTask(taskID: Int, onSucces: @escaping(() -> Void), onError: ((String) -> Void)? = nil) {
+        let path = "/v1/task/\(taskID)"
+        let header: HTTPHeaders = ["Authorization":"Bearer \(GlobalData.sharedInstance.access_token)"]
+        let method: HTTPMethod = .delete
+        FusionLoading.show()
+
+        AF.request(
+            "\(self.rootURL)\(path)",
+            method: method,
+            headers: header
+        )
+        .validate()
+        .responseString { response in
+            FusionLoading.hide()
+            switch response.result {
+            case .success(let res):
+                onSucces()
+            case .failure(let e):
+                onError?(e.localizedDescription)
+            }
+        }
+    }
+    
     private static func request(path: String, header: HTTPHeaders, parameter: Parameters, method: HTTPMethod, onSucces: @escaping((String) -> Void), onError: @escaping((String) -> Void)) {
         AF.request("\(self.rootURL)\(path)", method: method, parameters: parameter, headers: header)
             .validate()

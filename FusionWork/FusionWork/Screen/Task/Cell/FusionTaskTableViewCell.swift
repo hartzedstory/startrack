@@ -148,7 +148,7 @@ class FusionTaskTableViewCell: UITableViewCell {
             self.lblPeriod.text = period
         }
         
-        let priority = State(rawValue: "HIGH")
+        let priority = State(rawValue: model.priority ?? "")
         switch priority {
         case .high:
             self.vPriority.backgroundColor = UIColor(hex: "#DD4A01", alpha: 1)

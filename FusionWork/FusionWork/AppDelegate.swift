@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Analytics.setAnalyticsCollectionEnabled(true)
         
         FirebaseApp.configure()
-        FirebaseConfiguration.shared.setLoggerLevel(.debug)
+        FirebaseConfiguration.shared.setLoggerLevel(.min)
         Messaging.messaging().delegate = self
         UNUserNotificationCenter.current().delegate = self
         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound,]
@@ -104,13 +104,13 @@ extension AppDelegate: MessagingDelegate, UNUserNotificationCenterDelegate {
         queryModel.page = 0
         queryModel.size = 50
         FusionNetwork.getNotification(isRead: false, query: "", pageable: queryModel) { list in
-            GlobalData.sharedInstance.notificationUnReadList = list
+            GlobalData.sharedInstance.notificationUnReadList = list.reversed()
         } onError: { error in
             print("Error")
         }
         
         FusionNetwork.getNotification(isRead: true, query: "", pageable: queryModel) { list in
-            GlobalData.sharedInstance.notificationReadList = list
+            GlobalData.sharedInstance.notificationReadList = list.reversed()
         } onError: { error in
             print("Error")
         }

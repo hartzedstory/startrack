@@ -9,7 +9,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FusionTaskViewController" customModule="FusionWork" customModuleProvider="target">
             <connections>
-                <outlet property="lblNoti" destination="mal-BP-rmu" id="hLP-K6-HkD"/>
+                <outlet property="ivEmpty" destination="nQg-sf-ZTo" id="od6-eR-tE3"/>
+                <outlet property="lblNoti" destination="9lL-FI-WVK" id="073-tM-kxM"/>
                 <outlet property="tableView" destination="KIf-at-4yW" id="UCX-Vv-Y8h"/>
                 <outlet property="textField" destination="QVP-xl-hwv" id="SaB-WT-xKS"/>
                 <outlet property="vIndicator" destination="71T-km-yIW" id="nea-Gr-cRD"/>
@@ -68,12 +69,6 @@
                     <rect key="frame" x="0.0" y="144" width="393" height="708"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mal-BP-rmu">
-                    <rect key="frame" x="50" y="200" width="293" height="0.0"/>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="71T-km-yIW">
                     <rect key="frame" x="312" y="72" width="10" height="10"/>
                     <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -87,33 +82,47 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_folder_empty" translatesAutoresizingMaskIntoConstraints="NO" id="nQg-sf-ZTo">
+                    <rect key="frame" x="166.66666666666666" y="354" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="QRs-Fi-q6j"/>
+                        <constraint firstAttribute="width" constant="60" id="pFm-Hm-T9Q"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good time to take a break~" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9lL-FI-WVK">
+                    <rect key="frame" x="103.66666666666667" y="417" width="185.66666666666663" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.56470590829849243" green="0.56470590829849243" blue="0.56470590829849243" alpha="0.84705883260000003" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
+                <constraint firstItem="9lL-FI-WVK" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="7B9-jL-n32"/>
                 <constraint firstItem="KIf-at-4yW" firstAttribute="top" secondItem="WxA-rs-TeC" secondAttribute="bottom" constant="33" id="9FB-Fj-oKd"/>
                 <constraint firstItem="dGC-cY-Xsn" firstAttribute="leading" secondItem="QVP-xl-hwv" secondAttribute="trailing" constant="7" id="AV1-Aw-Zc2"/>
                 <constraint firstItem="GoF-Ih-I9s" firstAttribute="leading" secondItem="WxA-rs-TeC" secondAttribute="trailing" constant="8" id="BiQ-f8-zUf"/>
                 <constraint firstAttribute="bottom" secondItem="KIf-at-4yW" secondAttribute="bottom" id="BpM-jl-M4w"/>
+                <constraint firstItem="9lL-FI-WVK" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="FJC-W1-fbd"/>
                 <constraint firstItem="71T-km-yIW" firstAttribute="trailing" secondItem="WxA-rs-TeC" secondAttribute="trailing" id="GLd-bR-WfX"/>
                 <constraint firstAttribute="trailing" secondItem="KIf-at-4yW" secondAttribute="trailing" id="Qv7-lQ-B4h"/>
                 <constraint firstItem="GoF-Ih-I9s" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="69" id="TbW-9p-ow3"/>
                 <constraint firstItem="QVP-xl-hwv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="21" id="WkA-Zu-5mS"/>
-                <constraint firstItem="mal-BP-rmu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="200" id="XW7-Dm-NbL"/>
                 <constraint firstItem="71T-km-yIW" firstAttribute="top" secondItem="WxA-rs-TeC" secondAttribute="top" constant="3" id="akg-gi-zZN"/>
-                <constraint firstAttribute="trailing" secondItem="mal-BP-rmu" secondAttribute="trailing" constant="50" id="dF2-e3-Qt1"/>
+                <constraint firstItem="9lL-FI-WVK" firstAttribute="top" secondItem="nQg-sf-ZTo" secondAttribute="bottom" constant="3" id="dpe-S9-70e"/>
                 <constraint firstItem="WxA-rs-TeC" firstAttribute="centerY" secondItem="GoF-Ih-I9s" secondAttribute="centerY" id="fOS-Nd-hYi"/>
                 <constraint firstItem="QVP-xl-hwv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="72" id="kjE-zU-JHh"/>
-                <constraint firstItem="mal-BP-rmu" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="kqq-sV-NmY"/>
                 <constraint firstItem="dGC-cY-Xsn" firstAttribute="centerY" secondItem="QVP-xl-hwv" secondAttribute="centerY" id="ld9-Bd-uYt"/>
                 <constraint firstItem="KIf-at-4yW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="nhP-mZ-mEq"/>
-                <constraint firstItem="mal-BP-rmu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="rRV-TZ-aEl"/>
                 <constraint firstAttribute="trailing" secondItem="GoF-Ih-I9s" secondAttribute="trailing" constant="21" id="ya6-iL-3p6"/>
+                <constraint firstItem="nQg-sf-ZTo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="zV3-P9-GZR"/>
             </constraints>
             <point key="canvasLocation" x="-19.083969465648853" y="-12.67605633802817"/>
         </view>
     </objects>
     <resources>
         <image name="ic_calendar" width="42" height="42"/>
+        <image name="ic_folder_empty" width="60" height="60"/>
         <image name="ic_notification" width="42" height="42"/>
         <image name="ic_profile" width="42" height="42"/>
     </resources>

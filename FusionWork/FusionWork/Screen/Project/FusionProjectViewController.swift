@@ -8,6 +8,7 @@
 import UIKit
 
 class FusionProjectViewController: UIViewController {
+    @IBOutlet weak var ivEmpty: UIImageView!
     @IBOutlet weak var lblNoti: UILabel!
     @IBOutlet weak var lblOrgName: UILabel!
     @IBOutlet weak var btnAdd: UIButton!
@@ -35,14 +36,20 @@ class FusionProjectViewController: UIViewController {
             self.configSelectOrgDropDown()
             self.viewModel.getListProject {
                 if self.viewModel.selectedOrganization == nil {
-                    self.lblNoti.text = "You have no organization currently. Create one by clicking on the button above."
+                    self.lblNoti.isHidden = false
+                    self.ivEmpty.isHidden = false
+                    self.lblOrgName.text = "Empty"
+                    self.lblNoti.text = "No organization\nCreate new organization\nto start using Fusion Work"
                     self.tableView.isHidden = true
                 } else {
                     if self.viewModel.filteredProject.count == 0 {
-                        self.lblNoti.text = "You have no project currently. Create one by clicking on the button above."
+                        self.lblNoti.isHidden = false
+                        self.ivEmpty.isHidden = false
+                        self.lblNoti.text = "No project\nStart your journey now!!!"
                         self.tableView.isHidden = true
                     } else {
                         self.lblNoti.isHidden = true
+                        self.ivEmpty.isHidden = true
                         self.tableView.reloadData()
                         self.tableView.isHidden = false
                     }
@@ -81,10 +88,13 @@ class FusionProjectViewController: UIViewController {
                 //TODO: Call API get list task here
                 self.viewModel.getListProject {
                     if self.viewModel.filteredProject.count == 0 {
-                        self.lblNoti.text = "You have no project currently. Create one by clicking on the button above."
+                        self.lblNoti.isHidden = false
+                        self.ivEmpty.isHidden = false
+                        self.lblNoti.text = "No project\nStart your journey now!!!"
                         self.tableView.isHidden = true
                     } else {
                         self.lblNoti.isHidden = true
+                        self.ivEmpty.isHidden = true
                         self.tableView.reloadData()
                         self.tableView.isHidden = false
                     }
@@ -106,9 +116,10 @@ class FusionProjectViewController: UIViewController {
             guard let self = self else { return }
             self.viewModel.getListProject {
                 if self.viewModel.filteredProject.count == 0 {
-                    self.lblNoti.text = "You have no project currently. Create one by clicking on the button above."
+                    self.lblNoti.text = "No project\nStart your journey now!!!"
                     self.tableView.isHidden = true
                 } else {
+                    self.ivEmpty.isHidden = true
                     self.lblNoti.isHidden = true
                     self.tableView.reloadData()
                     self.tableView.isHidden = false
@@ -131,7 +142,8 @@ extension FusionProjectViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return indexPathRowExpanded.contains(indexPath) ? 300 : 120
+        let cellHeightExpanded = 120 + 20 + (57 * (self.viewModel.filteredProject[indexPath.row].taskInfos?.count ?? 0))
+        return CGFloat(indexPathRowExpanded.contains(indexPath) ? cellHeightExpanded : 120)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

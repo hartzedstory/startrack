@@ -14,6 +14,8 @@ class TaskModel: Codable {
     var organization: String?
     var taskName: String?
     var parentTag: String?
+    var priority: String?
+    var id: Int?
     var subtaskList: [TaskModel]?
 }
 
@@ -31,5 +33,4 @@ class SubtaskInitializeModel: Codable {
     var startDate: String?
     var endDate: String?
     var priority: String?
-    
 }
