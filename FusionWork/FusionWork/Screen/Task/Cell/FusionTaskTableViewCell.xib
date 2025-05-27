@@ -105,7 +105,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:30 - 11:30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIf-mk-2jg">
-                                                <rect key="frame" x="134" y="52" width="74" height="14"/>
+                                                <rect key="frame" x="130" y="52" width="74" height="14"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -127,7 +127,7 @@
                                             <constraint firstItem="Ju6-OU-OlZ" firstAttribute="top" secondItem="ic3-vS-qpr" secondAttribute="bottom" constant="8" id="Poj-EQ-YEJ"/>
                                             <constraint firstItem="ic3-vS-qpr" firstAttribute="leading" secondItem="7XE-sD-gdJ" secondAttribute="leading" id="RPu-xE-lVp"/>
                                             <constraint firstItem="mVq-wF-FBf" firstAttribute="top" secondItem="7XE-sD-gdJ" secondAttribute="top" id="Sa0-zY-mOC"/>
-                                            <constraint firstItem="fFx-7i-JXr" firstAttribute="leading" secondItem="yIf-mk-2jg" secondAttribute="trailing" id="Z91-6Z-F6A"/>
+                                            <constraint firstItem="fFx-7i-JXr" firstAttribute="leading" secondItem="yIf-mk-2jg" secondAttribute="trailing" constant="4" id="Z91-6Z-F6A"/>
                                             <constraint firstAttribute="bottom" secondItem="Ju6-OU-OlZ" secondAttribute="bottom" id="eV2-DC-XwM"/>
                                             <constraint firstAttribute="bottom" secondItem="P88-Xa-SY3" secondAttribute="bottom" id="gnf-zT-JiK"/>
                                             <constraint firstAttribute="trailing" secondItem="ic3-vS-qpr" secondAttribute="trailing" id="hBi-DM-V4N"/>
