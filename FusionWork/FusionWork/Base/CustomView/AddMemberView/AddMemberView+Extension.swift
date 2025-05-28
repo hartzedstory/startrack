@@ -18,7 +18,7 @@ extension AddMemberView: UICollectionViewDelegate, UICollectionViewDataSource {
         cell.bindingData(item: self.viewModel.memberList[indexPath.item])
         cell.onDelete = { [weak self] in
             guard let self = self else { return }
-            self.viewModel.memberIDSelected.remove(at: indexPath.item)
+
             self.viewModel.memberList.remove(at: indexPath.item)
             self.collectionView.reloadData()
         }
