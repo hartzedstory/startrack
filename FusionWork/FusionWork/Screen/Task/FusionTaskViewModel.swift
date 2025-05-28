@@ -21,7 +21,11 @@ class FusionTaskViewModel: NSObject {
         }
     }
     
-    func getNotification(isRead: Bool, completion: @escaping(() -> Void)) {
-
+    func updateTask(id: Int, status: GlobalStatus, completion: @escaping(() -> Void)) {
+        FusionNetwork.updateTaskStatus(id: id, status: status) { model in
+            completion()
+        } onError: { error in
+            completion()
+        }
     }
 }

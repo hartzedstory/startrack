@@ -40,18 +40,32 @@ class FusionGeneralViewController: UIViewController {
         self.lblEmail.text = GlobalData.sharedInstance.user.email
         
     }
-    
+        
     @objc func popViewController() {
         self.navigationController?.popViewController(animated: true)
     }
 
     @IBAction func logout(_ sender: Any) {
-        self.showAlert(title: "Logout", message: "Do you want to logout from your account?. You have to open Fusion Work again due to privacy reason") {
-            FusionNetwork.logout {
-                exit(0)
-            } onError: {
-                exit(0)
+        self.showAlert(title: "Logout", message: "Do you want to logout from your account?") {
+            
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                return
             }
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let loginVC = storyboard.instantiateInitialViewController()
+            
+            UIView.transition(with: appDelegate.window ?? UIWindow(),
+                              duration: 0.5,
+                              options: [.transitionFlipFromRight, .preferredFramesPerSecond60],
+                              animations: {
+                appDelegate.window?.rootViewController = loginVC
+            }, completion: {_ in
+                FusionNetwork.logout {
+                } onError: {
+                }
+            })
+        
         } onCancel: {
             //ignore
         }

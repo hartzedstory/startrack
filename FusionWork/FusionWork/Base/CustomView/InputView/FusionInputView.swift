@@ -100,16 +100,16 @@ class FusionInputView: UIView {
         
         let inputFormatter = DateFormatter()
         inputFormatter.dateFormat = "dd/MM/yyyy HH:mm" // format bạn đã dùng để hiển thị
-        inputFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+        inputFormatter.timeZone = TimeZone(identifier: "Asia/Ho_Chi_Minh")
         
         let outputFormatter = DateFormatter()
         outputFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-        outputFormatter.timeZone = TimeZone(secondsFromGMT: 0) // quan trọng để ra "Z" (UTC)
+        outputFormatter.timeZone = TimeZone(identifier: "Asia/Ho_Chi_Minh") // quan trọng để ra "Z" (UTC)
 
         if let date = inputFormatter.date(from: textField.text ?? "") {
             let outputFormatter = DateFormatter()
             outputFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-            outputFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+            outputFormatter.timeZone = TimeZone(identifier: "Asia/Ho_Chi_Minh")
 
             let result = outputFormatter.string(from: date)
             print(result)
@@ -127,16 +127,16 @@ class FusionInputView: UIView {
         
         let inputFormatter = DateFormatter()
         inputFormatter.dateFormat = "dd/MM/yyyy HH:mm" // format bạn đã dùng để hiển thị
-        inputFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+        inputFormatter.timeZone = TimeZone(identifier: "Asia/Ho_Chi_Minh")
         
         let outputFormatter = DateFormatter()
         outputFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-        outputFormatter.timeZone = TimeZone(secondsFromGMT: 0) // quan trọng để ra "Z" (UTC)
+        outputFormatter.timeZone = TimeZone(identifier: "Asia/Ho_Chi_Minh") // quan trọng để ra "Z" (UTC)
 
         if let date = inputFormatter.date(from: textField.text ?? "") {
             let outputFormatter = DateFormatter()
             outputFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-            outputFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+            outputFormatter.timeZone = TimeZone(identifier: "Asia/Ho_Chi_Minh")
 
             let result = outputFormatter.string(from: date)
             print(result)

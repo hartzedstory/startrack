@@ -20,7 +20,7 @@ class FusionTaskViewController: UIViewController {
     let utcFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
-        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.timeZone = TimeZone(identifier: "Asia/Ho_Chi_Minh")
         formatter.locale = Locale(identifier: "en_US_POSIX")
         return formatter
     }()
@@ -92,11 +92,11 @@ class FusionTaskViewController: UIViewController {
         
         let inputFormatter = DateFormatter()
         inputFormatter.dateFormat = "dd/MM/yyyy HH:mm" // format bạn đã dùng để hiển thị
-        inputFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+        inputFormatter.timeZone = TimeZone(identifier: "Asia/Ho_Chi_Minh")
         
         let outputFormatter = DateFormatter()
         outputFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
-        outputFormatter.timeZone = TimeZone(secondsFromGMT: 0) // quan trọng để ra "Z" (UTC)
+        outputFormatter.timeZone = TimeZone(identifier: "Asia/Ho_Chi_Minh") // quan trọng để ra "Z" (UTC)
 
         if let date = inputFormatter.date(from: textField.text ?? "") {            
             let startUTC = getStartOfUTCDateString(from: date)
@@ -122,7 +122,7 @@ class FusionTaskViewController: UIViewController {
         if let displayDate = inputFormatter.date(from: textField.text ?? "") {
             let outputFormatter = DateFormatter()
             outputFormatter.dateFormat = "dd/MM/yyyy"
-            outputFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+            outputFormatter.timeZone = TimeZone(identifier: "Asia/Ho_Chi_Minh")
 
             let result = outputFormatter.string(from: displayDate)
             print(result)
@@ -189,6 +189,17 @@ extension FusionTaskViewController: UITableViewDelegate, UITableViewDataSource {
                 self.tableView.beginUpdates()
                 self.tableView.endUpdates()
             }
+        }
+        cell.tapDone = { [weak self] in
+            guard let self = self else { return }
+            self.viewModel.updateTask(id: self.viewModel.listTask[indexPath.row].id ?? 0, status: .done) {
+                
+                
+            }
+            self.viewModel.listTask.remove(at: indexPath.row)
+            //Delete row at tableview
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.reloadData()
         }
         return cell
     }

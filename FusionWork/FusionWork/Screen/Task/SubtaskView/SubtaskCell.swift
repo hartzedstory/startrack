@@ -89,7 +89,9 @@ class SubtaskCell: UITableViewCell {
         }
         
         if let _subTaskModel = taskModel {
-
+            FusionNetwork.updateSubTaskStatus(id: _subTaskModel.id ?? 0, status: status) { model in
+            } onError: { error in
+            }
         }
     }
 }

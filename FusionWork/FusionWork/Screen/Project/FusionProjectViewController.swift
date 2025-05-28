@@ -72,7 +72,7 @@ class FusionProjectViewController: UIViewController {
         let thirdAction = UIAction(title: "New Sub-task", image: UIImage(systemName: "plus.circle.dashed")) { action in
             self.addNew(kind: .subtask)
         }
-        let elements: [UIAction] = [firstAction, secondAction, thirdAction]
+        let elements: [UIAction] = [firstAction, secondAction/*, thirdAction*/]
         let menu = UIMenu(title: "", children: elements)
         btnAdd.showsMenuAsPrimaryAction = true
         btnAdd.menu = menu
@@ -174,6 +174,7 @@ extension FusionProjectViewController: UITableViewDelegate, UITableViewDataSourc
             self.viewModel.filteredProject.remove(at: indexPath.row)
             //Delete row at tableview
             tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.reloadData()
         }
         
         return cell

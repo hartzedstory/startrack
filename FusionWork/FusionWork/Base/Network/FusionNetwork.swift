@@ -314,6 +314,7 @@ class FusionNetwork {
             "\(self.rootURL)\(path)",
             method: method,
             parameters: params,
+            encoding: URLEncoding.default,
             headers: header
         )
         .validate()
