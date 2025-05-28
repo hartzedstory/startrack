@@ -60,11 +60,8 @@
                     <rect key="frame" x="35" y="132.66666666666666" width="323" height="50"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cRm-2v-KjD" userLabel="vIndicator">
-                            <rect key="frame" x="3" y="3" width="157" height="44"/>
+                            <rect key="frame" x="3" y="3" width="158.66666666666666" height="44"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="157" id="Yvv-yx-P2o"/>
-                            </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                     <integer key="value" value="22"/>
@@ -135,6 +132,7 @@
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="cRm-2v-KjD" secondAttribute="bottom" constant="3" id="2UT-yj-3Yb"/>
                         <constraint firstAttribute="bottom" secondItem="eA6-e7-Dad" secondAttribute="bottom" constant="3" id="G2W-YM-vEy"/>
+                        <constraint firstItem="cRm-2v-KjD" firstAttribute="width" secondItem="1zC-NK-Lzm" secondAttribute="width" id="MND-u5-PvY"/>
                         <constraint firstItem="cRm-2v-KjD" firstAttribute="leading" secondItem="hzV-YR-S8a" secondAttribute="leading" priority="750" id="QLY-XP-tiY"/>
                         <constraint firstItem="eA6-e7-Dad" firstAttribute="leading" secondItem="uS8-jT-Hee" secondAttribute="leading" constant="3" id="fz3-gL-pbC"/>
                         <constraint firstItem="cRm-2v-KjD" firstAttribute="leading" secondItem="1zC-NK-Lzm" secondAttribute="leading" id="mrR-q7-Lwb"/>
