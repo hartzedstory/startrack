@@ -40,7 +40,7 @@ class FusionWalkthroughViewController: UIViewController {
     func drawUI(currentPage: Int) {
         pageControl.currentPage = currentPage
         configContent(currentPage: currentPage)
-        if currentPage < 1 {
+        if currentPage < 2 {
             btnNext.setImage(UIImage(named: "ic_intro_next"), for: .normal)
         } else {
             btnNext.setImage(UIImage(named: "ic_intro_done"), for: .normal)
