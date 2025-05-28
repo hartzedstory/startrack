@@ -8,8 +8,12 @@
 import UIKit
 import SwiftJWT
 
+let hasLaunchedKey = "hasLaunchedBefore"
+let hasLaunchedBefore = UserDefaults.standard.bool(forKey: hasLaunchedKey)
+
 class ViewController: UIViewController {
     let authManager = AuthManager()
+
     
     @IBOutlet weak var lblTermAndCondition: UILabel!
     @IBOutlet weak var btnLoginWithMicrosoft: UIButton!
@@ -21,6 +25,22 @@ class ViewController: UIViewController {
         btnLoginWithMicrosoft.layer.borderColor = UIColor(hex: "#007AFF", alpha: 1).cgColor
         btnLoginWithMicrosoft.layer.cornerRadius = 30
         btnLoginWithMicrosoft.isHidden = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let hasLaunched = UserDefaults.standard.bool(forKey: "hasLaunchedBefore")
+        if !hasLaunched {
+            // Đánh dấu là đã mở lần đầu
+            UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
+            UserDefaults.standard.synchronize()
+
+            // Khởi tạo IntroViewController từ XIB
+            let introVC = FusionWalkthroughViewController(nibName: "FusionWalkthroughViewController", bundle: Bundle.main)
+            introVC.modalPresentationStyle = .fullScreen
+            introVC.modalTransitionStyle = .crossDissolve
+            present(introVC, animated: true, completion: nil)
+        }
     }
     
     @IBAction func loginOnTap(_ sender: Any) {

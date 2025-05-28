@@ -67,7 +67,7 @@ class ProgressView: UIView {
         progressLayer.strokeEnd = 0
         layer.addSublayer(progressLayer)
         
-        titleLabel.text = "Hoàn thành"
+        titleLabel.text = "Completed"
         titleLabel.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         titleLabel.textColor = UIColor(hex: "#615E83", alpha: 1.0)
         titleLabel.textAlignment = .center
