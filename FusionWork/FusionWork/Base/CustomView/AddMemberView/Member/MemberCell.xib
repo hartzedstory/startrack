@@ -10,30 +10,30 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MemberCell" customModule="FusionWork" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="202" height="43"/>
+            <rect key="frame" x="0.0" y="0.0" width="112" height="20"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="202" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="112" height="20"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K3j-0F-asl">
-                        <rect key="frame" x="0.0" y="0.0" width="202" height="43"/>
+                        <rect key="frame" x="0.0" y="0.0" width="112" height="20"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="___" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N86-dm-6Om">
-                                <rect key="frame" x="7" y="0.0" width="165" height="43"/>
+                                <rect key="frame" x="7" y="0.0" width="75" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_remove" translatesAutoresizingMaskIntoConstraints="NO" id="spk-rU-XnT">
-                                <rect key="frame" x="184" y="15.666666666666664" width="12" height="12"/>
+                                <rect key="frame" x="94" y="4" width="12" height="12"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="12" id="0sh-3Q-Qdl"/>
                                     <constraint firstAttribute="height" constant="12" id="qlS-E7-Fkv"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mQb-xv-gAL">
-                                <rect key="frame" x="172" y="0.0" width="30" height="43"/>
+                                <rect key="frame" x="82" y="0.0" width="30" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="GfT-is-ODL"/>
                                 </constraints>
@@ -48,7 +48,7 @@
                             <constraint firstItem="mQb-xv-gAL" firstAttribute="leading" secondItem="N86-dm-6Om" secondAttribute="trailing" id="6wX-99-RcA"/>
                             <constraint firstItem="N86-dm-6Om" firstAttribute="centerY" secondItem="K3j-0F-asl" secondAttribute="centerY" id="89k-ns-YlG"/>
                             <constraint firstItem="N86-dm-6Om" firstAttribute="top" secondItem="K3j-0F-asl" secondAttribute="top" id="Au8-Cc-BUY"/>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="KS1-Ac-5Vp"/>
+                            <constraint firstAttribute="height" constant="20" id="CVh-PB-RIt"/>
                             <constraint firstAttribute="trailing" secondItem="mQb-xv-gAL" secondAttribute="trailing" id="Pxm-gj-dQb"/>
                             <constraint firstAttribute="trailing" secondItem="spk-rU-XnT" secondAttribute="trailing" constant="6" id="SOi-eN-Yo5"/>
                             <constraint firstItem="spk-rU-XnT" firstAttribute="centerY" secondItem="K3j-0F-asl" secondAttribute="centerY" id="aN2-qy-01c"/>
@@ -67,11 +67,12 @@
                 <constraint firstItem="K3j-0F-asl" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="7Y8-Ie-lmQ"/>
                 <constraint firstAttribute="bottom" secondItem="K3j-0F-asl" secondAttribute="bottom" id="Ycc-MJ-W87"/>
             </constraints>
-            <size key="customSize" width="202" height="43"/>
+            <size key="customSize" width="112" height="20"/>
             <connections>
                 <outlet property="lblTitle" destination="N86-dm-6Om" id="mNg-9N-NMG"/>
+                <outlet property="vMain" destination="K3j-0F-asl" id="MaP-k6-wSJ"/>
             </connections>
-            <point key="canvasLocation" x="126.71755725190839" y="-15.140845070422536"/>
+            <point key="canvasLocation" x="58.015267175572518" y="-23.239436619718312"/>
         </collectionViewCell>
     </objects>
     <resources>

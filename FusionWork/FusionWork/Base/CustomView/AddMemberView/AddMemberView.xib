@@ -80,12 +80,12 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xs4-3t-3SQ">
-                                    <rect key="frame" x="0.0" y="46" width="462" height="206"/>
+                                    <rect key="frame" x="11" y="46" width="440" height="206"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="SJq-5P-cpL">
-                                            <rect key="frame" x="0.0" y="0.0" width="462" height="206"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="440" height="206"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="j1D-y5-vYr">
+                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="j1D-y5-vYr">
                                                 <size key="itemSize" width="128" height="128"/>
                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -106,10 +106,10 @@
                             <constraints>
                                 <constraint firstItem="4aM-fz-G5y" firstAttribute="leading" secondItem="ovh-ko-zhb" secondAttribute="leading" constant="11" id="1iU-m8-8wT"/>
                                 <constraint firstAttribute="trailing" secondItem="4aM-fz-G5y" secondAttribute="trailing" constant="11" id="Ats-D6-6XQ"/>
-                                <constraint firstAttribute="trailing" secondItem="xs4-3t-3SQ" secondAttribute="trailing" id="Ree-YO-oiQ"/>
+                                <constraint firstAttribute="trailing" secondItem="xs4-3t-3SQ" secondAttribute="trailing" constant="11" id="Ree-YO-oiQ"/>
                                 <constraint firstItem="xs4-3t-3SQ" firstAttribute="top" secondItem="4aM-fz-G5y" secondAttribute="bottom" constant="10" id="ZST-ck-bbg"/>
                                 <constraint firstItem="4aM-fz-G5y" firstAttribute="top" secondItem="ovh-ko-zhb" secondAttribute="top" constant="11" id="gIB-cD-VuD"/>
-                                <constraint firstItem="xs4-3t-3SQ" firstAttribute="leading" secondItem="ovh-ko-zhb" secondAttribute="leading" id="pdU-FA-549"/>
+                                <constraint firstItem="xs4-3t-3SQ" firstAttribute="leading" secondItem="ovh-ko-zhb" secondAttribute="leading" constant="11" id="pdU-FA-549"/>
                                 <constraint firstAttribute="bottom" secondItem="xs4-3t-3SQ" secondAttribute="bottom" constant="10" id="w81-cL-qsT"/>
                             </constraints>
                         </view>

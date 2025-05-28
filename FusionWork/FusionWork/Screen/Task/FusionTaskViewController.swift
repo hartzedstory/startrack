@@ -16,13 +16,22 @@ class FusionTaskViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     var indexPathRowExpanded: Set<IndexPath> = []
     var viewModel = FusionTaskViewModel()
+    // Formatter dùng chung
+    let utcFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        return formatter
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         let queryModel = SortingModel()
         queryModel.page = 0
         queryModel.size = 50
-        viewModel.getTask(sorting: queryModel, start: getCurrentUTCDateString(), end: getCurrentUTCDateString()) {
+        viewModel.getTask(sorting: queryModel, start: getStartOfUTCDateString(), end: getEndOfUTCDateString()) {
             
             if self.viewModel.listTask.count == 0 {
                 self.lblNoti.isHidden = false
@@ -45,15 +54,6 @@ class FusionTaskViewController: UIViewController {
         } else {
             self.vIndicator.isHidden = true
         }
-    }
-    
-    func getCurrentUTCDateString() -> String {
-        let date = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
-        formatter.timeZone = TimeZone(abbreviation: "UTC")
-        formatter.locale = Locale(identifier: "en_US_POSIX")
-        return formatter.string(from: date)
     }
     
     private func setupUI() {
@@ -92,17 +92,18 @@ class FusionTaskViewController: UIViewController {
         
         let inputFormatter = DateFormatter()
         inputFormatter.dateFormat = "dd/MM/yyyy HH:mm" // format bạn đã dùng để hiển thị
-        inputFormatter.timeZone = TimeZone.current
+        inputFormatter.timeZone = TimeZone(secondsFromGMT: 0)
         
         let outputFormatter = DateFormatter()
         outputFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
         outputFormatter.timeZone = TimeZone(secondsFromGMT: 0) // quan trọng để ra "Z" (UTC)
 
-        if let date = inputFormatter.date(from: textField.text ?? "") {
-
-            let result = outputFormatter.string(from: date) ///--> Dùng để request
+        if let date = inputFormatter.date(from: textField.text ?? "") {            
+            let startUTC = getStartOfUTCDateString(from: date)
+            let endUTC = getEndOfUTCDateString(from: date)
+            
             let queryModel = SortingModel(page: 0, size: 50)
-            viewModel.getTask(sorting: queryModel, start: result, end: result) {
+            viewModel.getTask(sorting: queryModel, start: startUTC, end: endUTC) {
                 if self.viewModel.listTask.count == 0 {
                     self.lblNoti.isHidden = false
                     self.tableView.isHidden = true

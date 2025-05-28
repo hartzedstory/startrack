@@ -285,6 +285,15 @@ extension FusionAddNewViewController: FusionInputTextDelegate {
 extension FusionAddNewViewController: AddMemberViewDelegate {
     func memberList(list: [MemberModel]) {
         self.viewModel.memberList = list
+        switch self.addNewType {
+        case .project:
+            (self.stackView.arrangedSubviews[8] as? AddMemberView)?.collectionView.reloadData()
+        case .task, .subtask:
+            break
+        case .organization:
+            (self.stackView.arrangedSubviews[4] as? AddMemberView)?.collectionView.reloadData()
+        }
+        
     }
     
     func errorReturn(message: String) {

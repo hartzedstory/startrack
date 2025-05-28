@@ -13,8 +13,8 @@ class AddMemberViewModel: NSObject {
     var memberList: [MemberModel] = []
     var memberIDSelected: [Int] = []
     
-    func findUser(email: String, organizationId: Int, onSucces: @escaping((MemberModel) -> Void), onError: @escaping((String) -> Void)) {
-        FusionNetwork.getUserByOrganization(email: email, organizationId: organizationId, onSucces: onSucces, onError: onError)
+    func findUser(email: String, onSucces: @escaping(([MemberModel]) -> Void), onError: @escaping((String) -> Void)) {
+        FusionNetwork.getUserList(email: email, onSucces: onSucces, onError: onError)
         
     }
 }

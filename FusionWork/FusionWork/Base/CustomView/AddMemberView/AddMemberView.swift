@@ -58,11 +58,15 @@ class AddMemberView: UIView {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "MemberCell", bundle: Bundle.main), forCellWithReuseIdentifier: "cell")
-        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.scrollDirection = .vertical
-            layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-            layout.itemSize = UICollectionViewFlowLayout.automaticSize
-        }
+        let layout = LeftAlignedCollectionViewFlowLayout()
+        layout.minimumLineSpacing = 10
+        layout.minimumInteritemSpacing = 10
+        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        layout.scrollDirection = .vertical // để nó wrap xuống dòng
+
+        collectionView.collectionViewLayout = layout
+        collectionView.isScrollEnabled = true
+        collectionView.alwaysBounceVertical = true
 
         if let action = onRightTap {
             action()
@@ -89,11 +93,11 @@ class AddMemberView: UIView {
     
     @IBAction func addOnTap(_ sender: Any) {
         if validateEmail() {
-            self.viewModel.findUser(email: self.textField.text ?? "", organizationId: self.viewModel.organizationID ?? 0) { user in
-                self.viewModel.memberList.append(user)
+            self.viewModel.findUser(email: self.textField.text ?? "") { userList in
+                self.viewModel.memberList.append(userList.first ?? MemberModel())
                 self.delegate?.memberList(list: self.viewModel.memberList)
             } onError: { error in
-                self.delegate?.errorReturn(message: "The user is not found in your organization. Please check one more time")
+                self.delegate?.errorReturn(message: "The user is not found. Please check one more time")
             }
 
         } else {
@@ -106,3 +110,25 @@ class AddMemberView: UIView {
     }
 }
 
+class LeftAlignedCollectionViewFlowLayout: UICollectionViewFlowLayout {
+    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        let attributes = super.layoutAttributesForElements(in: rect)
+        
+        var leftMargin = sectionInset.left
+        var maxY: CGFloat = -1.0
+        
+        attributes?.forEach { layoutAttribute in
+            if layoutAttribute.representedElementCategory == .cell {
+                if layoutAttribute.frame.origin.y >= maxY {
+                    leftMargin = sectionInset.left
+                }
+
+                layoutAttribute.frame.origin.x = leftMargin
+                leftMargin += layoutAttribute.frame.width + minimumInteritemSpacing
+                maxY = max(layoutAttribute.frame.maxY, maxY)
+            }
+        }
+
+        return attributes
+    }
+}

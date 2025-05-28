@@ -137,7 +137,33 @@ class FusionNetwork {
             }
     }
     
-    ///6: Get user by organization id
+    ///6.: Get user list
+    public static func getUserList(email: String, onSucces: @escaping(([MemberModel]) -> Void), onError: @escaping((String) -> Void)) {
+        let path = "/v1/user"
+        let header: HTTPHeaders = ["Authorization":"Bearer \(GlobalData.sharedInstance.access_token)"]
+        let params: Parameters = ["query":email]
+        let method: HTTPMethod = .get
+        FusionLoading.show()
+
+        AF.request(
+            "\(self.rootURL)\(path)",
+            method: method,
+            parameters: params,
+            headers: header
+        )
+        .validate()
+        .responseDecodable(of: ResponseModel<[MemberModel]>.self) { response in
+            FusionLoading.hide()
+            switch response.result {
+            case .success(let result):
+                onSucces(result.data)
+            case .failure(let error):
+                onError(error.localizedDescription)
+            }
+        }
+    }
+    
+    ///6.1: Get user by organization id
     public static func getUserByOrganization(email: String, organizationId: Int, onSucces: @escaping((MemberModel) -> Void), onError: @escaping((String) -> Void)) {
         let path = "/v1/user/organization"
         let header: HTTPHeaders = ["Authorization":"Bearer \(GlobalData.sharedInstance.access_token)"]

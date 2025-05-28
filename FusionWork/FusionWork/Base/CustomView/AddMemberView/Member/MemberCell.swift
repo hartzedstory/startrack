@@ -9,11 +9,12 @@ import UIKit
 
 class MemberCell: UICollectionViewCell {
 
+    @IBOutlet weak var vMain: UIView!
     @IBOutlet weak var lblTitle: UILabel!
     var onDelete: (() -> Void)?
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.vMain.layer.cornerRadius = 10
     }
 
     func bindingData(item: MemberModel) {

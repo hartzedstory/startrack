@@ -100,7 +100,7 @@ class FusionInputView: UIView {
         
         let inputFormatter = DateFormatter()
         inputFormatter.dateFormat = "dd/MM/yyyy HH:mm" // format bạn đã dùng để hiển thị
-        inputFormatter.timeZone = TimeZone.current
+        inputFormatter.timeZone = TimeZone(secondsFromGMT: 0)
         
         let outputFormatter = DateFormatter()
         outputFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
@@ -127,7 +127,7 @@ class FusionInputView: UIView {
         
         let inputFormatter = DateFormatter()
         inputFormatter.dateFormat = "dd/MM/yyyy HH:mm" // format bạn đã dùng để hiển thị
-        inputFormatter.timeZone = TimeZone.current
+        inputFormatter.timeZone = TimeZone(secondsFromGMT: 0)
         
         let outputFormatter = DateFormatter()
         outputFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
