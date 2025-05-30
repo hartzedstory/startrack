@@ -107,25 +107,25 @@ extension FusionOrganizationViewController: UITableViewDelegate, UITableViewData
         return cell
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction(style: .destructive, title: nil) { _, _, completion in
-            
-            //Delete row at tableview
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-
-            completion(true)
-        }
-        deleteAction.image = UIImage(named: "ic_delete")
-        deleteAction.backgroundColor = UIColor(hexString: "#F6F6F6")
-        
-        let config = UISwipeActionsConfiguration(actions: [deleteAction])
-        return config
-    }
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//        }
+//    }
+//    
+//    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+//        let deleteAction = UIContextualAction(style: .destructive, title: nil) { _, _, completion in
+//            
+//            //Delete row at tableview
+//            tableView.deleteRows(at: [indexPath], with: .automatic)
+//
+//            completion(true)
+//        }
+//        deleteAction.image = UIImage(named: "ic_delete")
+//        deleteAction.backgroundColor = UIColor(hexString: "#F6F6F6")
+//        
+//        let config = UISwipeActionsConfiguration(actions: [deleteAction])
+//        return config
+//    }
     
 }
 
