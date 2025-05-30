@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 63;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,97 @@
 		996559612DE0951A00F4A716 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 996559602DE0951A00F4A716 /* SDWebImageMapKit */; };
 		99B095FD2D81C5C70003123A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 99B095FC2D81C5C70003123A /* Alamofire */; };
 		99B096052D81C6F30003123A /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 99B096042D81C6F30003123A /* SwiftyJSON */; };
+		99C4ABB92DE9B1BF0001023D /* MemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C4AB312DE9B1BF0001023D /* MemberCell.xib */; };
+		99C4ABBA2DE9B1BF0001023D /* AddMemberView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C4AB342DE9B1BF0001023D /* AddMemberView.xib */; };
+		99C4ABBB2DE9B1BF0001023D /* DescriptionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C4AB392DE9B1BF0001023D /* DescriptionView.xib */; };
+		99C4ABBC2DE9B1BF0001023D /* FusionInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C4AB3C2DE9B1BF0001023D /* FusionInputView.xib */; };
+		99C4ABBD2DE9B1BF0001023D /* StateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C4AB432DE9B1BF0001023D /* StateView.xib */; };
+		99C4ABBE2DE9B1BF0001023D /* FusionAddSubtaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C4AB462DE9B1BF0001023D /* FusionAddSubtaskCell.xib */; };
+		99C4ABBF2DE9B1BF0001023D /* AddSubTaskView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C4AB492DE9B1BF0001023D /* AddSubTaskView.xib */; };
+		99C4ABC02DE9B1BF0001023D /* FusionWebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C4AB4D2DE9B1BF0001023D /* FusionWebView.xib */; };
+		99C4ABC12DE9B1BF0001023D /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C4AB562DE9B1BF0001023D /* HeaderView.xib */; };
+		99C4ABC22DE9B1BF0001023D /* SearchBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C4AB642DE9B1BF0001023D /* SearchBox.xib */; };
+		99C4ABC32DE9B1BF0001023D /* FusionAddNewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C4AB7A2DE9B1BF0001023D /* FusionAddNewViewController.xib */; };
+		99C4ABC42DE9B1BF0001023D /* FusionWalkthroughViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C4AB7F2DE9B1BF0001023D /* FusionWalkthroughViewController.xib */; };
+		99C4ABC52DE9B1BF0001023D /* FusionGeneralViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C4AB822DE9B1BF0001023D /* FusionGeneralViewController.xib */; };
+		99C4ABC62DE9B1BF0001023D /* FusionNotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C4AB852DE9B1BF0001023D /* FusionNotificationCell.xib */; };
+		99C4ABC72DE9B1BF0001023D /* FusionNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C4AB882DE9B1BF0001023D /* FusionNotificationViewController.xib */; };
+		99C4ABC82DE9B1BF0001023D /* FusionOrganizationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C4AB8B2DE9B1BF0001023D /* FusionOrganizationCell.xib */; };
+		99C4ABC92DE9B1BF0001023D /* FusionOrganizationDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C4AB8E2DE9B1BF0001023D /* FusionOrganizationDetailViewController.xib */; };
+		99C4ABCA2DE9B1BF0001023D /* FusionOrganizationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C4AB912DE9B1BF0001023D /* FusionOrganizationViewController.xib */; };
+		99C4ABCB2DE9B1BF0001023D /* FusionProjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C4AB952DE9B1BF0001023D /* FusionProjectViewController.xib */; };
+		99C4ABCC2DE9B1BF0001023D /* SelectPopupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C4AB992DE9B1BF0001023D /* SelectPopupCell.xib */; };
+		99C4ABCD2DE9B1BF0001023D /* FusionSelectPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C4AB9C2DE9B1BF0001023D /* FusionSelectPopupViewController.xib */; };
+		99C4ABCE2DE9B1BF0001023D /* FusionTaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C4AB9F2DE9B1BF0001023D /* FusionTaskTableViewCell.xib */; };
+		99C4ABCF2DE9B1BF0001023D /* SubtaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C4ABA22DE9B1BF0001023D /* SubtaskCell.xib */; };
+		99C4ABD02DE9B1BF0001023D /* TagView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C4ABA52DE9B1BF0001023D /* TagView.xib */; };
+		99C4ABD12DE9B1BF0001023D /* FusionTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C4ABA82DE9B1BF0001023D /* FusionTaskViewController.xib */; };
+		99C4ABD22DE9B1BF0001023D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99C4ABAE2DE9B1BF0001023D /* Assets.xcassets */; };
+		99C4ABD32DE9B1BF0001023D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99C4ABB02DE9B1BF0001023D /* GoogleService-Info.plist */; };
+		99C4ABD52DE9B1BF0001023D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99C4ABB32DE9B1BF0001023D /* LaunchScreen.storyboard */; };
+		99C4ABD62DE9B1BF0001023D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99C4ABB52DE9B1BF0001023D /* Main.storyboard */; };
+		99C4ABD72DE9B1BF0001023D /* MemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB302DE9B1BF0001023D /* MemberCell.swift */; };
+		99C4ABD82DE9B1BF0001023D /* AddMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB332DE9B1BF0001023D /* AddMemberView.swift */; };
+		99C4ABD92DE9B1BF0001023D /* AddMemberView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB352DE9B1BF0001023D /* AddMemberView+Extension.swift */; };
+		99C4ABDA2DE9B1BF0001023D /* AddMemberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB362DE9B1BF0001023D /* AddMemberViewModel.swift */; };
+		99C4ABDB2DE9B1BF0001023D /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB382DE9B1BF0001023D /* DescriptionView.swift */; };
+		99C4ABDC2DE9B1BF0001023D /* FusionInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB3B2DE9B1BF0001023D /* FusionInputView.swift */; };
+		99C4ABDD2DE9B1BF0001023D /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB3E2DE9B1BF0001023D /* ProgressView.swift */; };
+		99C4ABDE2DE9B1BF0001023D /* Spacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB402DE9B1BF0001023D /* Spacer.swift */; };
+		99C4ABDF2DE9B1BF0001023D /* StateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB422DE9B1BF0001023D /* StateView.swift */; };
+		99C4ABE02DE9B1BF0001023D /* FusionAddSubtaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB452DE9B1BF0001023D /* FusionAddSubtaskCell.swift */; };
+		99C4ABE12DE9B1BF0001023D /* AddSubTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB482DE9B1BF0001023D /* AddSubTaskView.swift */; };
+		99C4ABE22DE9B1BF0001023D /* AddSubTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB4A2DE9B1BF0001023D /* AddSubTaskViewModel.swift */; };
+		99C4ABE32DE9B1BF0001023D /* FusionWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB4C2DE9B1BF0001023D /* FusionWebView.swift */; };
+		99C4ABE42DE9B1BF0001023D /* EncodableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB502DE9B1BF0001023D /* EncodableExtension.swift */; };
+		99C4ABE52DE9B1BF0001023D /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB512DE9B1BF0001023D /* UIColorExtension.swift */; };
+		99C4ABE62DE9B1BF0001023D /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB522DE9B1BF0001023D /* UIViewControllerExtension.swift */; };
+		99C4ABE72DE9B1BF0001023D /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB532DE9B1BF0001023D /* UIViewExtension.swift */; };
+		99C4ABE82DE9B1BF0001023D /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB552DE9B1BF0001023D /* HeaderView.swift */; };
+		99C4ABE92DE9B1BF0001023D /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB582DE9B1BF0001023D /* AppRouter.swift */; };
+		99C4ABEA2DE9B1BF0001023D /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB592DE9B1BF0001023D /* AuthManager.swift */; };
+		99C4ABEB2DE9B1BF0001023D /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB5B2DE9B1BF0001023D /* NotificationModel.swift */; };
+		99C4ABEC2DE9B1BF0001023D /* OrganizationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB5C2DE9B1BF0001023D /* OrganizationModel.swift */; };
+		99C4ABED2DE9B1BF0001023D /* ProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB5D2DE9B1BF0001023D /* ProjectModel.swift */; };
+		99C4ABEE2DE9B1BF0001023D /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB5E2DE9B1BF0001023D /* TaskModel.swift */; };
+		99C4ABEF2DE9B1BF0001023D /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB5F2DE9B1BF0001023D /* UserModel.swift */; };
+		99C4ABF02DE9B1BF0001023D /* FusionNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB612DE9B1BF0001023D /* FusionNetwork.swift */; };
+		99C4ABF12DE9B1BF0001023D /* SearchBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB632DE9B1BF0001023D /* SearchBox.swift */; };
+		99C4ABF22DE9B1BF0001023D /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB662DE9B1BF0001023D /* GlobalData.swift */; };
+		99C4ABF32DE9B1BF0001023D /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB682DE9B1BF0001023D /* MainTabBarController.swift */; };
+		99C4ABF42DE9B1BF0001023D /* TabBarButtonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB6A2DE9B1BF0001023D /* TabBarButtonModel.swift */; };
+		99C4ABF52DE9B1BF0001023D /* TabBarControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB6B2DE9B1BF0001023D /* TabBarControllerProtocol.swift */; };
+		99C4ABF62DE9B1BF0001023D /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB6D2DE9B1BF0001023D /* TabBarView.swift */; };
+		99C4ABF72DE9B1BF0001023D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB6F2DE9B1BF0001023D /* Constants.swift */; };
+		99C4ABF82DE9B1BF0001023D /* LayoutAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB702DE9B1BF0001023D /* LayoutAdapter.swift */; };
+		99C4ABF92DE9B1BF0001023D /* AppAttestProviderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB722DE9B1BF0001023D /* AppAttestProviderFactory.swift */; };
+		99C4ABFA2DE9B1BF0001023D /* FCMTokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB732DE9B1BF0001023D /* FCMTokenManager.swift */; };
+		99C4ABFB2DE9B1BF0001023D /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB742DE9B1BF0001023D /* JWT.swift */; };
+		99C4ABFC2DE9B1BF0001023D /* FusionLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB772DE9B1BF0001023D /* FusionLoading.swift */; };
+		99C4ABFD2DE9B1BF0001023D /* FusionAddNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB792DE9B1BF0001023D /* FusionAddNewViewController.swift */; };
+		99C4ABFE2DE9B1BF0001023D /* FusionAddNewViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB7B2DE9B1BF0001023D /* FusionAddNewViewController+Extension.swift */; };
+		99C4ABFF2DE9B1BF0001023D /* FusionAddNewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB7C2DE9B1BF0001023D /* FusionAddNewViewModel.swift */; };
+		99C4AC002DE9B1BF0001023D /* FusionWalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB7E2DE9B1BF0001023D /* FusionWalkthroughViewController.swift */; };
+		99C4AC012DE9B1BF0001023D /* FusionGeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB812DE9B1BF0001023D /* FusionGeneralViewController.swift */; };
+		99C4AC022DE9B1BF0001023D /* FusionNotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB842DE9B1BF0001023D /* FusionNotificationCell.swift */; };
+		99C4AC032DE9B1BF0001023D /* FusionNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB872DE9B1BF0001023D /* FusionNotificationViewController.swift */; };
+		99C4AC042DE9B1BF0001023D /* FusionOrganizationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB8A2DE9B1BF0001023D /* FusionOrganizationCell.swift */; };
+		99C4AC052DE9B1BF0001023D /* FusionOrganizationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB8D2DE9B1BF0001023D /* FusionOrganizationDetailViewController.swift */; };
+		99C4AC062DE9B1BF0001023D /* FusionOrganizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB902DE9B1BF0001023D /* FusionOrganizationViewController.swift */; };
+		99C4AC072DE9B1BF0001023D /* FusionOrganizationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB922DE9B1BF0001023D /* FusionOrganizationViewModel.swift */; };
+		99C4AC082DE9B1BF0001023D /* FusionProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB942DE9B1BF0001023D /* FusionProjectViewController.swift */; };
+		99C4AC092DE9B1BF0001023D /* FusionProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB962DE9B1BF0001023D /* FusionProjectViewModel.swift */; };
+		99C4AC0A2DE9B1BF0001023D /* SelectPopupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB982DE9B1BF0001023D /* SelectPopupCell.swift */; };
+		99C4AC0B2DE9B1BF0001023D /* FusionSelectPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB9B2DE9B1BF0001023D /* FusionSelectPopupViewController.swift */; };
+		99C4AC0C2DE9B1BF0001023D /* FusionTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4AB9E2DE9B1BF0001023D /* FusionTaskTableViewCell.swift */; };
+		99C4AC0D2DE9B1BF0001023D /* SubtaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4ABA12DE9B1BF0001023D /* SubtaskCell.swift */; };
+		99C4AC0E2DE9B1BF0001023D /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4ABA42DE9B1BF0001023D /* TagView.swift */; };
+		99C4AC0F2DE9B1BF0001023D /* FusionTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4ABA72DE9B1BF0001023D /* FusionTaskViewController.swift */; };
+		99C4AC102DE9B1BF0001023D /* FusionTaskViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4ABA92DE9B1BF0001023D /* FusionTaskViewControllerExtension.swift */; };
+		99C4AC112DE9B1BF0001023D /* FusionTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4ABAA2DE9B1BF0001023D /* FusionTaskViewModel.swift */; };
+		99C4AC122DE9B1BF0001023D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4ABAD2DE9B1BF0001023D /* AppDelegate.swift */; };
+		99C4AC132DE9B1BF0001023D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4ABB62DE9B1BF0001023D /* SceneDelegate.swift */; };
+		99C4AC142DE9B1BF0001023D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4ABB72DE9B1BF0001023D /* ViewController.swift */; };
 		99DEBACA2DD08440001AF9BE /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 99DEBAC92DD08440001AF9BE /* FirebaseAnalytics */; };
 		99DEBACC2DD08440001AF9BE /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 99DEBACB2DD08440001AF9BE /* FirebaseAnalyticsOnDeviceConversion */; };
 		99DEBACE2DD08440001AF9BE /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 99DEBACD2DD08440001AF9BE /* FirebaseAnalyticsWithoutAdIdSupport */; };
@@ -41,28 +132,100 @@
 
 /* Begin PBXFileReference section */
 		990863172D8154030041A724 /* FusionWork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FusionWork.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		99C4AB302DE9B1BF0001023D /* MemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCell.swift; sourceTree = "<group>"; };
+		99C4AB312DE9B1BF0001023D /* MemberCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberCell.xib; sourceTree = "<group>"; };
+		99C4AB332DE9B1BF0001023D /* AddMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberView.swift; sourceTree = "<group>"; };
+		99C4AB342DE9B1BF0001023D /* AddMemberView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddMemberView.xib; sourceTree = "<group>"; };
+		99C4AB352DE9B1BF0001023D /* AddMemberView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddMemberView+Extension.swift"; sourceTree = "<group>"; };
+		99C4AB362DE9B1BF0001023D /* AddMemberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberViewModel.swift; sourceTree = "<group>"; };
+		99C4AB382DE9B1BF0001023D /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
+		99C4AB392DE9B1BF0001023D /* DescriptionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionView.xib; sourceTree = "<group>"; };
+		99C4AB3B2DE9B1BF0001023D /* FusionInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FusionInputView.swift; sourceTree = "<group>"; };
+		99C4AB3C2DE9B1BF0001023D /* FusionInputView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FusionInputView.xib; sourceTree = "<group>"; };
+		99C4AB3E2DE9B1BF0001023D /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		99C4AB402DE9B1BF0001023D /* Spacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacer.swift; sourceTree = "<group>"; };
+		99C4AB422DE9B1BF0001023D /* StateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateView.swift; sourceTree = "<group>"; };
+		99C4AB432DE9B1BF0001023D /* StateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StateView.xib; sourceTree = "<group>"; };
+		99C4AB452DE9B1BF0001023D /* FusionAddSubtaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FusionAddSubtaskCell.swift; sourceTree = "<group>"; };
+		99C4AB462DE9B1BF0001023D /* FusionAddSubtaskCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FusionAddSubtaskCell.xib; sourceTree = "<group>"; };
+		99C4AB482DE9B1BF0001023D /* AddSubTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubTaskView.swift; sourceTree = "<group>"; };
+		99C4AB492DE9B1BF0001023D /* AddSubTaskView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddSubTaskView.xib; sourceTree = "<group>"; };
+		99C4AB4A2DE9B1BF0001023D /* AddSubTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubTaskViewModel.swift; sourceTree = "<group>"; };
+		99C4AB4C2DE9B1BF0001023D /* FusionWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FusionWebView.swift; sourceTree = "<group>"; };
+		99C4AB4D2DE9B1BF0001023D /* FusionWebView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FusionWebView.xib; sourceTree = "<group>"; };
+		99C4AB502DE9B1BF0001023D /* EncodableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableExtension.swift; sourceTree = "<group>"; };
+		99C4AB512DE9B1BF0001023D /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		99C4AB522DE9B1BF0001023D /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		99C4AB532DE9B1BF0001023D /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		99C4AB552DE9B1BF0001023D /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		99C4AB562DE9B1BF0001023D /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		99C4AB582DE9B1BF0001023D /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		99C4AB592DE9B1BF0001023D /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		99C4AB5B2DE9B1BF0001023D /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
+		99C4AB5C2DE9B1BF0001023D /* OrganizationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationModel.swift; sourceTree = "<group>"; };
+		99C4AB5D2DE9B1BF0001023D /* ProjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectModel.swift; sourceTree = "<group>"; };
+		99C4AB5E2DE9B1BF0001023D /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		99C4AB5F2DE9B1BF0001023D /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		99C4AB612DE9B1BF0001023D /* FusionNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FusionNetwork.swift; sourceTree = "<group>"; };
+		99C4AB632DE9B1BF0001023D /* SearchBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBox.swift; sourceTree = "<group>"; };
+		99C4AB642DE9B1BF0001023D /* SearchBox.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchBox.xib; sourceTree = "<group>"; };
+		99C4AB662DE9B1BF0001023D /* GlobalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
+		99C4AB682DE9B1BF0001023D /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		99C4AB6A2DE9B1BF0001023D /* TabBarButtonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButtonModel.swift; sourceTree = "<group>"; };
+		99C4AB6B2DE9B1BF0001023D /* TabBarControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerProtocol.swift; sourceTree = "<group>"; };
+		99C4AB6D2DE9B1BF0001023D /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		99C4AB6F2DE9B1BF0001023D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		99C4AB702DE9B1BF0001023D /* LayoutAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutAdapter.swift; sourceTree = "<group>"; };
+		99C4AB722DE9B1BF0001023D /* AppAttestProviderFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAttestProviderFactory.swift; sourceTree = "<group>"; };
+		99C4AB732DE9B1BF0001023D /* FCMTokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMTokenManager.swift; sourceTree = "<group>"; };
+		99C4AB742DE9B1BF0001023D /* JWT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWT.swift; sourceTree = "<group>"; };
+		99C4AB772DE9B1BF0001023D /* FusionLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FusionLoading.swift; sourceTree = "<group>"; };
+		99C4AB792DE9B1BF0001023D /* FusionAddNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FusionAddNewViewController.swift; sourceTree = "<group>"; };
+		99C4AB7A2DE9B1BF0001023D /* FusionAddNewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FusionAddNewViewController.xib; sourceTree = "<group>"; };
+		99C4AB7B2DE9B1BF0001023D /* FusionAddNewViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FusionAddNewViewController+Extension.swift"; sourceTree = "<group>"; };
+		99C4AB7C2DE9B1BF0001023D /* FusionAddNewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FusionAddNewViewModel.swift; sourceTree = "<group>"; };
+		99C4AB7E2DE9B1BF0001023D /* FusionWalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FusionWalkthroughViewController.swift; sourceTree = "<group>"; };
+		99C4AB7F2DE9B1BF0001023D /* FusionWalkthroughViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FusionWalkthroughViewController.xib; sourceTree = "<group>"; };
+		99C4AB812DE9B1BF0001023D /* FusionGeneralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FusionGeneralViewController.swift; sourceTree = "<group>"; };
+		99C4AB822DE9B1BF0001023D /* FusionGeneralViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FusionGeneralViewController.xib; sourceTree = "<group>"; };
+		99C4AB842DE9B1BF0001023D /* FusionNotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FusionNotificationCell.swift; sourceTree = "<group>"; };
+		99C4AB852DE9B1BF0001023D /* FusionNotificationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FusionNotificationCell.xib; sourceTree = "<group>"; };
+		99C4AB872DE9B1BF0001023D /* FusionNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FusionNotificationViewController.swift; sourceTree = "<group>"; };
+		99C4AB882DE9B1BF0001023D /* FusionNotificationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FusionNotificationViewController.xib; sourceTree = "<group>"; };
+		99C4AB8A2DE9B1BF0001023D /* FusionOrganizationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FusionOrganizationCell.swift; sourceTree = "<group>"; };
+		99C4AB8B2DE9B1BF0001023D /* FusionOrganizationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FusionOrganizationCell.xib; sourceTree = "<group>"; };
+		99C4AB8D2DE9B1BF0001023D /* FusionOrganizationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FusionOrganizationDetailViewController.swift; sourceTree = "<group>"; };
+		99C4AB8E2DE9B1BF0001023D /* FusionOrganizationDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FusionOrganizationDetailViewController.xib; sourceTree = "<group>"; };
+		99C4AB902DE9B1BF0001023D /* FusionOrganizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FusionOrganizationViewController.swift; sourceTree = "<group>"; };
+		99C4AB912DE9B1BF0001023D /* FusionOrganizationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FusionOrganizationViewController.xib; sourceTree = "<group>"; };
+		99C4AB922DE9B1BF0001023D /* FusionOrganizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FusionOrganizationViewModel.swift; sourceTree = "<group>"; };
+		99C4AB942DE9B1BF0001023D /* FusionProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FusionProjectViewController.swift; sourceTree = "<group>"; };
+		99C4AB952DE9B1BF0001023D /* FusionProjectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FusionProjectViewController.xib; sourceTree = "<group>"; };
+		99C4AB962DE9B1BF0001023D /* FusionProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FusionProjectViewModel.swift; sourceTree = "<group>"; };
+		99C4AB982DE9B1BF0001023D /* SelectPopupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPopupCell.swift; sourceTree = "<group>"; };
+		99C4AB992DE9B1BF0001023D /* SelectPopupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectPopupCell.xib; sourceTree = "<group>"; };
+		99C4AB9B2DE9B1BF0001023D /* FusionSelectPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FusionSelectPopupViewController.swift; sourceTree = "<group>"; };
+		99C4AB9C2DE9B1BF0001023D /* FusionSelectPopupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FusionSelectPopupViewController.xib; sourceTree = "<group>"; };
+		99C4AB9E2DE9B1BF0001023D /* FusionTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FusionTaskTableViewCell.swift; sourceTree = "<group>"; };
+		99C4AB9F2DE9B1BF0001023D /* FusionTaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FusionTaskTableViewCell.xib; sourceTree = "<group>"; };
+		99C4ABA12DE9B1BF0001023D /* SubtaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtaskCell.swift; sourceTree = "<group>"; };
+		99C4ABA22DE9B1BF0001023D /* SubtaskCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubtaskCell.xib; sourceTree = "<group>"; };
+		99C4ABA42DE9B1BF0001023D /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		99C4ABA52DE9B1BF0001023D /* TagView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagView.xib; sourceTree = "<group>"; };
+		99C4ABA72DE9B1BF0001023D /* FusionTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FusionTaskViewController.swift; sourceTree = "<group>"; };
+		99C4ABA82DE9B1BF0001023D /* FusionTaskViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FusionTaskViewController.xib; sourceTree = "<group>"; };
+		99C4ABA92DE9B1BF0001023D /* FusionTaskViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FusionTaskViewControllerExtension.swift; sourceTree = "<group>"; };
+		99C4ABAA2DE9B1BF0001023D /* FusionTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FusionTaskViewModel.swift; sourceTree = "<group>"; };
+		99C4ABAD2DE9B1BF0001023D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		99C4ABAE2DE9B1BF0001023D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		99C4ABAF2DE9B1BF0001023D /* FusionWork.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FusionWork.entitlements; sourceTree = "<group>"; };
+		99C4ABB02DE9B1BF0001023D /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		99C4ABB12DE9B1BF0001023D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		99C4ABB22DE9B1BF0001023D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		99C4ABB42DE9B1BF0001023D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		99C4ABB62DE9B1BF0001023D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		99C4ABB72DE9B1BF0001023D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		990863292D8154040041A724 /* Exceptions for "FusionWork" folder in "FusionWork" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 990863162D8154030041A724 /* FusionWork */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		990863192D8154030041A724 /* FusionWork */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				990863292D8154040041A724 /* Exceptions for "FusionWork" folder in "FusionWork" target */,
-			);
-			path = FusionWork;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		990863142D8154030041A724 /* Frameworks */ = {
@@ -108,7 +271,7 @@
 		9908630E2D8154030041A724 = {
 			isa = PBXGroup;
 			children = (
-				990863192D8154030041A724 /* FusionWork */,
+				99C4ABB82DE9B1BF0001023D /* FusionWork */,
 				990863182D8154030041A724 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -119,6 +282,434 @@
 				990863172D8154030041A724 /* FusionWork.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		99C4AB322DE9B1BF0001023D /* Member */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB302DE9B1BF0001023D /* MemberCell.swift */,
+				99C4AB312DE9B1BF0001023D /* MemberCell.xib */,
+			);
+			path = Member;
+			sourceTree = "<group>";
+		};
+		99C4AB372DE9B1BF0001023D /* AddMemberView */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB322DE9B1BF0001023D /* Member */,
+				99C4AB332DE9B1BF0001023D /* AddMemberView.swift */,
+				99C4AB342DE9B1BF0001023D /* AddMemberView.xib */,
+				99C4AB352DE9B1BF0001023D /* AddMemberView+Extension.swift */,
+				99C4AB362DE9B1BF0001023D /* AddMemberViewModel.swift */,
+			);
+			path = AddMemberView;
+			sourceTree = "<group>";
+		};
+		99C4AB3A2DE9B1BF0001023D /* DescriptionView */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB382DE9B1BF0001023D /* DescriptionView.swift */,
+				99C4AB392DE9B1BF0001023D /* DescriptionView.xib */,
+			);
+			path = DescriptionView;
+			sourceTree = "<group>";
+		};
+		99C4AB3D2DE9B1BF0001023D /* InputView */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB3B2DE9B1BF0001023D /* FusionInputView.swift */,
+				99C4AB3C2DE9B1BF0001023D /* FusionInputView.xib */,
+			);
+			path = InputView;
+			sourceTree = "<group>";
+		};
+		99C4AB3F2DE9B1BF0001023D /* ProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB3E2DE9B1BF0001023D /* ProgressView.swift */,
+			);
+			path = ProgressView;
+			sourceTree = "<group>";
+		};
+		99C4AB412DE9B1BF0001023D /* Spacer */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB402DE9B1BF0001023D /* Spacer.swift */,
+			);
+			path = Spacer;
+			sourceTree = "<group>";
+		};
+		99C4AB442DE9B1BF0001023D /* StateView */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB422DE9B1BF0001023D /* StateView.swift */,
+				99C4AB432DE9B1BF0001023D /* StateView.xib */,
+			);
+			path = StateView;
+			sourceTree = "<group>";
+		};
+		99C4AB472DE9B1BF0001023D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB452DE9B1BF0001023D /* FusionAddSubtaskCell.swift */,
+				99C4AB462DE9B1BF0001023D /* FusionAddSubtaskCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		99C4AB4B2DE9B1BF0001023D /* SubtaskView */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB472DE9B1BF0001023D /* Cell */,
+				99C4AB482DE9B1BF0001023D /* AddSubTaskView.swift */,
+				99C4AB492DE9B1BF0001023D /* AddSubTaskView.xib */,
+				99C4AB4A2DE9B1BF0001023D /* AddSubTaskViewModel.swift */,
+			);
+			path = SubtaskView;
+			sourceTree = "<group>";
+		};
+		99C4AB4E2DE9B1BF0001023D /* Webview */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB4C2DE9B1BF0001023D /* FusionWebView.swift */,
+				99C4AB4D2DE9B1BF0001023D /* FusionWebView.xib */,
+			);
+			path = Webview;
+			sourceTree = "<group>";
+		};
+		99C4AB4F2DE9B1BF0001023D /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB372DE9B1BF0001023D /* AddMemberView */,
+				99C4AB3A2DE9B1BF0001023D /* DescriptionView */,
+				99C4AB3D2DE9B1BF0001023D /* InputView */,
+				99C4AB3F2DE9B1BF0001023D /* ProgressView */,
+				99C4AB412DE9B1BF0001023D /* Spacer */,
+				99C4AB442DE9B1BF0001023D /* StateView */,
+				99C4AB4B2DE9B1BF0001023D /* SubtaskView */,
+				99C4AB4E2DE9B1BF0001023D /* Webview */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		99C4AB542DE9B1BF0001023D /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB502DE9B1BF0001023D /* EncodableExtension.swift */,
+				99C4AB512DE9B1BF0001023D /* UIColorExtension.swift */,
+				99C4AB522DE9B1BF0001023D /* UIViewControllerExtension.swift */,
+				99C4AB532DE9B1BF0001023D /* UIViewExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		99C4AB572DE9B1BF0001023D /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB552DE9B1BF0001023D /* HeaderView.swift */,
+				99C4AB562DE9B1BF0001023D /* HeaderView.xib */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		99C4AB5A2DE9B1BF0001023D /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB582DE9B1BF0001023D /* AppRouter.swift */,
+				99C4AB592DE9B1BF0001023D /* AuthManager.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		99C4AB602DE9B1BF0001023D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB5B2DE9B1BF0001023D /* NotificationModel.swift */,
+				99C4AB5C2DE9B1BF0001023D /* OrganizationModel.swift */,
+				99C4AB5D2DE9B1BF0001023D /* ProjectModel.swift */,
+				99C4AB5E2DE9B1BF0001023D /* TaskModel.swift */,
+				99C4AB5F2DE9B1BF0001023D /* UserModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		99C4AB622DE9B1BF0001023D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB612DE9B1BF0001023D /* FusionNetwork.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		99C4AB652DE9B1BF0001023D /* SearchBox */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB632DE9B1BF0001023D /* SearchBox.swift */,
+				99C4AB642DE9B1BF0001023D /* SearchBox.xib */,
+			);
+			path = SearchBox;
+			sourceTree = "<group>";
+		};
+		99C4AB672DE9B1BF0001023D /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB662DE9B1BF0001023D /* GlobalData.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		99C4AB692DE9B1BF0001023D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB682DE9B1BF0001023D /* MainTabBarController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		99C4AB6C2DE9B1BF0001023D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB6A2DE9B1BF0001023D /* TabBarButtonModel.swift */,
+				99C4AB6B2DE9B1BF0001023D /* TabBarControllerProtocol.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		99C4AB6E2DE9B1BF0001023D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB6D2DE9B1BF0001023D /* TabBarView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		99C4AB712DE9B1BF0001023D /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB692DE9B1BF0001023D /* Controller */,
+				99C4AB6C2DE9B1BF0001023D /* Model */,
+				99C4AB6E2DE9B1BF0001023D /* View */,
+				99C4AB6F2DE9B1BF0001023D /* Constants.swift */,
+				99C4AB702DE9B1BF0001023D /* LayoutAdapter.swift */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		99C4AB752DE9B1BF0001023D /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB722DE9B1BF0001023D /* AppAttestProviderFactory.swift */,
+				99C4AB732DE9B1BF0001023D /* FCMTokenManager.swift */,
+				99C4AB742DE9B1BF0001023D /* JWT.swift */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
+		99C4AB762DE9B1BF0001023D /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB4F2DE9B1BF0001023D /* CustomView */,
+				99C4AB542DE9B1BF0001023D /* Extension */,
+				99C4AB572DE9B1BF0001023D /* Header */,
+				99C4AB5A2DE9B1BF0001023D /* Helper */,
+				99C4AB602DE9B1BF0001023D /* Model */,
+				99C4AB622DE9B1BF0001023D /* Network */,
+				99C4AB652DE9B1BF0001023D /* SearchBox */,
+				99C4AB672DE9B1BF0001023D /* Shared */,
+				99C4AB712DE9B1BF0001023D /* Tabbar */,
+				99C4AB752DE9B1BF0001023D /* Worker */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		99C4AB782DE9B1BF0001023D /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB772DE9B1BF0001023D /* FusionLoading.swift */,
+			);
+			path = Framework;
+			sourceTree = "<group>";
+		};
+		99C4AB7D2DE9B1BF0001023D /* AddNew */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB792DE9B1BF0001023D /* FusionAddNewViewController.swift */,
+				99C4AB7A2DE9B1BF0001023D /* FusionAddNewViewController.xib */,
+				99C4AB7B2DE9B1BF0001023D /* FusionAddNewViewController+Extension.swift */,
+				99C4AB7C2DE9B1BF0001023D /* FusionAddNewViewModel.swift */,
+			);
+			path = AddNew;
+			sourceTree = "<group>";
+		};
+		99C4AB802DE9B1BF0001023D /* AppIntro */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB7E2DE9B1BF0001023D /* FusionWalkthroughViewController.swift */,
+				99C4AB7F2DE9B1BF0001023D /* FusionWalkthroughViewController.xib */,
+			);
+			path = AppIntro;
+			sourceTree = "<group>";
+		};
+		99C4AB832DE9B1BF0001023D /* General */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB812DE9B1BF0001023D /* FusionGeneralViewController.swift */,
+				99C4AB822DE9B1BF0001023D /* FusionGeneralViewController.xib */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		99C4AB862DE9B1BF0001023D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB842DE9B1BF0001023D /* FusionNotificationCell.swift */,
+				99C4AB852DE9B1BF0001023D /* FusionNotificationCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		99C4AB892DE9B1BF0001023D /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB862DE9B1BF0001023D /* Cell */,
+				99C4AB872DE9B1BF0001023D /* FusionNotificationViewController.swift */,
+				99C4AB882DE9B1BF0001023D /* FusionNotificationViewController.xib */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		99C4AB8C2DE9B1BF0001023D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB8A2DE9B1BF0001023D /* FusionOrganizationCell.swift */,
+				99C4AB8B2DE9B1BF0001023D /* FusionOrganizationCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		99C4AB8F2DE9B1BF0001023D /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB8D2DE9B1BF0001023D /* FusionOrganizationDetailViewController.swift */,
+				99C4AB8E2DE9B1BF0001023D /* FusionOrganizationDetailViewController.xib */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		99C4AB932DE9B1BF0001023D /* Organization */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB8C2DE9B1BF0001023D /* Cell */,
+				99C4AB8F2DE9B1BF0001023D /* Detail */,
+				99C4AB902DE9B1BF0001023D /* FusionOrganizationViewController.swift */,
+				99C4AB912DE9B1BF0001023D /* FusionOrganizationViewController.xib */,
+				99C4AB922DE9B1BF0001023D /* FusionOrganizationViewModel.swift */,
+			);
+			path = Organization;
+			sourceTree = "<group>";
+		};
+		99C4AB972DE9B1BF0001023D /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB942DE9B1BF0001023D /* FusionProjectViewController.swift */,
+				99C4AB952DE9B1BF0001023D /* FusionProjectViewController.xib */,
+				99C4AB962DE9B1BF0001023D /* FusionProjectViewModel.swift */,
+			);
+			path = Project;
+			sourceTree = "<group>";
+		};
+		99C4AB9A2DE9B1BF0001023D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB982DE9B1BF0001023D /* SelectPopupCell.swift */,
+				99C4AB992DE9B1BF0001023D /* SelectPopupCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		99C4AB9D2DE9B1BF0001023D /* SelectPopup */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB9A2DE9B1BF0001023D /* Cell */,
+				99C4AB9B2DE9B1BF0001023D /* FusionSelectPopupViewController.swift */,
+				99C4AB9C2DE9B1BF0001023D /* FusionSelectPopupViewController.xib */,
+			);
+			path = SelectPopup;
+			sourceTree = "<group>";
+		};
+		99C4ABA02DE9B1BF0001023D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB9E2DE9B1BF0001023D /* FusionTaskTableViewCell.swift */,
+				99C4AB9F2DE9B1BF0001023D /* FusionTaskTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		99C4ABA32DE9B1BF0001023D /* SubtaskView */ = {
+			isa = PBXGroup;
+			children = (
+				99C4ABA12DE9B1BF0001023D /* SubtaskCell.swift */,
+				99C4ABA22DE9B1BF0001023D /* SubtaskCell.xib */,
+			);
+			path = SubtaskView;
+			sourceTree = "<group>";
+		};
+		99C4ABA62DE9B1BF0001023D /* TagView */ = {
+			isa = PBXGroup;
+			children = (
+				99C4ABA42DE9B1BF0001023D /* TagView.swift */,
+				99C4ABA52DE9B1BF0001023D /* TagView.xib */,
+			);
+			path = TagView;
+			sourceTree = "<group>";
+		};
+		99C4ABAB2DE9B1BF0001023D /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				99C4ABA02DE9B1BF0001023D /* Cell */,
+				99C4ABA32DE9B1BF0001023D /* SubtaskView */,
+				99C4ABA62DE9B1BF0001023D /* TagView */,
+				99C4ABA72DE9B1BF0001023D /* FusionTaskViewController.swift */,
+				99C4ABA82DE9B1BF0001023D /* FusionTaskViewController.xib */,
+				99C4ABA92DE9B1BF0001023D /* FusionTaskViewControllerExtension.swift */,
+				99C4ABAA2DE9B1BF0001023D /* FusionTaskViewModel.swift */,
+			);
+			path = Task;
+			sourceTree = "<group>";
+		};
+		99C4ABAC2DE9B1BF0001023D /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB7D2DE9B1BF0001023D /* AddNew */,
+				99C4AB802DE9B1BF0001023D /* AppIntro */,
+				99C4AB832DE9B1BF0001023D /* General */,
+				99C4AB892DE9B1BF0001023D /* Notification */,
+				99C4AB932DE9B1BF0001023D /* Organization */,
+				99C4AB972DE9B1BF0001023D /* Project */,
+				99C4AB9D2DE9B1BF0001023D /* SelectPopup */,
+				99C4ABAB2DE9B1BF0001023D /* Task */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		99C4ABB82DE9B1BF0001023D /* FusionWork */ = {
+			isa = PBXGroup;
+			children = (
+				99C4AB762DE9B1BF0001023D /* Base */,
+				99C4AB782DE9B1BF0001023D /* Framework */,
+				99C4ABAC2DE9B1BF0001023D /* Screen */,
+				99C4ABAD2DE9B1BF0001023D /* AppDelegate.swift */,
+				99C4ABAE2DE9B1BF0001023D /* Assets.xcassets */,
+				99C4ABAF2DE9B1BF0001023D /* FusionWork.entitlements */,
+				99C4ABB02DE9B1BF0001023D /* GoogleService-Info.plist */,
+				99C4ABB12DE9B1BF0001023D /* Info.plist */,
+				99C4ABB32DE9B1BF0001023D /* LaunchScreen.storyboard */,
+				99C4ABB52DE9B1BF0001023D /* Main.storyboard */,
+				99C4ABB62DE9B1BF0001023D /* SceneDelegate.swift */,
+				99C4ABB72DE9B1BF0001023D /* ViewController.swift */,
+			);
+			path = FusionWork;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,9 +726,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				990863192D8154030041A724 /* FusionWork */,
 			);
 			name = FusionWork;
 			packageProductDependencies = (
@@ -193,6 +781,7 @@
 				};
 			};
 			buildConfigurationList = 990863122D8154030041A724 /* Build configuration list for PBXProject "FusionWork" */;
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -209,7 +798,6 @@
 				99DEBAC82DD08440001AF9BE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				9965595D2DE0951A00F4A716 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
-			preferredProjectObjectVersion = 77;
 			productRefGroup = 990863182D8154030041A724 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -224,6 +812,35 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99C4ABB92DE9B1BF0001023D /* MemberCell.xib in Resources */,
+				99C4ABBA2DE9B1BF0001023D /* AddMemberView.xib in Resources */,
+				99C4ABBB2DE9B1BF0001023D /* DescriptionView.xib in Resources */,
+				99C4ABBC2DE9B1BF0001023D /* FusionInputView.xib in Resources */,
+				99C4ABBD2DE9B1BF0001023D /* StateView.xib in Resources */,
+				99C4ABBE2DE9B1BF0001023D /* FusionAddSubtaskCell.xib in Resources */,
+				99C4ABBF2DE9B1BF0001023D /* AddSubTaskView.xib in Resources */,
+				99C4ABC02DE9B1BF0001023D /* FusionWebView.xib in Resources */,
+				99C4ABC12DE9B1BF0001023D /* HeaderView.xib in Resources */,
+				99C4ABC22DE9B1BF0001023D /* SearchBox.xib in Resources */,
+				99C4ABC32DE9B1BF0001023D /* FusionAddNewViewController.xib in Resources */,
+				99C4ABC42DE9B1BF0001023D /* FusionWalkthroughViewController.xib in Resources */,
+				99C4ABC52DE9B1BF0001023D /* FusionGeneralViewController.xib in Resources */,
+				99C4ABC62DE9B1BF0001023D /* FusionNotificationCell.xib in Resources */,
+				99C4ABC72DE9B1BF0001023D /* FusionNotificationViewController.xib in Resources */,
+				99C4ABC82DE9B1BF0001023D /* FusionOrganizationCell.xib in Resources */,
+				99C4ABC92DE9B1BF0001023D /* FusionOrganizationDetailViewController.xib in Resources */,
+				99C4ABCA2DE9B1BF0001023D /* FusionOrganizationViewController.xib in Resources */,
+				99C4ABCB2DE9B1BF0001023D /* FusionProjectViewController.xib in Resources */,
+				99C4ABCC2DE9B1BF0001023D /* SelectPopupCell.xib in Resources */,
+				99C4ABCD2DE9B1BF0001023D /* FusionSelectPopupViewController.xib in Resources */,
+				99C4ABCE2DE9B1BF0001023D /* FusionTaskTableViewCell.xib in Resources */,
+				99C4ABCF2DE9B1BF0001023D /* SubtaskCell.xib in Resources */,
+				99C4ABD02DE9B1BF0001023D /* TagView.xib in Resources */,
+				99C4ABD12DE9B1BF0001023D /* FusionTaskViewController.xib in Resources */,
+				99C4ABD22DE9B1BF0001023D /* Assets.xcassets in Resources */,
+				99C4ABD32DE9B1BF0001023D /* GoogleService-Info.plist in Resources */,
+				99C4ABD52DE9B1BF0001023D /* LaunchScreen.storyboard in Resources */,
+				99C4ABD62DE9B1BF0001023D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,10 +851,91 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99C4ABD72DE9B1BF0001023D /* MemberCell.swift in Sources */,
+				99C4ABD82DE9B1BF0001023D /* AddMemberView.swift in Sources */,
+				99C4ABD92DE9B1BF0001023D /* AddMemberView+Extension.swift in Sources */,
+				99C4ABDA2DE9B1BF0001023D /* AddMemberViewModel.swift in Sources */,
+				99C4ABDB2DE9B1BF0001023D /* DescriptionView.swift in Sources */,
+				99C4ABDC2DE9B1BF0001023D /* FusionInputView.swift in Sources */,
+				99C4ABDD2DE9B1BF0001023D /* ProgressView.swift in Sources */,
+				99C4ABDE2DE9B1BF0001023D /* Spacer.swift in Sources */,
+				99C4ABDF2DE9B1BF0001023D /* StateView.swift in Sources */,
+				99C4ABE02DE9B1BF0001023D /* FusionAddSubtaskCell.swift in Sources */,
+				99C4ABE12DE9B1BF0001023D /* AddSubTaskView.swift in Sources */,
+				99C4ABE22DE9B1BF0001023D /* AddSubTaskViewModel.swift in Sources */,
+				99C4ABE32DE9B1BF0001023D /* FusionWebView.swift in Sources */,
+				99C4ABE42DE9B1BF0001023D /* EncodableExtension.swift in Sources */,
+				99C4ABE52DE9B1BF0001023D /* UIColorExtension.swift in Sources */,
+				99C4ABE62DE9B1BF0001023D /* UIViewControllerExtension.swift in Sources */,
+				99C4ABE72DE9B1BF0001023D /* UIViewExtension.swift in Sources */,
+				99C4ABE82DE9B1BF0001023D /* HeaderView.swift in Sources */,
+				99C4ABE92DE9B1BF0001023D /* AppRouter.swift in Sources */,
+				99C4ABEA2DE9B1BF0001023D /* AuthManager.swift in Sources */,
+				99C4ABEB2DE9B1BF0001023D /* NotificationModel.swift in Sources */,
+				99C4ABEC2DE9B1BF0001023D /* OrganizationModel.swift in Sources */,
+				99C4ABED2DE9B1BF0001023D /* ProjectModel.swift in Sources */,
+				99C4ABEE2DE9B1BF0001023D /* TaskModel.swift in Sources */,
+				99C4ABEF2DE9B1BF0001023D /* UserModel.swift in Sources */,
+				99C4ABF02DE9B1BF0001023D /* FusionNetwork.swift in Sources */,
+				99C4ABF12DE9B1BF0001023D /* SearchBox.swift in Sources */,
+				99C4ABF22DE9B1BF0001023D /* GlobalData.swift in Sources */,
+				99C4ABF32DE9B1BF0001023D /* MainTabBarController.swift in Sources */,
+				99C4ABF42DE9B1BF0001023D /* TabBarButtonModel.swift in Sources */,
+				99C4ABF52DE9B1BF0001023D /* TabBarControllerProtocol.swift in Sources */,
+				99C4ABF62DE9B1BF0001023D /* TabBarView.swift in Sources */,
+				99C4ABF72DE9B1BF0001023D /* Constants.swift in Sources */,
+				99C4ABF82DE9B1BF0001023D /* LayoutAdapter.swift in Sources */,
+				99C4ABF92DE9B1BF0001023D /* AppAttestProviderFactory.swift in Sources */,
+				99C4ABFA2DE9B1BF0001023D /* FCMTokenManager.swift in Sources */,
+				99C4ABFB2DE9B1BF0001023D /* JWT.swift in Sources */,
+				99C4ABFC2DE9B1BF0001023D /* FusionLoading.swift in Sources */,
+				99C4ABFD2DE9B1BF0001023D /* FusionAddNewViewController.swift in Sources */,
+				99C4ABFE2DE9B1BF0001023D /* FusionAddNewViewController+Extension.swift in Sources */,
+				99C4ABFF2DE9B1BF0001023D /* FusionAddNewViewModel.swift in Sources */,
+				99C4AC002DE9B1BF0001023D /* FusionWalkthroughViewController.swift in Sources */,
+				99C4AC012DE9B1BF0001023D /* FusionGeneralViewController.swift in Sources */,
+				99C4AC022DE9B1BF0001023D /* FusionNotificationCell.swift in Sources */,
+				99C4AC032DE9B1BF0001023D /* FusionNotificationViewController.swift in Sources */,
+				99C4AC042DE9B1BF0001023D /* FusionOrganizationCell.swift in Sources */,
+				99C4AC052DE9B1BF0001023D /* FusionOrganizationDetailViewController.swift in Sources */,
+				99C4AC062DE9B1BF0001023D /* FusionOrganizationViewController.swift in Sources */,
+				99C4AC072DE9B1BF0001023D /* FusionOrganizationViewModel.swift in Sources */,
+				99C4AC082DE9B1BF0001023D /* FusionProjectViewController.swift in Sources */,
+				99C4AC092DE9B1BF0001023D /* FusionProjectViewModel.swift in Sources */,
+				99C4AC0A2DE9B1BF0001023D /* SelectPopupCell.swift in Sources */,
+				99C4AC0B2DE9B1BF0001023D /* FusionSelectPopupViewController.swift in Sources */,
+				99C4AC0C2DE9B1BF0001023D /* FusionTaskTableViewCell.swift in Sources */,
+				99C4AC0D2DE9B1BF0001023D /* SubtaskCell.swift in Sources */,
+				99C4AC0E2DE9B1BF0001023D /* TagView.swift in Sources */,
+				99C4AC0F2DE9B1BF0001023D /* FusionTaskViewController.swift in Sources */,
+				99C4AC102DE9B1BF0001023D /* FusionTaskViewControllerExtension.swift in Sources */,
+				99C4AC112DE9B1BF0001023D /* FusionTaskViewModel.swift in Sources */,
+				99C4AC122DE9B1BF0001023D /* AppDelegate.swift in Sources */,
+				99C4AC132DE9B1BF0001023D /* SceneDelegate.swift in Sources */,
+				99C4AC142DE9B1BF0001023D /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		99C4ABB32DE9B1BF0001023D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				99C4ABB22DE9B1BF0001023D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		99C4ABB52DE9B1BF0001023D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				99C4ABB42DE9B1BF0001023D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		9908632B2D8154040041A724 /* Debug */ = {
