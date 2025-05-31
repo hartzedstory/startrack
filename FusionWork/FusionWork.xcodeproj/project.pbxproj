@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 63;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -111,7 +111,6 @@
 		99DEBAD22DD08440001AF9BE /* FirebaseAppDistribution-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 99DEBAD12DD08440001AF9BE /* FirebaseAppDistribution-Beta */; };
 		99DEBAD42DD08440001AF9BE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 99DEBAD32DD08440001AF9BE /* FirebaseAuth */; };
 		99DEBAD62DD08440001AF9BE /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 99DEBAD52DD08440001AF9BE /* FirebaseAuthCombine-Community */; };
-		99DEBAD82DD08440001AF9BE /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 99DEBAD72DD08440001AF9BE /* FirebaseCore */; };
 		99DEBADA2DD08440001AF9BE /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 99DEBAD92DD08440001AF9BE /* FirebaseCrashlytics */; };
 		99DEBADC2DD08440001AF9BE /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 99DEBADB2DD08440001AF9BE /* FirebaseDatabase */; };
 		99DEBADE2DD08440001AF9BE /* FirebaseDynamicLinks in Frameworks */ = {isa = PBXBuildFile; productRef = 99DEBADD2DD08440001AF9BE /* FirebaseDynamicLinks */; };
@@ -127,7 +126,6 @@
 		99DEBAF22DD08440001AF9BE /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 99DEBAF12DD08440001AF9BE /* FirebaseRemoteConfig */; };
 		99DEBAF42DD08440001AF9BE /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 99DEBAF32DD08440001AF9BE /* FirebaseStorage */; };
 		99DEBAF62DD08440001AF9BE /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 99DEBAF52DD08440001AF9BE /* FirebaseStorageCombine-Community */; };
-		99DEBAF82DD08440001AF9BE /* FirebaseVertexAI in Frameworks */ = {isa = PBXBuildFile; productRef = 99DEBAF72DD08440001AF9BE /* FirebaseVertexAI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -255,11 +253,9 @@
 				99B096052D81C6F30003123A /* SwiftyJSON in Frameworks */,
 				99DEBAEA2DD08440001AF9BE /* FirebaseInstallations in Frameworks */,
 				99DEBAF22DD08440001AF9BE /* FirebaseRemoteConfig in Frameworks */,
-				99DEBAD82DD08440001AF9BE /* FirebaseCore in Frameworks */,
 				99DEBAF42DD08440001AF9BE /* FirebaseStorage in Frameworks */,
 				99DEBADC2DD08440001AF9BE /* FirebaseDatabase in Frameworks */,
 				99DEBAD22DD08440001AF9BE /* FirebaseAppDistribution-Beta in Frameworks */,
-				99DEBAF82DD08440001AF9BE /* FirebaseVertexAI in Frameworks */,
 				99DEBADE2DD08440001AF9BE /* FirebaseDynamicLinks in Frameworks */,
 				99DEBAE82DD08440001AF9BE /* FirebaseInAppMessaging-Beta in Frameworks */,
 			);
@@ -740,7 +736,6 @@
 				99DEBAD12DD08440001AF9BE /* FirebaseAppDistribution-Beta */,
 				99DEBAD32DD08440001AF9BE /* FirebaseAuth */,
 				99DEBAD52DD08440001AF9BE /* FirebaseAuthCombine-Community */,
-				99DEBAD72DD08440001AF9BE /* FirebaseCore */,
 				99DEBAD92DD08440001AF9BE /* FirebaseCrashlytics */,
 				99DEBADB2DD08440001AF9BE /* FirebaseDatabase */,
 				99DEBADD2DD08440001AF9BE /* FirebaseDynamicLinks */,
@@ -756,7 +751,6 @@
 				99DEBAF12DD08440001AF9BE /* FirebaseRemoteConfig */,
 				99DEBAF32DD08440001AF9BE /* FirebaseStorage */,
 				99DEBAF52DD08440001AF9BE /* FirebaseStorageCombine-Community */,
-				99DEBAF72DD08440001AF9BE /* FirebaseVertexAI */,
 				9965595E2DE0951A00F4A716 /* SDWebImage */,
 				996559602DE0951A00F4A716 /* SDWebImageMapKit */,
 			);
@@ -770,7 +764,6 @@
 		9908630F2D8154030041A724 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = 1;
 				CLASSPREFIX = Fusion;
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
@@ -789,7 +782,6 @@
 				Base,
 			);
 			mainGroup = 9908630E2D8154030041A724;
-			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				99B095FB2D81C5C70003123A /* XCRemoteSwiftPackageReference "Alamofire" */,
 				99B096032D81C6F30003123A /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
@@ -1187,16 +1179,16 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.21.0;
+				kind = exactVersion;
+				version = 5.14.3;
 			};
 		};
 		99B095FB2D81C5C70003123A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.10.2;
+				kind = exactVersion;
+				version = 5.6.2;
 			};
 		};
 		99B096032D81C6F30003123A /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
@@ -1212,7 +1204,7 @@
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 11.12.0;
+				minimumVersion = 9.6.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1282,11 +1274,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 99DEBAC82DD08440001AF9BE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseAuthCombine-Community";
-		};
-		99DEBAD72DD08440001AF9BE /* FirebaseCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 99DEBAC82DD08440001AF9BE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseCore;
 		};
 		99DEBAD92DD08440001AF9BE /* FirebaseCrashlytics */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1362,11 +1349,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 99DEBAC82DD08440001AF9BE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
-		};
-		99DEBAF72DD08440001AF9BE /* FirebaseVertexAI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 99DEBAC82DD08440001AF9BE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseVertexAI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

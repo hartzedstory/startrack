@@ -9,6 +9,7 @@ import UIKit
 import UserNotifications
 import AlamofireNetworkActivityLogger
 import Firebase
+import FirebaseAnalytics
 import BackgroundTasks
 
 @main
